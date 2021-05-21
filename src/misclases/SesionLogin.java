@@ -38,13 +38,13 @@ public class SesionLogin extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabelIconoGrandeUsuario = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldUsuario = new javax.swing.JTextField();
         jLabelCandadoIco = new javax.swing.JLabel();
         jLabelIconoLog = new javax.swing.JLabel();
         jButtonLogin = new javax.swing.JButton();
+        jPasswordContraUsuario = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -71,10 +71,6 @@ public class SesionLogin extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel4.add(jLabelIconoGrandeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 130, 130));
 
-        jTextField1.setBackground(new java.awt.Color(248, 248, 248));
-        jTextField1.setBorder(null);
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 180, 20));
-
         jSeparator1.setBackground(new java.awt.Color(60, 246, 184));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 180, 10));
@@ -83,9 +79,16 @@ public class SesionLogin extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 180, 10));
 
-        jTextField2.setBackground(new java.awt.Color(248, 248, 248));
-        jTextField2.setBorder(null);
-        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 180, 20));
+        jTextFieldUsuario.setBackground(new java.awt.Color(248, 248, 248));
+        jTextFieldUsuario.setText("Introduzca su usuario");
+        jTextFieldUsuario.setToolTipText("Introduzca su usuario");
+        jTextFieldUsuario.setBorder(null);
+        jTextFieldUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldUsuarioMouseClicked(evt);
+            }
+        });
+        jPanel4.add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 180, 20));
 
         jLabelCandadoIco.setText(" ");
         jPanel4.add(jLabelCandadoIco, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 40, 40));
@@ -100,7 +103,18 @@ public class SesionLogin extends javax.swing.JFrame {
         jButtonLogin.setBorder(null);
         jButtonLogin.setBorderPainted(false);
         jButtonLogin.setContentAreaFilled(false);
+        jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 80, 40));
+
+        jPasswordContraUsuario.setBackground(new java.awt.Color(248, 248, 248));
+        jPasswordContraUsuario.setText("jPasswordField2");
+        jPasswordContraUsuario.setBorder(null);
+        jPasswordContraUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordContraUsuarioMouseClicked(evt);
+            }
+        });
+        jPanel4.add(jPasswordContraUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 246, 180, 20));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 352, 390));
 
@@ -152,6 +166,16 @@ public class SesionLogin extends javax.swing.JFrame {
         this.setState(SesionLogin.ICONIFIED);
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void jTextFieldUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioMouseClicked
+        // TODO add your handling code here:
+        this.jTextFieldUsuario.setText("");
+    }//GEN-LAST:event_jTextFieldUsuarioMouseClicked
+
+    private void jPasswordContraUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordContraUsuarioMouseClicked
+        // TODO add your handling code here:
+        this.jPasswordContraUsuario.setText("");
+    }//GEN-LAST:event_jPasswordContraUsuarioMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -199,10 +223,10 @@ public class SesionLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPasswordField jPasswordContraUsuario;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
     public void carga_iconos(){
         

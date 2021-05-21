@@ -5,6 +5,10 @@
  */
 package misclases;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Adrian Quinn
@@ -15,7 +19,11 @@ public class ServicioCheckIn extends javax.swing.JFrame {
      * Creates new form ServicioCheckIn
      */
     public ServicioCheckIn() {
+        this.setLocationRelativeTo(null);
         initComponents();
+        elementosOcultos();
+        
+        
     }
 
     /**
@@ -27,21 +35,124 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSlider1 = new javax.swing.JSlider();
+        jLabelCostoAdicional = new javax.swing.JLabel();
+        jLabelBackMenu = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1085, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 658, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(20, 20, 0, 0));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 240, -1));
+
+        jLabel1.setText("Ingrese el Nombre del huesped que registra");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
+
+        jButton1.setText("Verificar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+
+        jButton2.setText("jButton2");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 130, -1));
+
+        jRadioButton1.setText("jRadioButton1");
+        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, -1, -1));
+
+        jLabel2.setText("Ciudad de Origen");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 250, -1));
+
+        jLabel3.setText("Tipo de Habitacion");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
+
+        jLabel4.setText("Cantidad de Personas a Hospedarse");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 110, -1));
+
+        jSlider1.setMajorTickSpacing(1);
+        jSlider1.setMaximum(0);
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
+        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
+
+        jLabelCostoAdicional.setText("Se generara un costo adicional");
+        getContentPane().add(jLabelCostoAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
+
+        jLabelBackMenu.setText("Menu");
+        jLabelBackMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBackMenuMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabelBackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, 100, 50));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:s
+        if(this.jComboBox1.getSelectedItem().toString()=="Item 1"){
+           this.jSlider1.setMaximum(10);
+        }
+        
+        
+        
+    
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        // TODO add your handling code here:
+        if(this.jSlider1.getValue()>2){
+            this.jLabelCostoAdicional.setVisible(true);
+        }
+        if(this.jSlider1.getValue()<2){
+            this.jLabelCostoAdicional.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_jSlider1StateChanged
+
+    private void jLabelBackMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMenuMouseClicked
+        // TODO add your handling code here:
+        setVisible(false);
+         new MenuHotel().setVisible(true);
+    }//GEN-LAST:event_jLabelBackMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +190,31 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelBackMenu;
+    private javax.swing.JLabel jLabelCostoAdicional;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JSlider jSlider1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+    
+    public void elementosOcultos(){
+        this.jLabelCostoAdicional.setVisible(false);
+    
+    
+    }
+    
+
+
+
 }
+
