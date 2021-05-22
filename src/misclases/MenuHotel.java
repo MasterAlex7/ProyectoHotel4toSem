@@ -48,6 +48,7 @@ public class MenuHotel extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabelConsultas = new javax.swing.JLabel();
         jLabelCheckOut1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 51));
@@ -201,6 +202,21 @@ public class MenuHotel extends javax.swing.JFrame {
         });
         jPanel3.add(jLabelCheckOut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 130, 140));
 
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 730, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 240, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 730, 240));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 770, 510));
 
         pack();
@@ -222,6 +238,9 @@ public class MenuHotel extends javax.swing.JFrame {
         int res= JOptionPane.showOptionDialog(null, "Que deseas hacer?", "Salir...",0,0, null, opciones, JOptionPane.QUESTION_MESSAGE);
         if(res==0){
             System.exit(0);
+        }else if(res==1){
+            setVisible(false);
+            new SesionLogin().setVisible(true);
         }
     }//GEN-LAST:event_jLabelSalirMouseClicked
 
@@ -328,6 +347,7 @@ public class MenuHotel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables

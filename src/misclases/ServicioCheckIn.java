@@ -5,8 +5,14 @@
  */
 package misclases;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,14 +20,18 @@ import javax.swing.JOptionPane;
  * @author Adrian Quinn
  */
 public class ServicioCheckIn extends javax.swing.JFrame {
-
+    private Image imagen;
     /**
      * Creates new form ServicioCheckIn
      */
+    
+    
+    
     public ServicioCheckIn() {
         this.setLocationRelativeTo(null);
         initComponents();
         elementosOcultos();
+        cargarIconos();
         
         
     }
@@ -35,65 +45,122 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jLabelLogoUsuario = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jSlider1 = new javax.swing.JSlider();
         jLabelCostoAdicional = new javax.swing.JLabel();
         jLabelBackMenu = new javax.swing.JLabel();
+        jLabelLogoCheck = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        fondoDegradado = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabelIconoHotel = new javax.swing.JLabel();
+        jLabelBackMenu1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(20, 20, 0, 0));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jLabelLogoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Usuario");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 70, -1));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 20));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 550));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 240, -1));
 
-        jLabel1.setText("Ingrese el Nombre del huesped que registra");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
+        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(82, 242, 255), 1, true));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 240, 30));
 
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel6.setText("Nombre de huesped a registrar");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel1.setText("Tipo de Habitacion");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, -1, 30));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel2.setText("Ciudad de origen");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, 30));
+
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton1.setText("Verificar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 90, 30));
 
         jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, -1));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 480, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sencilla", "Dual", "Master" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 130, -1));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 170, 30));
 
-        jRadioButton1.setText("jRadioButton1");
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, -1, -1));
-
-        jLabel2.setText("Ciudad de Origen");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 250, -1));
-
-        jLabel3.setText("Tipo de Habitacion");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
-
-        jLabel4.setText("Cantidad de Personas a Hospedarse");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
-        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 110, -1));
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel4.setText("Cantidad de personas a hospedarse");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
+        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 110, -1));
 
         jSlider1.setMajorTickSpacing(1);
         jSlider1.setMaximum(0);
@@ -104,38 +171,97 @@ public class ServicioCheckIn extends javax.swing.JFrame {
                 jSlider1StateChanged(evt);
             }
         });
-        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
+        jPanel1.add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, -1, -1));
 
+        jLabelCostoAdicional.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabelCostoAdicional.setForeground(new java.awt.Color(0, 0, 102));
         jLabelCostoAdicional.setText("Se generara un costo adicional");
-        getContentPane().add(jLabelCostoAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
+        jPanel1.add(jLabelCostoAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, -1, 20));
 
-        jLabelBackMenu.setText("Menu");
+        jLabelBackMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelBackMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelBackMenuMouseClicked(evt);
             }
         });
-        getContentPane().add(jLabelBackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, 100, 50));
+        jPanel1.add(jLabelBackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 10, 60, 50));
+        jPanel1.add(jLabelLogoCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 170, 150));
+
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(82, 242, 255), 1, true));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 240, 30));
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("MENU");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 60, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel16.setText("Dias a quedarse en el hotel");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, -1, -1));
+
+        fondoDegradado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jPanel1.add(fondoDegradado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 550));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 550));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("\"Las mejores experencias nacen aqui\"");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 390, 110));
+        jPanel3.add(jLabelIconoHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 250, 180));
+
+        jLabelBackMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelBackMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBackMenu1MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabelBackMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 60, 50));
+
+        jLabel7.setText("Registro Completo");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, -1, -1));
+
+        jLabel8.setText("Nombre del Huesped");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
+
+        jLabel9.setText("Ciudad de Origen");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
+
+        jLabel10.setText("Fecha de Ingreso");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
+
+        jLabel11.setText("Fecha de salida");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, -1, -1));
+
+        jLabel12.setText("Numero de Habitacion");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
+
+        jLabel13.setText("Tipo de Habitacion");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, -1, -1));
+
+        jLabel14.setText("Total de Ocupantes de la habitacion: ");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, -1, -1));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 890, 550));
+        jPanel3.setVisible(false);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:s
-        if(this.jComboBox1.getSelectedItem().toString()=="Item 1"){
-           this.jSlider1.setMaximum(10);
-        }
-        
-        
-        
-    
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+    private void jLabelBackMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMenuMouseClicked
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+        setVisible(false);
+        new MenuHotel().setVisible(true);
+    }//GEN-LAST:event_jLabelBackMenuMouseClicked
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
         // TODO add your handling code here:
@@ -145,14 +271,35 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         if(this.jSlider1.getValue()<2){
             this.jLabelCostoAdicional.setVisible(false);
         }
-        
+
     }//GEN-LAST:event_jSlider1StateChanged
 
-    private void jLabelBackMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMenuMouseClicked
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         // TODO add your handling code here:
-        setVisible(false);
-         new MenuHotel().setVisible(true);
-    }//GEN-LAST:event_jLabelBackMenuMouseClicked
+
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:s
+        if(this.jComboBox1.getSelectedItem().toString()=="Sencilla"){
+            this.jSlider1.setMaximum(10);
+        }
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.jPanel1.setVisible(false);
+        this.jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabelBackMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMenu1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelBackMenu1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,27 +337,63 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fondoDegradado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelBackMenu;
+    private javax.swing.JLabel jLabelBackMenu1;
     private javax.swing.JLabel jLabelCostoAdicional;
+    private javax.swing.JLabel jLabelIconoHotel;
+    private javax.swing.JLabel jLabelLogoCheck;
+    private javax.swing.JLabel jLabelLogoUsuario;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+    
+    
     
     public void elementosOcultos(){
         this.jLabelCostoAdicional.setVisible(false);
     
     
+    }
+    
+    public void cargarIconos(){
+        ImageIcon logousuario=new ImageIcon("src/iconos/user.png");
+        ImageIcon fondoDegradado=new ImageIcon("src/imagenes/fondo.jpg");
+        ImageIcon iconoCheck=new ImageIcon("src/iconos/verify.png");
+        ImageIcon menuIcono=new ImageIcon("src/iconos/menu_1.png");
+        ImageIcon iconoHotel=new ImageIcon("src/imagenes/yummy2.png");
+        this.fondoDegradado.setIcon(fondoDegradado);
+        this.jLabelLogoUsuario.setIcon(logousuario);
+        this.jLabelLogoCheck.setIcon(iconoCheck);
+        this.jLabelBackMenu.setIcon(menuIcono);
+        this.jLabelIconoHotel.setIcon(iconoHotel);
+        this.jLabelBackMenu1.setIcon(menuIcono);
+        
     }
     
 
