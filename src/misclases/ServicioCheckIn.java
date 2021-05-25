@@ -139,7 +139,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 90, 30));
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Ticket");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

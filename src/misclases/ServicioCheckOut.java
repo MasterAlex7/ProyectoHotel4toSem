@@ -73,7 +73,12 @@ public class ServicioCheckOut extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 128, 403, 288));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Ingresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 79, -1, -1));
         jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 467, 462, -1));
 
@@ -114,6 +119,10 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         setVisible(false);
         new MenuHotel().setVisible(true);
     }//GEN-LAST:event_jLabelBackMenuMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
