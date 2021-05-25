@@ -8,6 +8,7 @@ package misclases;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -32,6 +33,7 @@ public class Presentacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabelSalir = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -42,11 +44,33 @@ public class Presentacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Presentacion");
-        setBounds(new java.awt.Rectangle(720, 720, 0, 0));
+        setBounds(new java.awt.Rectangle(720, 720, 720, 720));
+        setLocation(new java.awt.Point(150, 0));
+        setMaximumSize(new java.awt.Dimension(720, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(720, 720));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelSalir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabelSalirMouseMoved(evt);
+            }
+        });
+        jLabelSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelSalirMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelSalirMouseExited(evt);
+            }
+        });
+        jLabelSalir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabelSalirKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jLabelSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, 150, 140));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -95,6 +119,26 @@ public class Presentacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabelSalirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabelSalirKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelSalirKeyPressed
+
+    private void jLabelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirMouseClicked
+        // TODO add your handling code here:
+        setVisible(false);
+        new MenuHotel().setVisible(true);
+    }//GEN-LAST:event_jLabelSalirMouseClicked
+
+    private void jLabelSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirMouseExited
+        // TODO add your handling code here:
+        this.jLabelSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(5,160,216)));
+    }//GEN-LAST:event_jLabelSalirMouseExited
+
+    private void jLabelSalirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirMouseMoved
+        // TODO add your handling code here:
+        this.jLabelSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
+    }//GEN-LAST:event_jLabelSalirMouseMoved
+
     /**
      * @param args the command line arguments
      */
@@ -138,13 +182,14 @@ public class Presentacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelSalir;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void paint(Graphics g){
          super.paint(g);
-         
+         ImageIcon iconoSalir=new ImageIcon("src/iconos/exit.png");
          //g.setColor(Color.red);
          //g.drawLine(0,70,100,70);
          Toolkit t = Toolkit.getDefaultToolkit ();
@@ -154,6 +199,8 @@ public class Presentacion extends javax.swing.JFrame {
          Toolkit t2 = Toolkit.getDefaultToolkit ();
          Image imagen2 = t.getImage("src/imagenes/barrasesquina2.png");
          g.drawImage(imagen2, 0, 10, this);
+         
+         this.jLabelSalir.setIcon(iconoSalir);
     }
 
 }
