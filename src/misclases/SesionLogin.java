@@ -5,15 +5,18 @@
  */
 package misclases;
 
+import conexiones.MySqlConn;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
  * @author Adrian Quinn
  */
 public class SesionLogin extends javax.swing.JFrame {
-
+    MySqlConn conn=new MySqlConn();
     /**
      * Creates new form SesionLogin
      */
@@ -104,6 +107,11 @@ public class SesionLogin extends javax.swing.JFrame {
         jButtonLogin.setBorderPainted(false);
         jButtonLogin.setContentAreaFilled(false);
         jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 80, 40));
 
         jPasswordContraUsuario.setBackground(new java.awt.Color(248, 248, 248));
@@ -175,6 +183,38 @@ public class SesionLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.jPasswordContraUsuario.setText("");
     }//GEN-LAST:event_jPasswordContraUsuarioMouseClicked
+
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+        // TODO add your handling code here:
+        String cuenta,contraseña,parte1,parte2,query;
+        cuenta=this.jTextFieldUsuario.getText().trim();
+        query="select * from empleados where nombre= "+"'"+cuenta+"'";
+        this.conn.Consult(query);
+        try{
+            String contraseñaMySql=this.conn.rs.getString(2);
+            char[] passw=this.jPasswordContraUsuario.getPassword();
+            contraseña=new String(passw);
+            String contraseñaencriptada=DigestUtils.md5Hex(contraseña);
+            if(contraseñaMySql.equals(contraseñaencriptada)){
+                JOptionPane.showMessageDialog(this, "Bienvendio "+ this.conn.rs.getString(1)+" al sistema de Yummy Resorts","Bienvenida",1);
+                setVisible(false);
+                new MenuHotel().setVisible(true);
+                //Generar un archivo con el usuario onlie y su informamcion
+                //para el menu
+                
+            }else{
+                JOptionPane.showMessageDialog(this, "Error en la contraseña, intentalo de nuevo");
+            }
+        
+        
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(this, "La cuenta ingresada no existe");
+            //System.out.println("No existe la ceunta");
+            
+        }
+       
+    }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
      * @param args the command line arguments
