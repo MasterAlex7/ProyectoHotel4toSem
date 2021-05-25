@@ -5,6 +5,10 @@
  */
 package misclases;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author cabe_
@@ -34,8 +38,6 @@ public class Presentacion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,12 +77,6 @@ public class Presentacion extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Maestra: Georgina Salazar Partida");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LOGOBENEMERITA_CIRCULAR2.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrasesquina2.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondopresentacion.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -135,9 +131,7 @@ public class Presentacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -146,4 +140,20 @@ public class Presentacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void paint(Graphics g){
+         super.paint(g);
+         
+         //g.setColor(Color.red);
+         //g.drawLine(0,70,100,70);
+         Toolkit t = Toolkit.getDefaultToolkit ();
+         Image imagen = t.getImage("src/imagenes/LOGOBENEMERITA_CIRCULAR2.png");
+         g.drawImage(imagen, 315, 200, this);
+         
+         Toolkit t2 = Toolkit.getDefaultToolkit ();
+         Image imagen2 = t.getImage("src/imagenes/barrasesquina2.png");
+         g.drawImage(imagen2, 0, 10, this);
+    }
+
 }
