@@ -126,7 +126,7 @@ public class Presentacion extends javax.swing.JFrame {
     private void jLabelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new MenuHotel().setVisible(true);
+        new SesionLogin().setVisible(true);
     }//GEN-LAST:event_jLabelSalirMouseClicked
 
     private void jLabelSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirMouseExited
