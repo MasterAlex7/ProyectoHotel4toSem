@@ -39,7 +39,7 @@ public class MenuHotel extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabelSalir = new javax.swing.JLabel();
         jLabelTitulo = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelMinimizar = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -84,7 +84,6 @@ public class MenuHotel extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(60, 151, 195));
 
-        jLabelSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancel.png"))); // NOI18N
         jLabelSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -96,11 +95,11 @@ public class MenuHotel extends javax.swing.JFrame {
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setText("YUMMY RESORTS MENU");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minimize.png"))); // NOI18N
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelMinimizar.setPreferredSize(new java.awt.Dimension(32, 32));
+        jLabelMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                jLabelMinimizarMouseClicked(evt);
             }
         });
 
@@ -112,7 +111,7 @@ public class MenuHotel extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabelTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(jLabelMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelSalir)
                 .addContainerGap())
@@ -126,7 +125,7 @@ public class MenuHotel extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabelMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSalir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -274,10 +273,10 @@ public class MenuHotel extends javax.swing.JFrame {
         this.jLabelCheckOut1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51,51,51)));
     }//GEN-LAST:event_jLabelCheckOut1MouseExited
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void jLabelMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizarMouseClicked
         // TODO add your handling code here:
          this.setState(SesionLogin.ICONIFIED);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_jLabelMinimizarMouseClicked
 
     private void jLabelCheckInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckInMouseClicked
         // TODO add your handling code here:
@@ -335,12 +334,12 @@ public class MenuHotel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelCheckIn;
     private javax.swing.JLabel jLabelCheckOut1;
     private javax.swing.JLabel jLabelConsultas;
+    private javax.swing.JLabel jLabelMinimizar;
     private javax.swing.JLabel jLabelRegistroIco;
     private javax.swing.JLabel jLabelSalir;
     private javax.swing.JLabel jLabelTitulo;
@@ -357,10 +356,15 @@ public class MenuHotel extends javax.swing.JFrame {
         ImageIcon iconoGrandeEntrada=new ImageIcon("src/iconos/log-in.png");
         ImageIcon iconoGrandeConsulta=new ImageIcon("src/iconos/bookmark.png");
         ImageIcon iconoGrandeSalida=new ImageIcon("src/iconos/exit.png");
+        ImageIcon iconoMinimizar=new ImageIcon("src/iconos/minimize.png");
+        ImageIcon iconoCerrar=new ImageIcon("src/iconos/cancel.png");
+        
         this.jLabelRegistroIco.setIcon(iconoGrandeUsuario);
         this.jLabelCheckIn.setIcon(iconoGrandeEntrada);
         this.jLabelConsultas.setIcon(iconoGrandeConsulta);
         this.jLabelCheckOut1.setIcon(iconoGrandeSalida);
+        this.jLabelMinimizar.setIcon(iconoMinimizar);
+        this.jLabelSalir.setIcon(iconoCerrar);
     
     }
 

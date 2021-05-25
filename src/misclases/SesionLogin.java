@@ -37,7 +37,7 @@ public class SesionLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelHotel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabelIconoGrandeUsuario = new javax.swing.JLabel();
@@ -48,8 +48,8 @@ public class SesionLogin extends javax.swing.JFrame {
         jLabelIconoLog = new javax.swing.JLabel();
         jButtonLogin = new javax.swing.JButton();
         jPasswordContraUsuario = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelCerrar = new javax.swing.JLabel();
+        jLabelMinimizar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -61,8 +61,8 @@ public class SesionLogin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/yummy2.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        jLabelHotel.setPreferredSize(new java.awt.Dimension(235, 234));
+        jPanel2.add(jLabelHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 500));
 
@@ -128,23 +128,23 @@ public class SesionLogin extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 490, 450));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancel.png"))); // NOI18N
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelCerrar.setPreferredSize(new java.awt.Dimension(32, 32));
+        jLabelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel2MouseReleased(evt);
+                jLabelCerrarMouseReleased(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, -1, -1));
+        jPanel1.add(jLabelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minimize.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelMinimizar.setPreferredSize(new java.awt.Dimension(32, 32));
+        jLabelMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                jLabelMinimizarMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, -1, -1));
+        jPanel1.add(jLabelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,19 +160,19 @@ public class SesionLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseReleased
+    private void jLabelCerrarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCerrarMouseReleased
         // TODO add your handling code here:
         int res= JOptionPane.YES_NO_OPTION;
         int respuesta=JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir del programa?","Salir",res);
         if(respuesta==0){
             System.exit(0);
         }
-    }//GEN-LAST:event_jLabel2MouseReleased
+    }//GEN-LAST:event_jLabelCerrarMouseReleased
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void jLabelMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizarMouseClicked
         // TODO add your handling code here:
         this.setState(SesionLogin.ICONIFIED);
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_jLabelMinimizarMouseClicked
 
     private void jTextFieldUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioMouseClicked
         // TODO add your handling code here:
@@ -253,12 +253,12 @@ public class SesionLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelCandadoIco;
+    private javax.swing.JLabel jLabelCerrar;
+    private javax.swing.JLabel jLabelHotel;
     private javax.swing.JLabel jLabelIconoGrandeUsuario;
     private javax.swing.JLabel jLabelIconoLog;
+    private javax.swing.JLabel jLabelMinimizar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -274,11 +274,17 @@ public class SesionLogin extends javax.swing.JFrame {
         ImageIcon iconoCandado=new ImageIcon("src/iconos/padlock.png");
         ImageIcon iconoGrandeUsuario=new ImageIcon("src/iconos/user.png");
         ImageIcon iconoLogin =new ImageIcon("src/iconos/enter.png");
+        ImageIcon iconoHotel=new ImageIcon("src/imagenes/yummy2.png");
+        ImageIcon iconoMinimizar=new ImageIcon("src/iconos/minimize.png");
+        ImageIcon iconoCerrar=new ImageIcon("src/iconos/cancel.png");
         
         this.jLabelIconoLog.setIcon(iconoUsuario);
         this.jLabelCandadoIco.setIcon(iconoCandado);
         this.jLabelIconoGrandeUsuario.setIcon(iconoGrandeUsuario);
         this.jButtonLogin.setIcon(iconoLogin);
+        this.jLabelHotel.setIcon(iconoHotel);
+        this.jLabelMinimizar.setIcon(iconoMinimizar);
+        this.jLabelCerrar.setIcon(iconoCerrar);
 
     }
 
