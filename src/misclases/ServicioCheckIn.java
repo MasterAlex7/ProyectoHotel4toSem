@@ -5,22 +5,26 @@
  */
 package misclases;
 
+import conexiones.MySqlConn;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
  * @author Adrian Quinn
  */
 public class ServicioCheckIn extends javax.swing.JFrame {
-    private Image imagen;
+    //private Image imagen;
+    MySqlConn conn=new MySqlConn();
     /**
      * Creates new form ServicioCheckIn
      */
@@ -605,6 +609,11 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jButtonConfirmarHab1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButtonConfirmarHab1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonConfirmarHab1.setText("Confirmar");
+        jButtonConfirmarHab1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmarHab1ActionPerformed(evt);
+            }
+        });
         jPanelRegPrimerPiso.add(jButtonConfirmarHab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 530, 110, 40));
 
         jLabelVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -999,9 +1008,10 @@ public class ServicioCheckIn extends javax.swing.JFrame {
 
     private void jButtonTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTicketActionPerformed
         // TODO add your handling code here:
-        this.jPanelRegistro.setEnabled(false);
+        this.jPanelRegistro.setVisible(false);
         this.jPanel3.setEnabled(true);
-        this.jLabelTicketNombreHuesped.setText("Nombre Adrian");
+        this.jPanel3.setVisible(true);
+        //this.jLabelTicketNombreHuesped.setText("Nombre Adrian");
     }//GEN-LAST:event_jButtonTicketActionPerformed
 
     private void jLabelBackMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMenu1MouseClicked
@@ -1013,7 +1023,6 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         if(this.jComboBox1.getSelectedItem().toString()=="Sencilla"){
             this.jSlider1.setMaximum(10);
         }
-        System.out.println("Hola");
         this.jPanelRegistro.setVisible(false);
         this.jPanel3.setEnabled(false);
         //this.jPanel5.setEnabled(true);
@@ -1056,6 +1065,37 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButtonConfirmarHab1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarHab1ActionPerformed
+        // TODO add your handling code here:
+        int hab=Integer.parseInt(this.jTextFieldSeleccionPiso1.getText().trim());
+        String query,update;
+        boolean ocupada;
+        update="update habitaciones set estado= '1' where numero = '"+hab+"'";
+        query="select * from habitaciones where numero= "+"'"+hab+"'";
+        this.conn.Consult(query);
+        try{
+            int habitacionBase=this.conn.rs.getInt(1);
+            ocupada=this.conn.rs.getBoolean(2);
+            if(ocupada==false){
+                JOptionPane.showMessageDialog(this, "Habitacion "+ this.conn.rs.getInt(1)+" registrada");
+                int aux=this.conn.Update(update);
+                if(aux>0){
+                    System.out.println("Habitacion Actualizada");
+                    this.jTextFieldTipoHab.setText(String.valueOf(hab));
+                }else{
+                    System.out.println("No se pudo actualizar la habitacion");
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(this, "La habitacion ya esta ocupada!!!");
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(this, "La habitacion ingresada no existe!!!");
+            //System.out.println("No existe la ceunta");
+            
+        }
+    }//GEN-LAST:event_jButtonConfirmarHab1ActionPerformed
 
     /**
      * @param args the command line arguments
