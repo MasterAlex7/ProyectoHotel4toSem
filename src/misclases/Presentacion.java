@@ -5,6 +5,8 @@
  */
 package misclases;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -33,44 +35,24 @@ public class Presentacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabelSalir = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButtonEntrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Presentacion");
         setBounds(new java.awt.Rectangle(720, 720, 720, 720));
         setLocation(new java.awt.Point(150, 0));
         setMaximumSize(new java.awt.Dimension(720, 720));
+        setUndecorated(true);
         setResizable(false);
         setSize(new java.awt.Dimension(720, 720));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabelSalir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabelSalirMouseMoved(evt);
-            }
-        });
-        jLabelSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelSalirMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelSalirMouseExited(evt);
-            }
-        });
-        jLabelSalir.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jLabelSalirKeyPressed(evt);
-            }
-        });
-        jPanel1.add(jLabelSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, 150, 140));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,48 +78,39 @@ public class Presentacion extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Integrantes: ");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Maestra: Georgina Salazar Partida");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondopresentacion.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jButtonEntrar.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonEntrar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEntrar.setText("Entrar");
+        jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEntrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 650, 140, 42));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabelSalirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabelSalirKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabelSalirKeyPressed
-
-    private void jLabelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirMouseClicked
+    private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         new SesionLogin().setVisible(true);
-    }//GEN-LAST:event_jLabelSalirMouseClicked
-
-    private void jLabelSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirMouseExited
-        // TODO add your handling code here:
-        this.jLabelSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(5,160,216)));
-    }//GEN-LAST:event_jLabelSalirMouseExited
-
-    private void jLabelSalirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirMouseMoved
-        // TODO add your handling code here:
-        this.jLabelSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
-    }//GEN-LAST:event_jLabelSalirMouseMoved
+    }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,32 +148,47 @@ public class Presentacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonEntrar;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelSalir;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void paint(Graphics g){
          super.paint(g);
-         ImageIcon iconoSalir=new ImageIcon("src/iconos/exit.png");
+         ImageIcon iconoSalir=new ImageIcon("src/iconos/enter.png");
          //g.setColor(Color.red);
          //g.drawLine(0,70,100,70);
+         Toolkit t3 = Toolkit.getDefaultToolkit ();
+         Image imagen3 = t3.getImage("src/imagenes/fondopresentacion.png");
+         g.drawImage(imagen3, 0, 0, this);
+         Font fuente=new Font(Font.SANS_SERIF,Font.BOLD,18);
+         
          Toolkit t = Toolkit.getDefaultToolkit ();
          Image imagen = t.getImage("src/imagenes/LOGOBENEMERITA_CIRCULAR2.png");
-         g.drawImage(imagen, 315, 200, this);
+         g.drawImage(imagen, 315, 140, this);
          
          Toolkit t2 = Toolkit.getDefaultToolkit ();
          Image imagen2 = t.getImage("src/imagenes/barrasesquina2.png");
-         g.drawImage(imagen2, 0, 10, this);
+         g.drawImage(imagen2, 0, 0, this);
          
-         this.jLabelSalir.setIcon(iconoSalir);
+         g.setColor(Color.WHITE);
+         g.setFont(fuente);
+         g.drawString("Maestra: Georgina Salazar Partida", 230, 350);
+         g.drawString("Integrantes:", 330, 380);
+         g.drawString("Rivera Sanchez Abraham Alejandro", 230, 410);
+         g.drawString("Marquez Ortiz Adrian", 230, 440);
+         g.drawString("Ruiz Contreras Jesus", 230, 470);
+         g.drawString("Aguila Urzua Cesar Daniel", 230, 500);
+         this.jButtonEntrar.setIcon(iconoSalir);
+              
+
+         //this.jLabelSalir.setIcon(iconoSalir);
     }
 
 }
