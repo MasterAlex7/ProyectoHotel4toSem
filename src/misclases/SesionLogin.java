@@ -5,7 +5,11 @@
  */
 package misclases;
 
+
 import conexiones.MySqlConn;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -17,6 +21,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  */
 public class SesionLogin extends javax.swing.JFrame {
     MySqlConn conn=new MySqlConn();
+    public SClip music = new SClip("src/musica/A.wav");
     /**
      * Creates new form SesionLogin
      */
@@ -24,6 +29,7 @@ public class SesionLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         carga_iconos();
+        music.play();
     }
 
     /**
@@ -37,8 +43,7 @@ public class SesionLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabelHotel = new javax.swing.JLabel();
-        jLabelInfo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabelIconoGrandeUsuario = new javax.swing.JLabel();
@@ -49,6 +54,7 @@ public class SesionLogin extends javax.swing.JFrame {
         jLabelIconoLog = new javax.swing.JLabel();
         jButtonLogin = new javax.swing.JButton();
         jPasswordContraUsuario = new javax.swing.JPasswordField();
+        jLabelInfo = new javax.swing.JLabel();
         jLabelCerrar = new javax.swing.JLabel();
         jLabelMinimizar = new javax.swing.JLabel();
 
@@ -61,24 +67,7 @@ public class SesionLogin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabelHotel.setPreferredSize(new java.awt.Dimension(235, 234));
-        jPanel2.add(jLabelHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
-
-        jLabelInfo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabelInfoMouseMoved(evt);
-            }
-        });
-        jLabelInfo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelInfoMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelInfoMouseExited(evt);
-            }
-        });
-        jPanel2.add(jLabelInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 456, 40, 30));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 80, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 500));
 
@@ -139,6 +128,21 @@ public class SesionLogin extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jPasswordContraUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 246, 180, 20));
+
+        jLabelInfo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabelInfoMouseMoved(evt);
+            }
+        });
+        jLabelInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelInfoMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelInfoMouseExited(evt);
+            }
+        });
+        jPanel4.add(jLabelInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 40, 30));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 352, 390));
 
@@ -202,6 +206,7 @@ public class SesionLogin extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
+        
         String cuenta,contraseña,parte1,parte2,query;
         cuenta=this.jTextFieldUsuario.getText().trim();
         query="select * from empleados where nombre= "+"'"+cuenta+"'";
@@ -214,21 +219,25 @@ public class SesionLogin extends javax.swing.JFrame {
             if(contraseñaMySql.equals(contraseñaencriptada)){
                 JOptionPane.showMessageDialog(this, "Bienvendio "+ this.conn.rs.getString(1)+" al sistema de Yummy Resorts","Bienvenida",1);
                 setVisible(false);
+                music.stop();
                 new MenuHotel().setVisible(true);
                 //Generar un archivo con el usuario onlie y su informamcion
                 //para el menu
                 
             }else{
                 JOptionPane.showMessageDialog(this, "Error en la contraseña, intentalo de nuevo");
+                
             }
         
         
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(this, "La cuenta ingresada no existe");
+            
             //System.out.println("No existe la ceunta");
             
         }
+        
        
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
@@ -236,6 +245,7 @@ public class SesionLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         new Presentacion().setVisible(true);
+        music.stop();
     }//GEN-LAST:event_jLabelInfoMouseClicked
 
     private void jLabelInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInfoMouseExited
@@ -285,9 +295,9 @@ public class SesionLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCandadoIco;
     private javax.swing.JLabel jLabelCerrar;
-    private javax.swing.JLabel jLabelHotel;
     private javax.swing.JLabel jLabelIconoGrandeUsuario;
     private javax.swing.JLabel jLabelIconoLog;
     private javax.swing.JLabel jLabelInfo;
@@ -307,7 +317,7 @@ public class SesionLogin extends javax.swing.JFrame {
         ImageIcon iconoCandado=new ImageIcon("src/iconos/padlock.png");
         ImageIcon iconoGrandeUsuario=new ImageIcon("src/iconos/user.png");
         ImageIcon iconoLogin =new ImageIcon("src/iconos/enter.png");
-        ImageIcon iconoHotel=new ImageIcon("src/imagenes/yummy2.png");
+        //ImageIcon iconoHotel=new ImageIcon("src/imagenes/yummy2.png");
         ImageIcon iconoMinimizar=new ImageIcon("src/iconos/minimize.png");
         ImageIcon iconoCerrar=new ImageIcon("src/iconos/cancel.png");
         ImageIcon iconoInfo=new ImageIcon("src/iconos/inf.png");
@@ -316,15 +326,35 @@ public class SesionLogin extends javax.swing.JFrame {
         this.jLabelCandadoIco.setIcon(iconoCandado);
         this.jLabelIconoGrandeUsuario.setIcon(iconoGrandeUsuario);
         this.jButtonLogin.setIcon(iconoLogin);
-        this.jLabelHotel.setIcon(iconoHotel);
+        //this.jLabelHotel.setIcon(iconoHotel);
         this.jLabelMinimizar.setIcon(iconoMinimizar);
         this.jLabelCerrar.setIcon(iconoCerrar);
         this.jLabelInfo.setIcon(iconoInfo);
 
     }
-
-
+        
+    @Override
+    public void paint(Graphics grafico){
+        super.paint(grafico);
+        Toolkit t = Toolkit.getDefaultToolkit();
+        Image imagen = t.getImage("src/imagenes/Hotel Aereo.jpg");
+        grafico.drawImage(imagen, 0, 0, 245, 250, this);
+        
+        Toolkit t1 = Toolkit.getDefaultToolkit();
+        Image imagen1 = t1.getImage("src/imagenes/Hotel Alberca.jpg");
+        grafico.drawImage(imagen1, 0, 250, 245, 250, this);
+        
+        Toolkit t2 = Toolkit.getDefaultToolkit();
+        Image imagen2 = t2.getImage("src/imagenes/Hotel Vista Frente.jpg");
+        grafico.drawImage(imagen2, 245, 0, 245, 250, this);
+       
+        Toolkit t3 = Toolkit.getDefaultToolkit();
+        Image imagen3 = t3.getImage("src/imagenes/Hotel Cuarto.jpg");
+        grafico.drawImage(imagen3, 245, 250, 245, 250, this);
+        
+        Toolkit t4 = Toolkit.getDefaultToolkit();
+        Image imagen4 = t4.getImage("src/imagenes/yummy2.png");
+        grafico.drawImage(imagen4, 170, 170, 150, 150, this);
+    }
 }
-
-
 
