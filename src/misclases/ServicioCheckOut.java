@@ -144,6 +144,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         this.conn.Consult(cadena1);
 
         try {
+            this.jTextArea1.setText("");
             personas = this.conn.rs.getInt(5);
             costo = this.conn.rs.getInt(8);
             tipodehab = this.conn.rs.getString(4);
@@ -156,24 +157,21 @@ public class ServicioCheckOut extends javax.swing.JFrame {
                     if (personas > 1) {
                         personas--;
                         costo += personas * 180;
-                        this.jTextArea1.append(personas + " Persona Extra                  $180");
-                        System.out.println("\n");
+                        this.jTextArea1.append(personas + " Persona Extra                  $180\n");
                     }
                     break;
                 case "Dual":
                     if (personas > 2) {
                         personas = personas - 2;
                         costo += personas * 180;
-                        this.jTextArea1.append(personas + " Persona Extra                  $180");
-                        System.out.println("\n");
+                        this.jTextArea1.append(personas + " Persona Extra                  $180\n");
                     }
                     break;
                 case "Master":
                     if (personas > 3) {
                         personas = personas - 3;
                         costo += personas * 180;
-                        this.jTextArea1.append(personas + " Persona Extra                  $180");
-                        System.out.println("\n");
+                        this.jTextArea1.append(personas + " Persona Extra                  $180\n");
                     }
                     break;
             }
@@ -187,24 +185,32 @@ public class ServicioCheckOut extends javax.swing.JFrame {
             }*/
             if (this.jCheckBoxAlcuarto.isSelected()) {
                 this.jTextArea1.append("Servico al cuarto                   $100");
+                costo=costo+100;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxBar.isSelected()) {
                 this.jTextArea1.append("Servico de bar                        $250");
+                costo=costo+250;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxGuarderia.isSelected()) {
                 this.jTextArea1.append("Servico de Guarderia            $150");
+                costo=costo+150;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxSPA.isSelected()) {
                 this.jTextArea1.append("Servico de SPA                     $350");
+                costo=costo+350;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxTintoreria.isSelected()) {
                 this.jTextArea1.append("Servico de tintoreria              $185");
+                costo=costo+185;
                 this.jTextArea1.append("\n");
             }
+            
+            this.jTextArea1.append("\nEl costo total sera de         $"+costo);
+            
 
         } catch (SQLException ex) {
             System.out.println("No existe");
