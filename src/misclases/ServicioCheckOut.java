@@ -5,11 +5,18 @@
  */
 package misclases;
 
+import conexiones.MySqlConn;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Adrian Quinn
  */
 public class ServicioCheckOut extends javax.swing.JFrame {
+
+    MySqlConn conn = new MySqlConn();
 
     /**
      * Creates new form ServicioCheckOut
@@ -29,15 +36,15 @@ public class ServicioCheckOut extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        jTextFieldHab = new javax.swing.JTextField();
+        jCheckBoxAlcuarto = new javax.swing.JCheckBox();
+        jCheckBoxBar = new javax.swing.JCheckBox();
+        jCheckBoxTintoreria = new javax.swing.JCheckBox();
+        jCheckBoxSPA = new javax.swing.JCheckBox();
+        jCheckBoxGuarderia = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        jButtonIngresar = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jButton2 = new javax.swing.JButton();
         jLabelBackMenu = new javax.swing.JLabel();
@@ -50,22 +57,28 @@ public class ServicioCheckOut extends javax.swing.JFrame {
 
         jLabel1.setText("Ingrese el Numero de Habitacion que realiza su CheckOut");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 45, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 83, 159, -1));
 
-        jCheckBox1.setText("jCheckBox1");
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 215, -1, -1));
+        jTextFieldHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldHabActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 83, 159, -1));
 
-        jCheckBox2.setText("jCheckBox2");
-        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 251, -1, -1));
+        jCheckBoxAlcuarto.setText("Servicio al Cuarto");
+        jPanel1.add(jCheckBoxAlcuarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
-        jCheckBox3.setText("jCheckBox3");
-        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 287, -1, -1));
+        jCheckBoxBar.setText("Bar");
+        jPanel1.add(jCheckBoxBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
-        jCheckBox4.setText("jCheckBox4");
-        jPanel1.add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 340, -1, -1));
+        jCheckBoxTintoreria.setText("Tintoreria");
+        jPanel1.add(jCheckBoxTintoreria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
-        jCheckBox5.setText("jCheckBox5");
-        jPanel1.add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 382, -1, -1));
+        jCheckBoxSPA.setText("SPA");
+        jPanel1.add(jCheckBoxSPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+
+        jCheckBoxGuarderia.setText("Guarderia");
+        jPanel1.add(jCheckBoxGuarderia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -73,16 +86,16 @@ public class ServicioCheckOut extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 128, 403, 288));
 
-        jButton1.setText("Ingresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonIngresar.setText("Ingresar");
+        jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonIngresarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 79, -1, -1));
+        jPanel1.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 79, -1, -1));
         jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 467, 462, -1));
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Generar Cobro");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 467, -1, -1));
 
         jLabelBackMenu.setText("jLabel2");
@@ -120,9 +133,92 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         new MenuHotel().setVisible(true);
     }//GEN-LAST:event_jLabelBackMenuMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        String cadena1 = "select * from huespedes where habitacion = " + "'" + this.jTextFieldHab.getText().trim() + "'";
+        String tipodehab = "";
+        int hab;
+        int personas = 0;
+        int costo = 0;
+
+        this.conn.Consult(cadena1);
+
+        try {
+            personas = this.conn.rs.getInt(5);
+            costo = this.conn.rs.getInt(8);
+            tipodehab = this.conn.rs.getString(4);
+            this.jTextArea1.append("Se reservo habitacion " + tipodehab + "\n");
+            this.jTextArea1.append("Costo " + "                                   $" + costo);
+            this.jTextArea1.append("\n");
+
+            switch (tipodehab) {
+                case "Sencilla":
+                    if (personas > 1) {
+                        personas--;
+                        costo += personas * 180;
+                        this.jTextArea1.append(personas + " Persona Extra                  $180");
+                        System.out.println("\n");
+                    }
+                    break;
+                case "Dual":
+                    if (personas > 2) {
+                        personas = personas - 2;
+                        costo += personas * 180;
+                        this.jTextArea1.append(personas + " Persona Extra                  $180");
+                        System.out.println("\n");
+                    }
+                    break;
+                case "Master":
+                    if (personas > 3) {
+                        personas = personas - 3;
+                        costo += personas * 180;
+                        this.jTextArea1.append(personas + " Persona Extra                  $180");
+                        System.out.println("\n");
+                    }
+                    break;
+            }
+
+            /*if(tipodehab=="Sencilla"){
+                hab=1;
+            }else if(tipodehab=="Dual"){
+                hab=2;
+            }else if(tipodehab=="Master"){
+                hab=3;
+            }*/
+            if (this.jCheckBoxAlcuarto.isSelected()) {
+                this.jTextArea1.append("Servico al cuarto                   $100");
+                this.jTextArea1.append("\n");
+            }
+            if (this.jCheckBoxBar.isSelected()) {
+                this.jTextArea1.append("Servico de bar                        $250");
+                this.jTextArea1.append("\n");
+            }
+            if (this.jCheckBoxGuarderia.isSelected()) {
+                this.jTextArea1.append("Servico de Guarderia            $150");
+                this.jTextArea1.append("\n");
+            }
+            if (this.jCheckBoxSPA.isSelected()) {
+                this.jTextArea1.append("Servico de SPA                     $350");
+                this.jTextArea1.append("\n");
+            }
+            if (this.jCheckBoxTintoreria.isSelected()) {
+                this.jTextArea1.append("Servico de tintoreria              $185");
+                this.jTextArea1.append("\n");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("No existe");
+        }
+
+        System.out.println(personas);
+        System.out.println(costo);
+
+
+    }//GEN-LAST:event_jButtonIngresarActionPerformed
+
+    private void jTextFieldHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHabActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldHabActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,13 +256,13 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JButton jButtonIngresar;
+    private javax.swing.JCheckBox jCheckBoxAlcuarto;
+    private javax.swing.JCheckBox jCheckBoxBar;
+    private javax.swing.JCheckBox jCheckBoxGuarderia;
+    private javax.swing.JCheckBox jCheckBoxSPA;
+    private javax.swing.JCheckBox jCheckBoxTintoreria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelBackMenu;
     private javax.swing.JPanel jPanel1;
@@ -174,6 +270,6 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldHab;
     // End of variables declaration//GEN-END:variables
 }
