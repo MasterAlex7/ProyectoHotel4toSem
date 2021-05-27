@@ -250,12 +250,12 @@ public class SesionLogin extends javax.swing.JFrame {
 
     private void jLabelInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInfoMouseExited
         // TODO add your handling code here:
-        this.jLabelInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51,51,51)));
+        //this.jLabelInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
     }//GEN-LAST:event_jLabelInfoMouseExited
 
     private void jLabelInfoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInfoMouseMoved
         // TODO add your handling code here:
-        this.jLabelInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
+        //this.jLabelInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
     }//GEN-LAST:event_jLabelInfoMouseMoved
 
     /**
