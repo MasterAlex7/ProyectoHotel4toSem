@@ -50,6 +50,7 @@ public class MenuHotel extends javax.swing.JFrame {
         jLabelCheckOut1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabelModificarIcono = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 51));
@@ -210,6 +211,24 @@ public class MenuHotel extends javax.swing.JFrame {
         jLabel3.setText("MODIFICAR HOSPEDAJE");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
+        jLabelModificarIcono.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabelModificarIconoMouseMoved(evt);
+            }
+        });
+        jLabelModificarIcono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelModificarIconoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelModificarIconoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelModificarIconoMouseExited(evt);
+            }
+        });
+        jPanel4.add(jLabelModificarIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 150, 140));
+
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 730, 240));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 770, 510));
@@ -292,6 +311,27 @@ public class MenuHotel extends javax.swing.JFrame {
         new ServicioConsultas().setVisible(true);
     }//GEN-LAST:event_jLabelConsultasMouseClicked
 
+    private void jLabelModificarIconoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseClicked
+        // TODO add your handling code here:
+        setVisible(false);
+        new ServicioEdicion().setVisible(true);
+    }//GEN-LAST:event_jLabelModificarIconoMouseClicked
+
+    private void jLabelModificarIconoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseMoved
+        // TODO add your handling code here:
+         this.jLabelModificarIcono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
+    }//GEN-LAST:event_jLabelModificarIconoMouseMoved
+
+    private void jLabelModificarIconoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabelModificarIconoMouseEntered
+
+    private void jLabelModificarIconoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseExited
+        // TODO add your handling code here:
+        this.jLabelModificarIcono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51,51,51)));
+    }//GEN-LAST:event_jLabelModificarIconoMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -337,6 +377,7 @@ public class MenuHotel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCheckOut1;
     private javax.swing.JLabel jLabelConsultas;
     private javax.swing.JLabel jLabelMinimizar;
+    private javax.swing.JLabel jLabelModificarIcono;
     private javax.swing.JLabel jLabelRegistroIco;
     private javax.swing.JLabel jLabelSalir;
     private javax.swing.JLabel jLabelTitulo;
@@ -355,6 +396,7 @@ public class MenuHotel extends javax.swing.JFrame {
         ImageIcon iconoGrandeSalida=new ImageIcon("src/iconos/exit.png");
         ImageIcon iconoMinimizar=new ImageIcon("src/iconos/minimize.png");
         ImageIcon iconoCerrar=new ImageIcon("src/iconos/cancel.png");
+        ImageIcon modificar=new ImageIcon("src/iconos/writing.png");
         
         this.jLabelRegistroIco.setIcon(iconoGrandeUsuario);
         this.jLabelCheckIn.setIcon(iconoGrandeEntrada);
@@ -362,7 +404,7 @@ public class MenuHotel extends javax.swing.JFrame {
         this.jLabelCheckOut1.setIcon(iconoGrandeSalida);
         this.jLabelMinimizar.setIcon(iconoMinimizar);
         this.jLabelSalir.setIcon(iconoCerrar);
-    
+        this.jLabelModificarIcono.setIcon(modificar);
     }
 
 
