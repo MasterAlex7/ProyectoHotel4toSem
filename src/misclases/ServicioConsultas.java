@@ -5,6 +5,12 @@
  */
 package misclases;
 
+import framesconsultas.FrameTotalHabitaciones;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Adrian Quinn
@@ -16,6 +22,8 @@ public class ServicioConsultas extends javax.swing.JFrame {
      */
     public ServicioConsultas() {
         initComponents();
+        cargarIconos();
+        
     }
 
     /**
@@ -29,16 +37,23 @@ public class ServicioConsultas extends javax.swing.JFrame {
 
         jDesktopPane2 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuConsultas = new javax.swing.JMenu();
+        jMenuSubHotel = new javax.swing.JMenu();
+        jMenuItemGaleriaFotos = new javax.swing.JMenuItem();
+        jMenuItemIngresosHotel = new javax.swing.JMenuItem();
+        jMenuItemPorcentajeOcu = new javax.swing.JMenuItem();
+        jMenuSubHabitaciones = new javax.swing.JMenu();
+        jMenuItemTotalHab = new javax.swing.JMenuItem();
+        jMenuItemPorcOcupacion = new javax.swing.JMenuItem();
+        jMenuItemCostoHabitacion = new javax.swing.JMenuItem();
+        jMenuItemHabPiso = new javax.swing.JMenuItem();
+        jMenuSubBusqueda = new javax.swing.JMenu();
+        jMenuItemBusNombreHusped = new javax.swing.JMenuItem();
+        jMenuItemBusHabitacion = new javax.swing.JMenuItem();
+        jMenuItemListaHuespedes = new javax.swing.JMenuItem();
+        jMenuOpciones = new javax.swing.JMenu();
+        jMenuItemSubVolverMenu = new javax.swing.JMenuItem();
+        jMenuItemMenuSubSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,37 +68,66 @@ public class ServicioConsultas extends javax.swing.JFrame {
             .addGap(0, 625, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Consultas");
+        jMenuConsultas.setText("Consultas");
 
-        jMenuItem1.setText("jMenuItem1");
-        jMenu1.add(jMenuItem1);
+        jMenuSubHotel.setText("Hotel");
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu1.add(jMenuItem2);
+        jMenuItemGaleriaFotos.setText("Galeria de fotos");
+        jMenuSubHotel.add(jMenuItemGaleriaFotos);
 
-        jMenuItem3.setText("jMenuItem3");
-        jMenu1.add(jMenuItem3);
+        jMenuItemIngresosHotel.setText("Ingresos del hotel");
+        jMenuSubHotel.add(jMenuItemIngresosHotel);
 
-        jMenuItem4.setText("jMenuItem4");
-        jMenu1.add(jMenuItem4);
+        jMenuItemPorcentajeOcu.setText("Porcentaje de ocupacion");
+        jMenuSubHotel.add(jMenuItemPorcentajeOcu);
 
-        jMenuItem5.setText("jMenuItem5");
-        jMenu1.add(jMenuItem5);
+        jMenuConsultas.add(jMenuSubHotel);
 
-        jMenuItem6.setText("jMenuItem6");
-        jMenu1.add(jMenuItem6);
+        jMenuSubHabitaciones.setText("Habitaciones");
 
-        jMenuBar1.add(jMenu1);
+        jMenuItemTotalHab.setText("Total de habitaciones");
+        jMenuItemTotalHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemTotalHabActionPerformed(evt);
+            }
+        });
+        jMenuSubHabitaciones.add(jMenuItemTotalHab);
 
-        jMenu2.setText("Opciones");
+        jMenuItemPorcOcupacion.setText("Porcentaje de ocupacion");
+        jMenuSubHabitaciones.add(jMenuItemPorcOcupacion);
 
-        jMenuItem7.setText("jMenuItem7");
-        jMenu2.add(jMenuItem7);
+        jMenuItemCostoHabitacion.setText("Costo por habitacion");
+        jMenuSubHabitaciones.add(jMenuItemCostoHabitacion);
 
-        jMenuItem8.setText("jMenuItem8");
-        jMenu2.add(jMenuItem8);
+        jMenuItemHabPiso.setText("Habitaciones de piso");
+        jMenuSubHabitaciones.add(jMenuItemHabPiso);
 
-        jMenuBar1.add(jMenu2);
+        jMenuConsultas.add(jMenuSubHabitaciones);
+
+        jMenuSubBusqueda.setText("Busquedas");
+
+        jMenuItemBusNombreHusped.setText("Busqueda por nombre huesped");
+        jMenuSubBusqueda.add(jMenuItemBusNombreHusped);
+
+        jMenuItemBusHabitacion.setText("Busqueda por habitacion");
+        jMenuSubBusqueda.add(jMenuItemBusHabitacion);
+
+        jMenuConsultas.add(jMenuSubBusqueda);
+
+        jMenuItemListaHuespedes.setText("Lista de huespedes");
+        jMenuConsultas.add(jMenuItemListaHuespedes);
+
+        jMenuBar1.add(jMenuConsultas);
+
+        jMenuOpciones.setText("Opciones");
+
+        jMenuItemSubVolverMenu.setText("Menu");
+        jMenuOpciones.add(jMenuItemSubVolverMenu);
+
+        jMenuItemMenuSubSalir.setText("Salir");
+        jMenuOpciones.add(jMenuItemMenuSubSalir);
+
+        jMenuBar1.add(jMenuOpciones);
 
         setJMenuBar(jMenuBar1);
 
@@ -104,6 +148,21 @@ public class ServicioConsultas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemTotalHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTotalHabActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPane2.removeAll();
+        this.repaint();
+        
+        FrameTotalHabitaciones totalHabitaciones =new FrameTotalHabitaciones();
+        this.jDesktopPane2.add(totalHabitaciones);//Agregamos altas al jDesktopPanel
+        try{
+            totalHabitaciones.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        totalHabitaciones.show();//mostrar el jDesktopPanel
+    }//GEN-LAST:event_jMenuItemTotalHabActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,16 +201,39 @@ public class ServicioConsultas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenu jMenuConsultas;
+    private javax.swing.JMenuItem jMenuItemBusHabitacion;
+    private javax.swing.JMenuItem jMenuItemBusNombreHusped;
+    private javax.swing.JMenuItem jMenuItemCostoHabitacion;
+    private javax.swing.JMenuItem jMenuItemGaleriaFotos;
+    private javax.swing.JMenuItem jMenuItemHabPiso;
+    private javax.swing.JMenuItem jMenuItemIngresosHotel;
+    private javax.swing.JMenuItem jMenuItemListaHuespedes;
+    private javax.swing.JMenuItem jMenuItemMenuSubSalir;
+    private javax.swing.JMenuItem jMenuItemPorcOcupacion;
+    private javax.swing.JMenuItem jMenuItemPorcentajeOcu;
+    private javax.swing.JMenuItem jMenuItemSubVolverMenu;
+    private javax.swing.JMenuItem jMenuItemTotalHab;
+    private javax.swing.JMenu jMenuOpciones;
+    private javax.swing.JMenu jMenuSubBusqueda;
+    private javax.swing.JMenu jMenuSubHabitaciones;
+    private javax.swing.JMenu jMenuSubHotel;
     // End of variables declaration//GEN-END:variables
+
+    public void cargarIconos(){
+        ImageIcon iconoHotel=new ImageIcon("src/iconos/hotel.png");
+        ImageIcon iconoLupa=new ImageIcon("src/iconos/loupe.png");
+        ImageIcon iconoHabitacion=new ImageIcon("src/iconos/room.png");
+        ImageIcon iconoUsuario=new ImageIcon("src/iconos/user_chico.png");
+        
+        this.jMenuSubHotel.setIcon(iconoHotel);
+        this.jMenuSubBusqueda.setIcon(iconoLupa);
+        this.jMenuSubHabitaciones.setIcon(iconoHabitacion);
+        this.jMenuItemListaHuespedes.setIcon(iconoUsuario);
+        
+        
+        
+    }
+
 }

@@ -4,56 +4,100 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="jMenuConsultas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <Menu class="javax.swing.JMenu" name="jMenuSubHotel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+                <Property name="text" type="java.lang.String" value="Hotel"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemGaleriaFotos">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Galeria de fotos"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemIngresosHotel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Ingresos del hotel"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPorcentajeOcu">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Porcentaje de ocupacion"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMenuSubHabitaciones">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem2"/>
+                <Property name="text" type="java.lang.String" value="Habitaciones"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemTotalHab">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Total de habitaciones"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemTotalHabActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPorcOcupacion">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Porcentaje de ocupacion"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCostoHabitacion">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Costo por habitacion"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemHabPiso">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Habitaciones de piso"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMenuSubBusqueda">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem3"/>
+                <Property name="text" type="java.lang.String" value="Busquedas"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemBusNombreHusped">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Busqueda por nombre huesped"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemBusHabitacion">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Busqueda por habitacion"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemListaHuespedes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem4"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem5"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem6"/>
+                <Property name="text" type="java.lang.String" value="Lista de huespedes"/>
               </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="jMenuOpciones">
           <Properties>
             <Property name="text" type="java.lang.String" value="Opciones"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemSubVolverMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem7"/>
+                <Property name="text" type="java.lang.String" value="Menu"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemMenuSubSalir">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem8"/>
+                <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
             </MenuItem>
           </SubComponents>

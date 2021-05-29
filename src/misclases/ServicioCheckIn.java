@@ -9,6 +9,7 @@ import conexiones.MySqlConn;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -55,7 +56,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        jPanelBarra = new javax.swing.JPanel();
         jLabelLogoUsuario = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -201,25 +202,25 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(jLabelLogoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+        jPanelBarra.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelBarra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelBarra.add(jLabelLogoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Usuario");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 70, -1));
+        jPanelBarra.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 70, -1));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 20));
+        jPanelBarra.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 20));
 
         jLabel28.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Hotel Yummy Resorts");
-        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        jPanelBarra.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 640));
+        getContentPane().add(jPanelBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 640));
 
         jPanelRegistro.setBackground(new java.awt.Color(255, 255, 255));
         jPanelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -272,10 +273,10 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 102));
         jLabel4.setText("Cantidad de personas a hospedarse");
-        jPanelRegistro.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, -1, -1));
+        jPanelRegistro.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, -1, -1));
 
         jSpinnerDias.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jPanelRegistro.add(jSpinnerDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 70, -1));
+        jPanelRegistro.add(jSpinnerDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 70, -1));
 
         jSliderPersonasHospedar.setMajorTickSpacing(1);
         jSliderPersonasHospedar.setMaximum(0);
@@ -286,12 +287,12 @@ public class ServicioCheckIn extends javax.swing.JFrame {
                 jSliderPersonasHospedarStateChanged(evt);
             }
         });
-        jPanelRegistro.add(jSliderPersonasHospedar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, -1, -1));
+        jPanelRegistro.add(jSliderPersonasHospedar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, -1, -1));
 
         jLabelCostoAdicional.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelCostoAdicional.setForeground(new java.awt.Color(0, 0, 102));
         jLabelCostoAdicional.setText("Se generara un costo adicional");
-        jPanelRegistro.add(jLabelCostoAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, -1, 20));
+        jPanelRegistro.add(jLabelCostoAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, -1, 20));
 
         jLabelBackMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelBackMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -317,16 +318,16 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 102));
         jLabel16.setText("Dias a quedarse en el hotel");
-        jPanelRegistro.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, -1, -1));
+        jPanelRegistro.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, -1, -1));
 
         jDateChooserFechaArrivo.setBackground(new java.awt.Color(255, 255, 255));
         jDateChooserFechaArrivo.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelRegistro.add(jDateChooserFechaArrivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 220, 30));
+        jPanelRegistro.add(jDateChooserFechaArrivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 220, 30));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 102));
         jLabel17.setText("Dia de llegada al hotel");
-        jPanelRegistro.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
+        jPanelRegistro.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, -1, -1));
 
         jTextFieldTipoHab.setEditable(false);
         jTextFieldTipoHab.setBackground(new java.awt.Color(255, 255, 255));
@@ -1586,7 +1587,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTotOcu;
     private javax.swing.JLabel jLabelVolver;
     private javax.swing.JLabel jLabelVolver2;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelBarra;
     private javax.swing.JPanel jPanelPisoDOsBarra;
     private javax.swing.JPanel jPanelPisoUnoBarra;
     private javax.swing.JPanel jPanelRegPisoDos;
@@ -1672,6 +1673,31 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         
         
     }
+    
+    
+    /*@Override
+    public void paint(Graphics grafico){
+        super.paint(grafico);
+        Toolkit t = Toolkit.getDefaultToolkit();
+        Image imagen = t.getImage("src/imagenes/Hotel Aereo.jpg");
+        grafico.drawImage(imagen, 0, 0, 245, 250, this);
+        
+        Toolkit t1 = Toolkit.getDefaultToolkit();
+        Image imagen1 = t1.getImage("src/imagenes/Hotel Alberca.jpg");
+        grafico.drawImage(imagen1, 0, 250, 245, 250, this);
+        
+        Toolkit t2 = Toolkit.getDefaultToolkit();
+        Image imagen2 = t2.getImage("src/imagenes/Hotel Vista Frente.jpg");
+        grafico.drawImage(imagen2, 245, 0, 245, 250, this);
+       
+        Toolkit t3 = Toolkit.getDefaultToolkit();
+        Image imagen3 = t3.getImage("src/imagenes/Hotel Cuarto.jpg");
+        grafico.drawImage(imagen3, 245, 250, 245, 250, this);
+        
+        Toolkit t4 = Toolkit.getDefaultToolkit();
+        Image imagen4 = t4.getImage("src/imagenes/yummy2.png");
+        grafico.drawImage(imagen4, 170, 170, 150, 150, this);
+    }*/
     
 
 
