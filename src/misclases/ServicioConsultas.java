@@ -5,6 +5,7 @@
  */
 package misclases;
 
+import framesconsultas.FrameConsultaPrecios;
 import framesconsultas.FrameTotalHabitaciones;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
@@ -78,7 +79,7 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuItemIngresosHotel.setText("Ingresos del hotel");
         jMenuSubHotel.add(jMenuItemIngresosHotel);
 
-        jMenuItemPorcentajeOcu.setText("Porcentaje de ocupacion");
+        jMenuItemPorcentajeOcu.setText("Porcentaje de ocupacion ");
         jMenuSubHotel.add(jMenuItemPorcentajeOcu);
 
         jMenuConsultas.add(jMenuSubHotel);
@@ -93,10 +94,20 @@ public class ServicioConsultas extends javax.swing.JFrame {
         });
         jMenuSubHabitaciones.add(jMenuItemTotalHab);
 
-        jMenuItemPorcOcupacion.setText("Porcentaje de ocupacion");
+        jMenuItemPorcOcupacion.setText("Porcentaje de ocupacion por tipo habitacion");
+        jMenuItemPorcOcupacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPorcOcupacionActionPerformed(evt);
+            }
+        });
         jMenuSubHabitaciones.add(jMenuItemPorcOcupacion);
 
         jMenuItemCostoHabitacion.setText("Costo por habitacion");
+        jMenuItemCostoHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCostoHabitacionActionPerformed(evt);
+            }
+        });
         jMenuSubHabitaciones.add(jMenuItemCostoHabitacion);
 
         jMenuItemHabPiso.setText("Habitaciones de piso");
@@ -135,15 +146,13 @@ public class ServicioConsultas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,6 +172,25 @@ public class ServicioConsultas extends javax.swing.JFrame {
         }
         totalHabitaciones.show();//mostrar el jDesktopPanel
     }//GEN-LAST:event_jMenuItemTotalHabActionPerformed
+
+    private void jMenuItemCostoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCostoHabitacionActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPane2.removeAll();
+        this.repaint();
+        
+        FrameConsultaPrecios costoHabitaciones =new FrameConsultaPrecios();
+        this.jDesktopPane2.add(costoHabitaciones);//Agregamos altas al jDesktopPanel
+        try{
+            costoHabitaciones.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        costoHabitaciones.show();//mostrar el jDesktopPanel
+    }//GEN-LAST:event_jMenuItemCostoHabitacionActionPerformed
+
+    private void jMenuItemPorcOcupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPorcOcupacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemPorcOcupacionActionPerformed
 
     /**
      * @param args the command line arguments
