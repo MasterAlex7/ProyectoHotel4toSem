@@ -5,6 +5,8 @@
  */
 package misclases;
 
+import framesconsultas.FrameBusquedaPorHabitacion;
+import framesconsultas.FrameBusquedaPorNombreHuesped;
 import framesconsultas.FrameConsultaPrecios;
 import framesconsultas.FrameTotalHabitaciones;
 import java.beans.PropertyVetoException;
@@ -36,7 +38,7 @@ public class ServicioConsultas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane2 = new javax.swing.JDesktopPane();
+        jDesktopPaneFondo = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuConsultas = new javax.swing.JMenu();
         jMenuSubHotel = new javax.swing.JMenu();
@@ -57,19 +59,24 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuItemMenuSubSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
-        jDesktopPane2.setLayout(jDesktopPane2Layout);
-        jDesktopPane2Layout.setHorizontalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDesktopPaneFondoLayout = new javax.swing.GroupLayout(jDesktopPaneFondo);
+        jDesktopPaneFondo.setLayout(jDesktopPaneFondoLayout);
+        jDesktopPaneFondoLayout.setHorizontalGroup(
+            jDesktopPaneFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1018, Short.MAX_VALUE)
         );
-        jDesktopPane2Layout.setVerticalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jDesktopPaneFondoLayout.setVerticalGroup(
+            jDesktopPaneFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 625, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+
         jMenuConsultas.setText("Consultas");
+        jMenuConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuConsultas.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
         jMenuSubHotel.setText("Hotel");
 
@@ -118,9 +125,19 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuSubBusqueda.setText("Busquedas");
 
         jMenuItemBusNombreHusped.setText("Busqueda por nombre huesped");
+        jMenuItemBusNombreHusped.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBusNombreHuspedActionPerformed(evt);
+            }
+        });
         jMenuSubBusqueda.add(jMenuItemBusNombreHusped);
 
         jMenuItemBusHabitacion.setText("Busqueda por habitacion");
+        jMenuItemBusHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBusHabitacionActionPerformed(evt);
+            }
+        });
         jMenuSubBusqueda.add(jMenuItemBusHabitacion);
 
         jMenuConsultas.add(jMenuSubBusqueda);
@@ -131,11 +148,23 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuBar1.add(jMenuConsultas);
 
         jMenuOpciones.setText("Opciones");
+        jMenuOpciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuOpciones.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        jMenuItemSubVolverMenu.setText("Menu");
+        jMenuItemSubVolverMenu.setText("Volver al Menu");
+        jMenuItemSubVolverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSubVolverMenuActionPerformed(evt);
+            }
+        });
         jMenuOpciones.add(jMenuItemSubVolverMenu);
 
-        jMenuItemMenuSubSalir.setText("Salir");
+        jMenuItemMenuSubSalir.setText("Salir del programa");
+        jMenuItemMenuSubSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMenuSubSalirActionPerformed(evt);
+            }
+        });
         jMenuOpciones.add(jMenuItemMenuSubSalir);
 
         jMenuBar1.add(jMenuOpciones);
@@ -146,25 +175,26 @@ public class ServicioConsultas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jDesktopPaneFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDesktopPaneFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemTotalHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTotalHabActionPerformed
         // TODO add your handling code here:
-        this.jDesktopPane2.removeAll();
+        this.jDesktopPaneFondo.removeAll();
         this.repaint();
         
         FrameTotalHabitaciones totalHabitaciones =new FrameTotalHabitaciones();
-        this.jDesktopPane2.add(totalHabitaciones);//Agregamos altas al jDesktopPanel
+        this.jDesktopPaneFondo.add(totalHabitaciones);//Agregamos altas al jDesktopPanel
         try{
             totalHabitaciones.setMaximum(true);
         }catch(PropertyVetoException ex){
@@ -175,11 +205,11 @@ public class ServicioConsultas extends javax.swing.JFrame {
 
     private void jMenuItemCostoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCostoHabitacionActionPerformed
         // TODO add your handling code here:
-        this.jDesktopPane2.removeAll();
+        this.jDesktopPaneFondo.removeAll();
         this.repaint();
         
         FrameConsultaPrecios costoHabitaciones =new FrameConsultaPrecios();
-        this.jDesktopPane2.add(costoHabitaciones);//Agregamos altas al jDesktopPanel
+        this.jDesktopPaneFondo.add(costoHabitaciones);//Agregamos altas al jDesktopPanel
         try{
             costoHabitaciones.setMaximum(true);
         }catch(PropertyVetoException ex){
@@ -191,6 +221,47 @@ public class ServicioConsultas extends javax.swing.JFrame {
     private void jMenuItemPorcOcupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPorcOcupacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemPorcOcupacionActionPerformed
+
+    private void jMenuItemBusNombreHuspedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBusNombreHuspedActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPaneFondo.removeAll();
+        this.repaint();
+        
+        FrameBusquedaPorNombreHuesped busquedaHuesped =new FrameBusquedaPorNombreHuesped();
+        this.jDesktopPaneFondo.add(busquedaHuesped);//Agregamos altas al jDesktopPanel
+        try{
+            busquedaHuesped.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        busquedaHuesped.show();//mostrar el jDesktopPanel
+    }//GEN-LAST:event_jMenuItemBusNombreHuspedActionPerformed
+
+    private void jMenuItemBusHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBusHabitacionActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPaneFondo.removeAll();
+        this.repaint();
+        
+        FrameBusquedaPorHabitacion busquedaHuesped =new FrameBusquedaPorHabitacion();
+        this.jDesktopPaneFondo.add(busquedaHuesped);//Agregamos altas al jDesktopPanel
+        try{
+            busquedaHuesped.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        busquedaHuesped.show();//mostrar el jDesktopPanel
+    }//GEN-LAST:event_jMenuItemBusHabitacionActionPerformed
+
+    private void jMenuItemMenuSubSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuSubSalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItemMenuSubSalirActionPerformed
+
+    private void jMenuItemSubVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSubVolverMenuActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new MenuHotel().setVisible(true);
+    }//GEN-LAST:event_jMenuItemSubVolverMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,7 +299,7 @@ public class ServicioConsultas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JDesktopPane jDesktopPaneFondo;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuConsultas;
     private javax.swing.JMenuItem jMenuItemBusHabitacion;

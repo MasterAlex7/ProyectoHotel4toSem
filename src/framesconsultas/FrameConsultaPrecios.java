@@ -188,6 +188,7 @@ public class FrameConsultaPrecios extends javax.swing.JInternalFrame {
         jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, -1));
 
         jLabel19.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("1 Medio baño");
         jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
