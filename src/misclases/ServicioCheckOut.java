@@ -6,6 +6,7 @@
 package misclases;
 
 import conexiones.MySqlConn;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +17,16 @@ import java.util.logging.Logger;
  */
 public class ServicioCheckOut extends javax.swing.JFrame {
 
+    String nombreHuesped  = "";
+    String cdOrigen  = "";
+    Date fechaIngreso;
+    Date fechaSalida;
+    String tipodeHab  = "";
+    int Costohab  = 0;
+    int diasUsados  = 0;
+    int Totalsc  = 0;
+    int Totalce  = 0;
+    String servicios  = "";
     MySqlConn conn = new MySqlConn();
 
     /**
@@ -142,21 +153,31 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         // TODO add your handling code here:
         String cadena1 = "select * from huespedes where habitacion = " + "'" + this.jTextFieldHab.getText().trim() + "'";
         String tipodehab = "";
-        int hab;
+        int hab = 0;
         int personas = 0;
         int costo = 0;
 
         this.conn.Consult(cadena1);
 
+        //Aqui ingresamos a la base de datos para sacar la informacion correspondiente
         try {
             this.jTextArea1.setText("");
+            this.nombreHuesped=this.conn.rs.getString(1);
+            this.cdOrigen=this.conn.rs.getString(2);
+            this.fechaIngreso=this.conn.rs.getDate(6);
+            this.fechaSalida=this.conn.rs.getDate(7);
             personas = this.conn.rs.getInt(5);
             costo = this.conn.rs.getInt(8);
             tipodehab = this.conn.rs.getString(4);
+            hab = this.conn.rs.getInt(3);
+            this.tipodeHab=tipodehab;
+            this.Costohab=costo;
+            this.Totalsc=costo;
             this.jTextArea1.append("Se reservo habitacion " + tipodehab + "\n");
             this.jTextArea1.append("Costo " + "                                   $" + costo);
             this.jTextArea1.append("\n");
 
+            //Checamos que tipo de habitacion para asi generar un costo extra
             switch (tipodehab) {
                 case "Sencilla":
                     if (personas > 1) {
@@ -188,34 +209,42 @@ public class ServicioCheckOut extends javax.swing.JFrame {
             }else if(tipodehab=="Master"){
                 hab=3;
             }*/
+            //Vemos que servicios adicionales ocupo
             if (this.jCheckBoxAlcuarto.isSelected()) {
                 this.jTextArea1.append("Servico al cuarto                   $100");
-                costo=costo+100;
+                this.servicios=this.servicios+"Servicio al cuarto            $100\n";
+                costo = costo + 100;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxBar.isSelected()) {
                 this.jTextArea1.append("Servico de bar                        $250");
-                costo=costo+250;
+                this.servicios=this.servicios+"Servicio de bar                $250\n";
+                costo = costo + 250;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxGuarderia.isSelected()) {
                 this.jTextArea1.append("Servico de Guarderia            $150");
-                costo=costo+150;
+                this.servicios=this.servicios+"Servicio de Guarderia           $150\n";
+                costo = costo + 150;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxSPA.isSelected()) {
                 this.jTextArea1.append("Servico de SPA                     $350");
-                costo=costo+350;
+                this.servicios=this.servicios+"Servicio de Spa                 $350\n";
+                costo = costo + 350;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxTintoreria.isSelected()) {
                 this.jTextArea1.append("Servico de tintoreria              $185");
-                costo=costo+185;
+                this.servicios=this.servicios+"Servicio de Tintoreria                $185\n";
+                costo = costo + 185;
                 this.jTextArea1.append("\n");
             }
+
+            this.jTextArea1.append("\nEl costo total sera de         $" + costo);
             
-            this.jTextArea1.append("\nEl costo total sera de         $"+costo);
-            
+            this.Totalce=costo;
+            System.out.println(this.servicios);
 
         } catch (SQLException ex) {
             System.out.println("No existe");
@@ -224,32 +253,52 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         System.out.println(personas);
         System.out.println(costo);
 
-        String query="select * from hotelinfo";
-        String query2="";
-        String query3="";
-        int ingresos=0;
-        
+        //Aqui vamos a la tabla de ingresos totales del hotel
+        String query = "select * from hotelinfo";
+        String query2 = "";
+        String query3 = "";
+        int ingresos = 0;
+
         this.conn.Consult(query);
-        
+
         try {
-            ingresos=this.conn.rs.getInt(1);
+            ingresos = this.conn.rs.getInt(1);
         } catch (SQLException ex) {
             System.out.println("No se puede acceder");
         }
-        
-        query3="delete from hotelinfo where ingresosGenerados = "+ingresos;
+
+        //Eliminamos los ingresos anteriores para añadir los nuevos
+        query3 = "delete from hotelinfo where ingresosGenerados = " + ingresos;
         int i = this.conn.Update(query3);
-        if (i>0) {
+        if (i > 0) {
             System.out.println("Eliminado con exito");
-        }else{
+        } else {
             System.out.println("Fallo de eliminacion");
         }
-        
-        ingresos=ingresos+costo;
-        query2="insert into hotelinfo (ingresosGenerados) values ("+"'"+ingresos+"')";
-        
-        int j=this.conn.Update(query2); 
+
+        ingresos = ingresos + costo;
+        query2 = "insert into hotelinfo (ingresosGenerados) values (" + "'" + ingresos + "')";
+
+        int j = this.conn.Update(query2);
         System.out.println(ingresos);
+
+        //Eliminamos al huesped que se dio de baja
+        String queryHuespedes = "delete from huespedes where habitacion = " + hab;
+        int w = this.conn.Update(queryHuespedes);
+        if (w > 0) {
+            System.out.println("Eliminado con exito (Huespedes)");
+        } else {
+            System.out.println("Fallo de eliminacion (Huespedes)");
+        }
+        
+        //Aqui regresamos la habitacion a disponible en la base de datos
+        String queryHab="update habitaciones set estado = 0 where numero = "+hab;
+        int f = this.conn.Update(queryHab);
+        if (f > 0) {
+            System.out.println("Actualizado con exito");
+        } else {
+            System.out.println("No se actualizo la habitacion");
+        }
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     private void jTextFieldHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHabActionPerformed
@@ -258,7 +307,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
