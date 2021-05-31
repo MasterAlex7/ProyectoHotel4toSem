@@ -8,8 +8,13 @@ package misclases;
 import conexiones.MySqlConn;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Scanner;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 /**
  *
@@ -57,7 +62,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButtonIngresar = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
-        jButton2 = new javax.swing.JButton();
+        jButtonGenerarCobro = new javax.swing.JButton();
         jLabelBackMenu = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
@@ -106,13 +111,13 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         jPanel1.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 79, -1, -1));
         jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 467, 462, -1));
 
-        jButton2.setText("Generar Cobro");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGenerarCobro.setText("Generar Cobro");
+        jButtonGenerarCobro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonGenerarCobroActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 467, -1, -1));
+        jPanel1.add(jButtonGenerarCobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 467, -1, -1));
 
         jLabelBackMenu.setText("jLabel2");
         jLabelBackMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -283,7 +288,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         System.out.println(ingresos);
 
         //Eliminamos al huesped que se dio de baja
-        String queryHuespedes = "delete from huespedes where habitacion = " + hab;
+        /*String queryHuespedes = "delete from huespedes where habitacion = " + hab;
         int w = this.conn.Update(queryHuespedes);
         if (w > 0) {
             System.out.println("Eliminado con exito (Huespedes)");
@@ -298,17 +303,18 @@ public class ServicioCheckOut extends javax.swing.JFrame {
             System.out.println("Actualizado con exito");
         } else {
             System.out.println("No se actualizo la habitacion");
-        }
+        }*/
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     private void jTextFieldHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHabActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldHabActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonGenerarCobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarCobroActionPerformed
         // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton2ActionPerformed
+        /*GenerarPDF pdf = new GenerarPDF(nombreHuesped,cdOrigen,fechaIngreso,fechaSalida,tipodeHab,Costohab,diasUsados,Totalsc,Totalce,servicios);
+        pdf.generaciondepdf();*/
+    }//GEN-LAST:event_jButtonGenerarCobroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,7 +352,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonGenerarCobro;
     private javax.swing.JButton jButtonIngresar;
     private javax.swing.JCheckBox jCheckBoxAlcuarto;
     private javax.swing.JCheckBox jCheckBoxBar;
