@@ -96,6 +96,11 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 467, 462, -1));
 
         jButton2.setText("Generar Cobro");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 467, -1, -1));
 
         jLabelBackMenu.setText("jLabel2");
@@ -219,12 +224,42 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         System.out.println(personas);
         System.out.println(costo);
 
-
+        String query="select * from hotelinfo";
+        String query2="";
+        String query3="";
+        int ingresos=0;
+        
+        this.conn.Consult(query);
+        
+        try {
+            ingresos=this.conn.rs.getInt(1);
+        } catch (SQLException ex) {
+            System.out.println("No se puede acceder");
+        }
+        
+        query3="delete from hotelinfo where ingresosGenerados = "+ingresos;
+        int i = this.conn.Update(query3);
+        if (i>0) {
+            System.out.println("Eliminado con exito");
+        }else{
+            System.out.println("Fallo de eliminacion");
+        }
+        
+        ingresos=ingresos+costo;
+        query2="insert into hotelinfo (ingresosGenerados) values ("+"'"+ingresos+"')";
+        
+        int j=this.conn.Update(query2); 
+        System.out.println(ingresos);
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     private void jTextFieldHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHabActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldHabActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
