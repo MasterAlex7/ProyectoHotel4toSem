@@ -8,6 +8,7 @@ package misclases;
 import conexiones.MySqlConn;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
@@ -21,6 +22,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
@@ -61,6 +63,9 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel28 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabelYummy = new javax.swing.JLabel();
+        jLabelHolaSoyYummy = new javax.swing.JLabel();
         jPanelRegistro = new javax.swing.JPanel();
         jTextFieldNombreHuesped = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -219,6 +224,16 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Hotel Yummy Resorts");
         jPanelBarra.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel7.setText("Grieta de la Orden 687, Calvillo,AGS.");
+        jPanelBarra.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, 10));
+        jPanelBarra.add(jLabelYummy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 130, 130));
+
+        jLabelHolaSoyYummy.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelHolaSoyYummy.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelHolaSoyYummy.setText("¡Hola! Soy Yummy");
+        jPanelBarra.add(jLabelHolaSoyYummy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
 
         getContentPane().add(jPanelBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 640));
 
@@ -1169,6 +1184,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         this.jPanelRegPisoUno.setVisible(true);
         //this.jPanel5.setEnabled(true);
         this.jPanelPisoUnoBarra.setVisible(true);
+        //this.add(new PintarPiso1());
     }//GEN-LAST:event_jButtonVerificarActionPerformed
 
     private void jButtonPisoDosBotonUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPisoDosBotonUnoActionPerformed
@@ -1492,6 +1508,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelAcuerdoPrecio2;
     private javax.swing.JLabel jLabelAcuerdosPrecio;
     private javax.swing.JLabel jLabelBackMenu;
@@ -1561,6 +1578,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHabitacionSencilla7;
     private javax.swing.JLabel jLabelHabitacionSencilla8;
     private javax.swing.JLabel jLabelHabitacionSencilla9;
+    private javax.swing.JLabel jLabelHolaSoyYummy;
     private javax.swing.JLabel jLabelIconoHotel;
     private javax.swing.JLabel jLabelLogoCheck;
     private javax.swing.JLabel jLabelLogoUsuario;
@@ -1587,6 +1605,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTotOcu;
     private javax.swing.JLabel jLabelVolver;
     private javax.swing.JLabel jLabelVolver2;
+    private javax.swing.JLabel jLabelYummy;
     private javax.swing.JPanel jPanelBarra;
     private javax.swing.JPanel jPanelPisoDOsBarra;
     private javax.swing.JPanel jPanelPisoUnoBarra;
@@ -1622,6 +1641,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         ImageIcon iconoCheck=new ImageIcon("src/iconos/verify.png");
         ImageIcon menuIcono=new ImageIcon("src/iconos/menu_1.png");
         ImageIcon iconoHotel=new ImageIcon("src/imagenes/yummy2.png");
+        ImageIcon iconoYummy=new ImageIcon("src/iconos/yummy_asistente.png");
         
         
         this.fondoDegradado.setIcon(fondoDegradado);
@@ -1671,36 +1691,44 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         this.jLabelHab126.setIcon(habitacion);
         //
         
+        //Se carga la imagen de la asistente yummy
+        this.jLabelYummy.setIcon(iconoYummy);
+        
+        
         
     }
     
-    
     /*@Override
-    public void paint(Graphics grafico){
-        super.paint(grafico);
-        Toolkit t = Toolkit.getDefaultToolkit();
-        Image imagen = t.getImage("src/imagenes/Hotel Aereo.jpg");
-        grafico.drawImage(imagen, 0, 0, 245, 250, this);
-        
-        Toolkit t1 = Toolkit.getDefaultToolkit();
-        Image imagen1 = t1.getImage("src/imagenes/Hotel Alberca.jpg");
-        grafico.drawImage(imagen1, 0, 250, 245, 250, this);
-        
-        Toolkit t2 = Toolkit.getDefaultToolkit();
-        Image imagen2 = t2.getImage("src/imagenes/Hotel Vista Frente.jpg");
-        grafico.drawImage(imagen2, 245, 0, 245, 250, this);
-       
-        Toolkit t3 = Toolkit.getDefaultToolkit();
-        Image imagen3 = t3.getImage("src/imagenes/Hotel Cuarto.jpg");
-        grafico.drawImage(imagen3, 245, 250, 245, 250, this);
-        
-        Toolkit t4 = Toolkit.getDefaultToolkit();
-        Image imagen4 = t4.getImage("src/imagenes/yummy2.png");
-        grafico.drawImage(imagen4, 170, 170, 150, 150, this);
-    }*/
+        public void paint(Graphics grafico){
+            super.paint(grafico);
+            Toolkit t = Toolkit.getDefaultToolkit();
+            Image imagen = t.getImage("src/imagenes/Hotel Aereo.jpg");
+            grafico.drawImage(imagen, 0, 0, 245, 250, null);
+
+            Toolkit t1 = Toolkit.getDefaultToolkit();
+            Image imagen1 = t1.getImage("src/imagenes/Hotel Alberca.jpg");
+            grafico.drawImage(imagen1, 0, 250, 245, 250, this);
+
+            Toolkit t2 = Toolkit.getDefaultToolkit();
+            Image imagen2 = t2.getImage("src/imagenes/Hotel Vista Frente.jpg");
+            grafico.drawImage(imagen2, 245, 0, 245, 250, null);
+
+            Toolkit t3 = Toolkit.getDefaultToolkit();
+            Image imagen3 = t3.getImage("src/imagenes/Hotel Cuarto.jpg");
+            grafico.drawImage(imagen3, 245, 250, 245, 250, this);
+
+            Toolkit t4 = Toolkit.getDefaultToolkit();
+            Image imagen4 = t4.getImage("src/imagenes/yummy2.png");
+            grafico.drawImage(imagen4, 170, 170, 150, 150, this);
+        }*/
     
-
-
+   
 
 }
+
+
+
+
+    
+
 

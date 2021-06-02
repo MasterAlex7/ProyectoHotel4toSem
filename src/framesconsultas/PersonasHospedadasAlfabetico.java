@@ -33,28 +33,28 @@ public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelBase = new javax.swing.JPanel();
-        jLabelTitulo = new javax.swing.JLabel();
         Consultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaMostrar = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jLabelTitulo = new javax.swing.JLabel();
+        jButtonLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanelBase.setBackground(new java.awt.Color(153, 255, 153));
+        jPanelBase.setBackground(new java.awt.Color(51, 51, 51));
+        jPanelBase.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelTitulo.setText("Personas hospedadas en el hotel");
-
-        Consultar.setBackground(new java.awt.Color(51, 51, 255));
-        Consultar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        Consultar.setForeground(new java.awt.Color(0, 0, 0));
+        Consultar.setBackground(new java.awt.Color(51, 255, 204));
+        Consultar.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        Consultar.setForeground(new java.awt.Color(255, 255, 255));
         Consultar.setText("Consultar");
         Consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultarActionPerformed(evt);
             }
         });
+        jPanelBase.add(Consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
 
         jTextAreaMostrar.setBackground(new java.awt.Color(255, 255, 255));
         jTextAreaMostrar.setColumns(20);
@@ -63,51 +63,53 @@ public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
         jTextAreaMostrar.setRows(5);
         jScrollPane1.setViewportView(jTextAreaMostrar);
 
-        javax.swing.GroupLayout jPanelBaseLayout = new javax.swing.GroupLayout(jPanelBase);
-        jPanelBase.setLayout(jPanelBaseLayout);
-        jPanelBaseLayout.setHorizontalGroup(
-            jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBaseLayout.createSequentialGroup()
-                .addGroup(jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelBaseLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelTitulo)
-                            .addGroup(jPanelBaseLayout.createSequentialGroup()
-                                .addGap(108, 108, 108)
-                                .addComponent(Consultar))))
-                    .addGroup(jPanelBaseLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        jPanelBaseLayout.setVerticalGroup(
-            jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBaseLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+        jPanelBase.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 440, 430));
+
+        jPanel1.setBackground(new java.awt.Color(102, 255, 204));
+
+        jLabelTitulo.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitulo.setText("Personas hospedadas en el hotel");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(252, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
-                .addGap(18, 18, 18)
-                .addComponent(Consultar)
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(215, 215, 215))
         );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabelTitulo)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        jPanelBase.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
+
+        jButtonLimpiar.setBackground(new java.awt.Color(255, 102, 102));
+        jButtonLimpiar.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jButtonLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonLimpiar.setText("Limpiar");
+        jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimpiarActionPerformed(evt);
+            }
+        });
+        jPanelBase.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 110, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelBase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 912, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelBase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 534, Short.MAX_VALUE)
         );
 
         pack();
@@ -141,6 +143,11 @@ public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Habitación no registrada");
         }
     }//GEN-LAST:event_ConsultarActionPerformed
+
+    private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
+        // TODO add your handling code here:
+        this.jTextAreaMostrar.setText("");
+    }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,7 +186,9 @@ public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Consultar;
+    private javax.swing.JButton jButtonLimpiar;
     private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelBase;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaMostrar;

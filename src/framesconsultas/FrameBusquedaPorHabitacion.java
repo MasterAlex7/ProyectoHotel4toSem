@@ -41,6 +41,8 @@ public class FrameBusquedaPorHabitacion extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setClosable(true);
+        setMaximizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelTipoConsulta.setBackground(new java.awt.Color(102, 255, 102));
@@ -53,6 +55,7 @@ public class FrameBusquedaPorHabitacion extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanelTipoConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 140));
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelAvisoNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
