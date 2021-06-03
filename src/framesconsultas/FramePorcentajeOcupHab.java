@@ -6,10 +6,13 @@
 package framesconsultas;
 
 import conexiones.MySqlConn;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -40,6 +43,7 @@ public class FramePorcentajeOcupHab extends javax.swing.JInternalFrame {
         jButtonConsultar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
 
         setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,6 +68,17 @@ public class FramePorcentajeOcupHab extends javax.swing.JInternalFrame {
         jLabelTitulo.setText("Porcentajes de ocupación por el tipo de habitación");
         jPanel2.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 650, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -72,15 +87,22 @@ public class FramePorcentajeOcupHab extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(jButtonConsultar)
+                .addGap(43, 43, 43)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(jButtonConsultar)
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jButtonConsultar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 530));
@@ -98,21 +120,18 @@ public class FramePorcentajeOcupHab extends javax.swing.JInternalFrame {
             for (int i = 0; i < 30; i++) {
                 if(this.conn.rs.getString(3).equals("Sencilla")){
                     sencilla++;
-                    System.out.println("Entre a sencilla");
                     if(this.conn.rs.getBoolean(2)==true){
                         sencillaocp++;
                     }
                 }
                 if(this.conn.rs.getString(3).equals("Dual")){
                     dual++;
-                    System.out.println("Entre a dual");
                     if(this.conn.rs.getBoolean(2)==true){
                         dualocp++;
                     }
                 }
                 if(this.conn.rs.getString(3).equals("Master")){
                     master++;
-                    System.out.println("Entre a master");
                     if(this.conn.rs.getBoolean(2)==true){
                         masterocp++;
                     }
@@ -133,9 +152,24 @@ public class FramePorcentajeOcupHab extends javax.swing.JInternalFrame {
         meses.setValue(td, habt, "Dual");
         meses.setValue(tm, habt, "Master");
         JFreeChart f = ChartFactory.createBarChart("Grafica de Barras\n Porcentaje de ocupación de habitaciones", "Tipo", "Porcentaje de ocupación", meses, PlotOrientation.VERTICAL, true, false, false);
-        ChartFrame frame = new ChartFrame("Barras", f);
-        frame.pack();
-        frame.setVisible(true);
+        ChartPanel panel = new ChartPanel(f);;
+        panel.setMouseWheelEnabled(true);
+        panel.setPreferredSize(new Dimension(650,380));
+        this.jPanel4.setLayout(new BorderLayout());
+        this.jPanel4.add(panel,BorderLayout.NORTH);
+        pack();
+        repaint();
+
+
+
+        
+        //ChartFrame frame = new ChartFrame("Barras", f);
+        /*frame.pack();
+        frame.setVisible(true);*/
+
+        //ChartFrame frame = new ChartFrame("Barras", f);
+        //frame.pack();
+        //frame.setVisible(true);
 
         /*DefaultPieDataset data = new DefaultPieDataset();
         data.setValue("Sencilla", ts);
@@ -154,5 +188,6 @@ public class FramePorcentajeOcupHab extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

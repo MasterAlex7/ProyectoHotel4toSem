@@ -125,14 +125,7 @@ public class FramePersonasHospedadas extends javax.swing.JInternalFrame {
         int hab;
         try{
             this.conn.rs.first();
-            nom = this.conn.rs.getString(1);
-            hab = this.conn.rs.getInt(3);
-            tipoh = this.conn.rs.getString(4);
-            Huesped aux1 = new Huesped(nom,hab,tipoh);
-            listaarray.add(aux1);
-            this.jTextAreaMostrar.append(aux1.Mostrar());
-            this.jTextAreaMostrar.append("\n");
-            while(this.conn.rs.next()){
+            do{
                 nom = this.conn.rs.getString(1);
                 hab = this.conn.rs.getInt(3);
                 tipoh = this.conn.rs.getString(4);
@@ -140,7 +133,7 @@ public class FramePersonasHospedadas extends javax.swing.JInternalFrame {
                 listaarray.add(aux);
                 this.jTextAreaMostrar.append(aux.Mostrar());
                 this.jTextAreaMostrar.append("\n");
-            }
+            }while(this.conn.rs.next());
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(this, "Habitación no registrada");
         }
