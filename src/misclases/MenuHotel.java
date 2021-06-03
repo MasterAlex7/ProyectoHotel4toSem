@@ -336,7 +336,7 @@ public class MenuHotel extends javax.swing.JFrame {
     private void jLabelCheckOut1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckOut1MouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new ServicioCheckOut().setVisible(true);
+        new ServicioCheckOut(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelCheckOut1MouseClicked
 
     private void jLabelConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelConsultasMouseClicked

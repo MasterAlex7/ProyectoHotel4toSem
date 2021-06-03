@@ -33,12 +33,18 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     int Totalce  = 0;
     String servicios  = "";
     MySqlConn conn = new MySqlConn();
+    String user="";
 
     /**
      * Creates new form ServicioCheckOut
      */
     public ServicioCheckOut() {
         initComponents();
+    }
+    
+    public ServicioCheckOut(String usuario) {
+        initComponents();
+        this.user=usuario;
     }
 
     /**
@@ -151,7 +157,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     private void jLabelBackMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMenuMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new MenuHotel().setVisible(true);
+        new MenuHotel(this.user).setVisible(true);
     }//GEN-LAST:event_jLabelBackMenuMouseClicked
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
