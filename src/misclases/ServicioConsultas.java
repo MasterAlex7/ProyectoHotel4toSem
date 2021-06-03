@@ -8,9 +8,11 @@ package misclases;
 import framesconsultas.FrameBusquedaPorHabitacion;
 import framesconsultas.FrameBusquedaPorNombreHuesped;
 import framesconsultas.FrameConsultaPrecios;
+import framesconsultas.FrameHabitacionesDisponibles;
 import framesconsultas.FrameIngresosHotel;
 import framesconsultas.FramePersonasHospedadas;
 import framesconsultas.FramePorcentajeOcupHab;
+import framesconsultas.FramePorcentajeOcupacion;
 import framesconsultas.FrameTotalHabitaciones;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
@@ -102,6 +104,11 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuSubHotel.add(jMenuItemIngresosHotel);
 
         jMenuItemPorcentajeOcu.setText("Porcentaje de ocupacion ");
+        jMenuItemPorcentajeOcu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPorcentajeOcuActionPerformed(evt);
+            }
+        });
         jMenuSubHotel.add(jMenuItemPorcentajeOcu);
 
         jMenuConsultas.add(jMenuSubHotel);
@@ -133,6 +140,11 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuSubHabitaciones.add(jMenuItemCostoHabitacion);
 
         jMenuItemHabPiso.setText("Habitaciones de piso");
+        jMenuItemHabPiso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemHabPisoActionPerformed(evt);
+            }
+        });
         jMenuSubHabitaciones.add(jMenuItemHabPiso);
 
         jMenuConsultas.add(jMenuSubHabitaciones);
@@ -323,6 +335,38 @@ public class ServicioConsultas extends javax.swing.JFrame {
         }
         ingresosFrame.show();//mostrar el jDesktopPanel
     }//GEN-LAST:event_jMenuItemIngresosHotelActionPerformed
+
+    private void jMenuItemPorcentajeOcuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPorcentajeOcuActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPaneFondo.removeAll();
+        this.repaint();
+        
+        FramePorcentajeOcupacion porcentajeocupacion =new FramePorcentajeOcupacion();
+        this.jDesktopPaneFondo.add(porcentajeocupacion);//Agregamos altas al jDesktopPanel
+        try{
+            porcentajeocupacion.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        porcentajeocupacion.show();//mostrar el jDesktopPanel
+        
+    }//GEN-LAST:event_jMenuItemPorcentajeOcuActionPerformed
+
+    private void jMenuItemHabPisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemHabPisoActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPaneFondo.removeAll();
+        this.repaint();
+        
+        FrameHabitacionesDisponibles habitacionesFrame =new FrameHabitacionesDisponibles();
+        this.jDesktopPaneFondo.add(habitacionesFrame);//Agregamos altas al jDesktopPanel
+        try{
+            habitacionesFrame.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        habitacionesFrame.show();//mostrar el jDesktopPanel
+        
+    }//GEN-LAST:event_jMenuItemHabPisoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -42,6 +42,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Porcentaje de ocupacion "/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPorcentajeOcuActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -78,6 +81,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Habitaciones de piso"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemHabPisoActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
