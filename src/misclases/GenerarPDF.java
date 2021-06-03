@@ -6,7 +6,11 @@
 
 package misclases;
 
+import java.io.IOException;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -126,7 +130,7 @@ public class GenerarPDF {
     public GenerarPDF() {
     }
     
-    public void generaciondepdf()throws Exception{
+    public void generaciondepdf(){
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage(PDRectangle.A6);
             document.addPage(page);
@@ -137,7 +141,7 @@ public class GenerarPDF {
             contentStream.beginText();
             contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
             contentStream.newLineAtOffset( 60, page.getMediaBox().getHeight() - 200);
-            contentStream.showText(nombre);
+            contentStream.showText(this.nombreHuesped);
             contentStream.endText();
             
             contentStream.beginText();
@@ -149,33 +153,40 @@ public class GenerarPDF {
             contentStream.beginText();
             contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
             contentStream.newLineAtOffset( 90, page.getMediaBox().getHeight() - 240);
-            contentStream.showText(motivo);
+            contentStream.showText(this.cdOrigen);
             contentStream.endText();
             
             contentStream.beginText();
             contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
             contentStream.newLineAtOffset( 90, page.getMediaBox().getHeight() - 260);
-            contentStream.showText(dia+" de "+mes+" de "+año);
+            SimpleDateFormat sdf2=new SimpleDateFormat("dd-MM-YYYY");
+            String fIn=sdf2.format(fechaSalida);
+            contentStream.showText(fIn);
+            contentStream.showText(fIn);
             contentStream.endText();
             
             contentStream.beginText();
             contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
             contentStream.newLineAtOffset( 90, page.getMediaBox().getHeight() - 280);
-            contentStream.showText("Aguascalientes, Ags");
+            SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-YYYY");
+            String fs=sdf.format(fechaSalida);
+            contentStream.showText(fs);
             contentStream.endText();
       
             // Image
             PDImageXObject image;
-            image= PDImageXObject.createFromFile("D:\\Documentos\\Code\\Java\\DiplomaPDF\\LOGOBENEMERITA_CIRCULAR2.png", document);
+            image= PDImageXObject.createFromFile("/src/imagenes/yummy2.png", document);
             contentStream.drawImage(image,70, page.getMediaBox().getHeight() - 170);
             
-            PDImageXObject image2;
-            image2= PDImageXObject.createFromFile("D:\\Documentos\\Code\\Java\\DiplomaPDF\\firma.png", document);
-            contentStream.drawImage(image2,70, page.getMediaBox().getHeight() - 430);
+            /*PDImageXObject image2;
+            image2= PDImageXObject.createFromFile("/src/imagenes/", document);
+            contentStream.drawImage(image2,70, page.getMediaBox().getHeight() - 430);*/
 
             contentStream.close();
 
             document.save("document.pdf");
+        } catch (IOException ex) {
+            System.out.println("No se pudo crear");
         }
     }
 }
