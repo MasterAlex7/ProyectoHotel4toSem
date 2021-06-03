@@ -8,6 +8,8 @@ package misclases;
 import framesconsultas.FrameBusquedaPorHabitacion;
 import framesconsultas.FrameBusquedaPorNombreHuesped;
 import framesconsultas.FrameConsultaPrecios;
+import framesconsultas.FramePersonasHospedadas;
+import framesconsultas.FramePorcentajeOcupHab;
 import framesconsultas.FrameTotalHabitaciones;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
@@ -19,11 +21,18 @@ import javax.swing.ImageIcon;
  * @author Adrian Quinn
  */
 public class ServicioConsultas extends javax.swing.JFrame {
-
+    String usuario;
     /**
      * Creates new form ServicioConsultas
      */
     public ServicioConsultas() {
+        initComponents();
+        cargarIconos();
+        
+    }
+    
+    public ServicioConsultas(String usuario) {
+        this.usuario=usuario;
         initComponents();
         cargarIconos();
         
@@ -143,6 +152,11 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuConsultas.add(jMenuSubBusqueda);
 
         jMenuItemListaHuespedes.setText("Lista de huespedes");
+        jMenuItemListaHuespedes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemListaHuespedesActionPerformed(evt);
+            }
+        });
         jMenuConsultas.add(jMenuItemListaHuespedes);
 
         jMenuBar1.add(jMenuConsultas);
@@ -220,6 +234,17 @@ public class ServicioConsultas extends javax.swing.JFrame {
 
     private void jMenuItemPorcOcupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPorcOcupacionActionPerformed
         // TODO add your handling code here:
+        this.jDesktopPaneFondo.removeAll();
+        this.repaint();
+        
+        FramePorcentajeOcupHab ocupacionPorcentaje =new FramePorcentajeOcupHab();
+        this.jDesktopPaneFondo.add(ocupacionPorcentaje);//Agregamos altas al jDesktopPanel
+        try{
+            ocupacionPorcentaje.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        ocupacionPorcentaje.show();//mostrar el jDesktopPanel
     }//GEN-LAST:event_jMenuItemPorcOcupacionActionPerformed
 
     private void jMenuItemBusNombreHuspedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBusNombreHuspedActionPerformed
@@ -260,8 +285,23 @@ public class ServicioConsultas extends javax.swing.JFrame {
     private void jMenuItemSubVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSubVolverMenuActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        new MenuHotel().setVisible(true);
+        new MenuHotel(this.usuario).setVisible(true);
     }//GEN-LAST:event_jMenuItemSubVolverMenuActionPerformed
+
+    private void jMenuItemListaHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListaHuespedesActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPaneFondo.removeAll();
+        this.repaint();
+        
+        FramePersonasHospedadas personas =new FramePersonasHospedadas();
+        this.jDesktopPaneFondo.add(personas);//Agregamos altas al jDesktopPanel
+        try{
+            personas.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        personas.show();//mostrar el jDesktopPanel
+    }//GEN-LAST:event_jMenuItemListaHuespedesActionPerformed
 
     /**
      * @param args the command line arguments

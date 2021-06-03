@@ -35,6 +35,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     int habitacion;
     Date fechaentrada;
     Date fechasalida;
+    String usuario="";//Recibimos del usuario que esta usando el programa actualmente
     /**
      * Creates new form ServicioCheckIn
      */
@@ -47,6 +48,14 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         elementosOcultos();
         cargarIconos();
  
+    }
+    
+    public ServicioCheckIn(String usuario) {
+        this.usuario=usuario;
+        this.setLocationRelativeTo(null);
+        initComponents();
+        elementosOcultos();
+        cargarIconos();
     }
 
     /**
@@ -62,10 +71,9 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabelLogoUsuario = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabelYummy = new javax.swing.JLabel();
-        jLabelHolaSoyYummy = new javax.swing.JLabel();
+        jLabelNomHot = new javax.swing.JLabel();
+        jLabelDir = new javax.swing.JLabel();
+        jLabelNomUsuario = new javax.swing.JLabel();
         jPanelRegistro = new javax.swing.JPanel();
         jTextFieldNombreHuesped = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -94,7 +102,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabelMarco = new javax.swing.JLabel();
         fondoDegradado = new javax.swing.JLabel();
         jPanelTicket = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelLema = new javax.swing.JLabel();
         jLabelIconoHotel = new javax.swing.JLabel();
         jLabelBackMenu1 = new javax.swing.JLabel();
         jLabelRegistro = new javax.swing.JLabel();
@@ -113,12 +121,14 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabelTicketNumeroHabitacion = new javax.swing.JLabel();
         jLabelTicketTipoHabitacion = new javax.swing.JLabel();
         jLabelDireccion = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        jLabelLimHuesped = new javax.swing.JLabel();
+        jLabelPiso = new javax.swing.JLabel();
         jLabelTicketPiso = new javax.swing.JLabel();
         jLabelTicketLimiteHuespedes = new javax.swing.JLabel();
         jLabelTicketExtra2 = new javax.swing.JLabel();
         jLabelTicketExtra1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
         jPanelRegPisoUno = new javax.swing.JPanel();
         jPanelPisoUnoBarra = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -220,20 +230,20 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jPanelBarra.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 20));
 
-        jLabel28.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setText("Hotel Yummy Resorts");
-        jPanelBarra.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        jLabelNomHot.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelNomHot.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNomHot.setText("Hotel Yummy Resorts");
+        jPanelBarra.add(jLabelNomHot, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel7.setText("Grieta de la Orden 687, Calvillo,AGS.");
-        jPanelBarra.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, 10));
-        jPanelBarra.add(jLabelYummy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 130, 130));
+        jLabelDir.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabelDir.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelDir.setText("Grieta de la Orden 687, Calvillo,AGS.");
+        jPanelBarra.add(jLabelDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, 10));
 
-        jLabelHolaSoyYummy.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelHolaSoyYummy.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelHolaSoyYummy.setText("¡Hola! Soy Yummy");
-        jPanelBarra.add(jLabelHolaSoyYummy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
+        jLabelNomUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelNomUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNomUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanelBarra.add(jLabelNomUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 130, 30));
 
         getContentPane().add(jPanelBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 640));
 
@@ -393,10 +403,10 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jPanelTicket.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTicket.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("\"Las mejores experencias nacen aqui\"");
-        jPanelTicket.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 390, 40));
+        jLabelLema.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelLema.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelLema.setText("\"Las mejores experencias nacen aqui\"");
+        jPanelTicket.add(jLabelLema, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 390, 40));
         jPanelTicket.add(jLabelIconoHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 250, 180));
 
         jLabelBackMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -407,112 +417,121 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         });
         jPanelTicket.add(jLabelBackMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 60, 50));
 
-        jLabelRegistro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelRegistro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelRegistro.setForeground(new java.awt.Color(204, 0, 102));
         jLabelRegistro.setText("Registro Completo");
-        jPanelTicket.add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, -1, -1));
+        jPanelTicket.add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 570, -1, -1));
 
         jLabelNomHuesped.setBackground(new java.awt.Color(0, 0, 0));
         jLabelNomHuesped.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelNomHuesped.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNomHuesped.setText("Nombre del Huesped");
-        jPanelTicket.add(jLabelNomHuesped, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
+        jPanelTicket.add(jLabelNomHuesped, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
 
         jLabelCiudad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelCiudad.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCiudad.setText("Ciudad de Origen");
-        jPanelTicket.add(jLabelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
+        jPanelTicket.add(jLabelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, -1, -1));
 
         jLabelFechaIng.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelFechaIng.setForeground(new java.awt.Color(0, 0, 0));
         jLabelFechaIng.setText("Fecha de Ingreso");
-        jPanelTicket.add(jLabelFechaIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
+        jPanelTicket.add(jLabelFechaIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, -1, -1));
 
         jLabelFechaSal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelFechaSal.setForeground(new java.awt.Color(0, 0, 0));
         jLabelFechaSal.setText("Fecha de salida");
-        jPanelTicket.add(jLabelFechaSal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, -1, -1));
+        jPanelTicket.add(jLabelFechaSal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, -1));
 
         jLabelNumHab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelNumHab.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNumHab.setText("Numero de Habitacion");
-        jPanelTicket.add(jLabelNumHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
+        jPanelTicket.add(jLabelNumHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, -1));
 
         jLabelTipoHab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelTipoHab.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTipoHab.setText("Tipo de Habitacion");
-        jPanelTicket.add(jLabelTipoHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, -1, -1));
+        jPanelTicket.add(jLabelTipoHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, -1, 20));
 
         jLabelTotOcu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelTotOcu.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTotOcu.setText("Total de Ocupantes de la habitacion: ");
-        jPanelTicket.add(jLabelTotOcu, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, -1, -1));
+        jPanelTicket.add(jLabelTotOcu, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, -1, 30));
 
         jLabelTicketNombreHuesped.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelTicketNombreHuesped.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTicketNombreHuesped.setText(" ");
-        jPanelTicket.add(jLabelTicketNombreHuesped, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 260, 20));
+        jPanelTicket.add(jLabelTicketNombreHuesped, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 260, 20));
 
         jLabelTicketOcupantes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelTicketOcupantes.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTicketOcupantes.setText(" ");
-        jPanelTicket.add(jLabelTicketOcupantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 90, 20));
+        jPanelTicket.add(jLabelTicketOcupantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 90, 30));
 
         jLabelTicketCiudadOrigen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelTicketCiudadOrigen.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTicketCiudadOrigen.setText(" ");
-        jPanelTicket.add(jLabelTicketCiudadOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 260, 20));
+        jPanelTicket.add(jLabelTicketCiudadOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 260, 20));
 
         jLabelTicketFechaIngreso.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelTicketFechaIngreso.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTicketFechaIngreso.setText(" ");
-        jPanelTicket.add(jLabelTicketFechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 260, 20));
+        jPanelTicket.add(jLabelTicketFechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 260, 20));
 
         jLabelTicketFechaSalida.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelTicketFechaSalida.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTicketFechaSalida.setText(" ");
-        jPanelTicket.add(jLabelTicketFechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 260, 20));
+        jPanelTicket.add(jLabelTicketFechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 260, 20));
 
         jLabelTicketNumeroHabitacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelTicketNumeroHabitacion.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTicketNumeroHabitacion.setText(" ");
-        jPanelTicket.add(jLabelTicketNumeroHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 60, 20));
+        jPanelTicket.add(jLabelTicketNumeroHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 60, 20));
 
         jLabelTicketTipoHabitacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelTicketTipoHabitacion.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTicketTipoHabitacion.setText(" ");
-        jPanelTicket.add(jLabelTicketTipoHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 180, 20));
+        jPanelTicket.add(jLabelTicketTipoHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, 180, 20));
 
         jLabelDireccion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelDireccion.setForeground(new java.awt.Color(0, 0, 0));
         jLabelDireccion.setText("Grieta de la Orden 687, Calvillo,AGS.");
-        jPanelTicket.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 260, 30));
+        jPanelTicket.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 260, 30));
 
-        jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel18.setText("Limite huesped:");
-        jPanelTicket.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, -1, -1));
+        jLabelLimHuesped.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelLimHuesped.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelLimHuesped.setText("Limite huesped:");
+        jPanelTicket.add(jLabelLimHuesped, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, 20));
 
-        jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setText("Piso: ");
-        jPanelTicket.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, -1, -1));
+        jLabelPiso.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelPiso.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelPiso.setText("Piso: ");
+        jPanelTicket.add(jLabelPiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
 
         jLabelTicketPiso.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelTicket.add(jLabelTicketPiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 130, 20));
+        jPanelTicket.add(jLabelTicketPiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 130, 20));
 
         jLabelTicketLimiteHuespedes.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelTicket.add(jLabelTicketLimiteHuespedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 70, 20));
+        jPanelTicket.add(jLabelTicketLimiteHuespedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 70, 20));
 
         jLabelTicketExtra2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTicketExtra2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTicketExtra2.setText("2 Personas Extra");
-        jPanelTicket.add(jLabelTicketExtra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, 150, 40));
+        jPanelTicket.add(jLabelTicketExtra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 150, 40));
 
         jLabelTicketExtra1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTicketExtra1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTicketExtra1.setText("1 Persona Extra");
-        jPanelTicket.add(jLabelTicketExtra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, 150, 40));
+        jPanelTicket.add(jLabelTicketExtra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 150, 40));
+
+        jSeparator2.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator2.setForeground(new java.awt.Color(51, 51, 51));
+        jPanelTicket.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 570, 20));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 255, 153));
+        jLabel3.setText("VOLVER");
+        jPanelTicket.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 70, -1, -1));
 
         getContentPane().add(jPanelTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 950, 640));
         jPanelTicket.setVisible(false);
@@ -1070,7 +1089,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private void jLabelBackMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMenuMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new MenuHotel().setVisible(true);
+        new MenuHotel(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelBackMenuMouseClicked
 
     private void jSliderPersonasHospedarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderPersonasHospedarStateChanged
@@ -1174,6 +1193,9 @@ public class ServicioCheckIn extends javax.swing.JFrame {
 
     private void jLabelBackMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMenu1MouseClicked
         // TODO add your handling code here:
+        this.jPanelTicket.setVisible(false);
+        this.jPanelRegistro.setVisible(true);
+        
     }//GEN-LAST:event_jLabelBackMenu1MouseClicked
 
     private void jButtonVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerificarActionPerformed
@@ -1492,8 +1514,6 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1503,18 +1523,17 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelAcuerdoPrecio2;
     private javax.swing.JLabel jLabelAcuerdosPrecio;
     private javax.swing.JLabel jLabelBackMenu;
     private javax.swing.JLabel jLabelBackMenu1;
     private javax.swing.JLabel jLabelCiudad;
     private javax.swing.JLabel jLabelCostoAdicional;
+    private javax.swing.JLabel jLabelDir;
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelFechaIng;
     private javax.swing.JLabel jLabelFechaSal;
@@ -1578,13 +1597,17 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHabitacionSencilla7;
     private javax.swing.JLabel jLabelHabitacionSencilla8;
     private javax.swing.JLabel jLabelHabitacionSencilla9;
-    private javax.swing.JLabel jLabelHolaSoyYummy;
     private javax.swing.JLabel jLabelIconoHotel;
+    private javax.swing.JLabel jLabelLema;
+    private javax.swing.JLabel jLabelLimHuesped;
     private javax.swing.JLabel jLabelLogoCheck;
     private javax.swing.JLabel jLabelLogoUsuario;
     private javax.swing.JLabel jLabelMarco;
+    private javax.swing.JLabel jLabelNomHot;
     private javax.swing.JLabel jLabelNomHuesped;
+    private javax.swing.JLabel jLabelNomUsuario;
     private javax.swing.JLabel jLabelNumHab;
+    private javax.swing.JLabel jLabelPiso;
     private javax.swing.JLabel jLabelPrecioHabDual;
     private javax.swing.JLabel jLabelPrecioHabSencilla;
     private javax.swing.JLabel jLabelPrecioHabSencilla1;
@@ -1605,7 +1628,6 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTotOcu;
     private javax.swing.JLabel jLabelVolver;
     private javax.swing.JLabel jLabelVolver2;
-    private javax.swing.JLabel jLabelYummy;
     private javax.swing.JPanel jPanelBarra;
     private javax.swing.JPanel jPanelPisoDOsBarra;
     private javax.swing.JPanel jPanelPisoUnoBarra;
@@ -1614,6 +1636,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelRegistro;
     private javax.swing.JPanel jPanelTicket;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSlider jSliderPersonasHospedar;
     private javax.swing.JSpinner jSpinnerDias;
     private javax.swing.JTextField jTextFieldCiudadOrigen;
@@ -1641,7 +1664,17 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         ImageIcon iconoCheck=new ImageIcon("src/iconos/verify.png");
         ImageIcon menuIcono=new ImageIcon("src/iconos/menu_1.png");
         ImageIcon iconoHotel=new ImageIcon("src/imagenes/yummy2.png");
-        ImageIcon iconoYummy=new ImageIcon("src/iconos/yummy_asistente.png");
+        ImageIcon iconoVolver=new ImageIcon("src/iconos/regresar.png");
+        ImageIcon habitacion=new ImageIcon("src/iconos/cama.png");
+        
+        //**Iconos del personal
+            ImageIcon adrian=new ImageIcon("src/iconos/adrian.png");
+            ImageIcon alex=new ImageIcon("src/iconos/alex.png");
+            ImageIcon cesar=new ImageIcon("src/iconos/cesar.png");
+            ImageIcon jesus=new ImageIcon("src/iconos/jesus.png");
+        
+        //****
+        
         
         
         this.fondoDegradado.setIcon(fondoDegradado);
@@ -1649,11 +1682,10 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         this.jLabelLogoCheck.setIcon(iconoCheck);
         this.jLabelBackMenu.setIcon(menuIcono);
         this.jLabelIconoHotel.setIcon(iconoHotel);
-        this.jLabelBackMenu1.setIcon(menuIcono);
+        this.jLabelBackMenu1.setIcon(iconoVolver);
         
         //Iconos para las habitaciones
-        ImageIcon iconoVolver=new ImageIcon("src/iconos/regresar.png");
-        ImageIcon habitacion=new ImageIcon("src/iconos/cama.png");
+        
         this.jLabelVolver.setIcon(iconoVolver);
         this.jLabelVolver2.setIcon(iconoVolver);
         
@@ -1690,9 +1722,20 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         this.jLabelHab124.setIcon(habitacion);
         this.jLabelHab126.setIcon(habitacion);
         //
-        
-        //Se carga la imagen de la asistente yummy
-        this.jLabelYummy.setIcon(iconoYummy);
+        //Cargar el Icono del usuario
+        this.jLabelNomUsuario.setText(this.usuario);
+        if(this.usuario.equals("Adrian")){
+            this.jLabelLogoUsuario.setIcon(adrian);
+        }else if(this.usuario.equals("Alejandro")){
+            this.jLabelLogoUsuario.setIcon(alex);
+        }else if(this.usuario.equals("Cesar")){
+            this.jLabelLogoUsuario.setIcon(cesar);
+        }else if(this.usuario.equals("Jesus")){
+            this.jLabelLogoUsuario.setIcon(jesus);
+        }else{
+            this.jLabelLogoUsuario.setIcon(logousuario);
+        }
+
         
         
         

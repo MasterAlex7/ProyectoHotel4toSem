@@ -4,22 +4,24 @@
  * and open the template in the editor.
  */
 package framesconsultas;
+
 import conexiones.MySqlConn;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+
 /**
  *
- * @author Jesús
+ * @author Adrian Quinn
  */
-public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
+public class FramePersonasHospedadas extends javax.swing.JInternalFrame {
     MySqlConn conn=new MySqlConn();
     List<Huesped> listaarray = new ArrayList<Huesped>();
     /**
-     * Creates new form PersonasHospedadasAlfabetico
+     * Creates new form FramePersonasHospedadas
      */
-    public PersonasHospedadasAlfabetico() {
+    public FramePersonasHospedadas() {
         initComponents();
     }
 
@@ -36,12 +38,9 @@ public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
         Consultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaMostrar = new javax.swing.JTextArea();
-        jPanel1 = new javax.swing.JPanel();
-        jLabelTitulo = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabelTitulo1 = new javax.swing.JLabel();
         jButtonLimpiar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanelBase.setBackground(new java.awt.Color(51, 51, 51));
         jPanelBase.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,32 +63,32 @@ public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
         jTextAreaMostrar.setRows(5);
         jScrollPane1.setViewportView(jTextAreaMostrar);
 
-        jPanelBase.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 440, 430));
+        jPanelBase.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 440, 430));
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 204));
+        jPanel2.setBackground(new java.awt.Color(102, 255, 204));
 
-        jLabelTitulo.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("Personas hospedadas en el hotel");
+        jLabelTitulo1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        jLabelTitulo1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitulo1.setText("Personas hospedadas en el hotel");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(252, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo)
+                .addComponent(jLabelTitulo1)
                 .addGap(215, 215, 215))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jLabelTitulo)
+                .addComponent(jLabelTitulo1)
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
-        jPanelBase.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
+        jPanelBase.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
 
         jButtonLimpiar.setBackground(new java.awt.Color(255, 102, 102));
         jButtonLimpiar.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -102,20 +101,17 @@ public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
         });
         jPanelBase.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 110, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ESTE FRAME NO SIRVE!!!! NO MODIFICAR");
-        jPanelBase.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 912, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 534, Short.MAX_VALUE)
+            .addComponent(jPanelBase, javax.swing.GroupLayout.PREFERRED_SIZE, 546, Short.MAX_VALUE)
         );
 
         pack();
@@ -125,7 +121,7 @@ public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
         String query="select * from huespedes order by nombre asc";
         this.conn.Consult(query);
         String nom, tipoh;
-        
+
         int hab;
         try{
             this.conn.rs.first();
@@ -155,47 +151,12 @@ public class PersonasHospedadasAlfabetico extends javax.swing.JFrame {
         this.jTextAreaMostrar.setText("");
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonasHospedadasAlfabetico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonasHospedadasAlfabetico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonasHospedadasAlfabetico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonasHospedadasAlfabetico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PersonasHospedadasAlfabetico().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Consultar;
     private javax.swing.JButton jButtonLimpiar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelTitulo;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabelTitulo1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelBase;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaMostrar;

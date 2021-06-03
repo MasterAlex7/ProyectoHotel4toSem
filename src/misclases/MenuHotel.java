@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author Adrian Quinn
  */
 public class MenuHotel extends javax.swing.JFrame {
-
+    String usuario="";
     /**
      * Creates new form MenuHotel
      */
@@ -21,6 +21,14 @@ public class MenuHotel extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         cargaIconos();
+    }
+    
+    public MenuHotel(String usuario) {
+        this.usuario=usuario;
+        initComponents();
+        this.setLocationRelativeTo(null);
+        cargaIconos();
+        
     }
 
     /**
@@ -36,6 +44,11 @@ public class MenuHotel extends javax.swing.JFrame {
         jLabelRegistroIco = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        jLabel7 = new javax.swing.JLabel();
+        jLabelYummy = new javax.swing.JLabel();
+        jLabelHolaSoyYummy = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabelNomUsuario = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabelSalir = new javax.swing.JLabel();
         jLabelTitulo = new javax.swing.JLabel();
@@ -80,7 +93,28 @@ public class MenuHotel extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 176, 85, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 228, 212, -1));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 212, 20));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Grieta de la Orden 687, Calvillo,AGS.");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        jPanel1.add(jLabelYummy, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 130, 130));
+
+        jLabelHolaSoyYummy.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelHolaSoyYummy.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelHolaSoyYummy.setText("¡Hola! Soy Yummy");
+        jPanel1.add(jLabelHolaSoyYummy, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel28.setText("Hotel Yummy Resorts");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+
+        jLabelNomUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelNomUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNomUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabelNomUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 120, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 640));
 
@@ -296,7 +330,7 @@ public class MenuHotel extends javax.swing.JFrame {
     private void jLabelCheckInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckInMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new ServicioCheckIn().setVisible(true);
+        new ServicioCheckIn(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelCheckInMouseClicked
 
     private void jLabelCheckOut1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckOut1MouseClicked
@@ -308,13 +342,13 @@ public class MenuHotel extends javax.swing.JFrame {
     private void jLabelConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelConsultasMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new ServicioConsultas().setVisible(true);
+        new ServicioConsultas(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelConsultasMouseClicked
 
     private void jLabelModificarIconoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new ServicioEdicion().setVisible(true);
+        new ServicioEdicion(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelModificarIconoMouseClicked
 
     private void jLabelModificarIconoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseMoved
@@ -370,17 +404,22 @@ public class MenuHotel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelCheckIn;
     private javax.swing.JLabel jLabelCheckOut1;
     private javax.swing.JLabel jLabelConsultas;
+    private javax.swing.JLabel jLabelHolaSoyYummy;
     private javax.swing.JLabel jLabelMinimizar;
     private javax.swing.JLabel jLabelModificarIcono;
+    private javax.swing.JLabel jLabelNomUsuario;
     private javax.swing.JLabel jLabelRegistroIco;
     private javax.swing.JLabel jLabelSalir;
     private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JLabel jLabelYummy;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -397,14 +436,35 @@ public class MenuHotel extends javax.swing.JFrame {
         ImageIcon iconoMinimizar=new ImageIcon("src/iconos/minimize.png");
         ImageIcon iconoCerrar=new ImageIcon("src/iconos/cancel.png");
         ImageIcon modificar=new ImageIcon("src/iconos/writing.png");
+        ImageIcon iconoYummy=new ImageIcon("src/iconos/yummy_asistente.png");
         
-        this.jLabelRegistroIco.setIcon(iconoGrandeUsuario);
+        //**Iconos del personal
+            ImageIcon adrian=new ImageIcon("src/iconos/adrian.png");
+            ImageIcon alex=new ImageIcon("src/iconos/alex.png");
+            ImageIcon cesar=new ImageIcon("src/iconos/cesar.png");
+            ImageIcon jesus=new ImageIcon("src/iconos/jesus.png");
+        
+        //****
+        
+        this.jLabelYummy.setIcon(iconoYummy);
         this.jLabelCheckIn.setIcon(iconoGrandeEntrada);
         this.jLabelConsultas.setIcon(iconoGrandeConsulta);
         this.jLabelCheckOut1.setIcon(iconoGrandeSalida);
         this.jLabelMinimizar.setIcon(iconoMinimizar);
         this.jLabelSalir.setIcon(iconoCerrar);
         this.jLabelModificarIcono.setIcon(modificar);
+        
+        //**Cargamos icono del usuario dependiendo de quien acceda a la plataforma
+        this.jLabelNomUsuario.setText(this.usuario);
+        if(this.usuario.equals("Adrian")){
+            this.jLabelRegistroIco.setIcon(adrian);
+        }else if(this.usuario.equals("Alejandro")){
+            this.jLabelRegistroIco.setIcon(alex);
+        }else if(this.usuario.equals("Cesar")){
+            this.jLabelRegistroIco.setIcon(cesar);
+        }else if(this.usuario.equals("Jesus")){
+            this.jLabelRegistroIco.setIcon(jesus);
+        }
     }
 
 

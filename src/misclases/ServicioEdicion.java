@@ -22,11 +22,19 @@ public class ServicioEdicion extends javax.swing.JFrame {
     MySqlConn conn = new MySqlConn();
     String tipoHab = "";
     int numHab = 0;
+    String usuario="";
 
     /**
      * Creates new form ServicioEdicion
      */
     public ServicioEdicion() {
+        initComponents();
+        elementosOcultos();
+        cargarIconos();
+    }
+    
+    public ServicioEdicion(String usuario) {
+        this.usuario=usuario;
         initComponents();
         elementosOcultos();
         cargarIconos();
@@ -45,6 +53,9 @@ public class ServicioEdicion extends javax.swing.JFrame {
         jLabelIconoGrandeUsuario = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabelDir = new javax.swing.JLabel();
+        jLabelNomUsuario = new javax.swing.JLabel();
+        jLabelNomHotel = new javax.swing.JLabel();
         jPanelEdicionReg = new javax.swing.JPanel();
         jLabelNumHab = new javax.swing.JLabel();
         jTextFieldNumHab = new javax.swing.JTextField();
@@ -90,6 +101,21 @@ public class ServicioEdicion extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jPanelBarraLateral.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 130, 10));
+
+        jLabelDir.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabelDir.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDir.setText("Grieta de la Orden 687, Calvillo,AGS.");
+        jPanelBarraLateral.add(jLabelDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, 10));
+
+        jLabelNomUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelNomUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNomUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanelBarraLateral.add(jLabelNomUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 130, 30));
+
+        jLabelNomHotel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelNomHotel.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelNomHotel.setText("Hotel Yummy Resorts");
+        jPanelBarraLateral.add(jLabelNomHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, -1));
 
         getContentPane().add(jPanelBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 560));
 
@@ -221,6 +247,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
         jPanelEdicionReg.add(jLabelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, 60, -1));
 
         jLabelIconoMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconoMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelIconoMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelIconoMenuMouseClicked(evt);
@@ -267,7 +294,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
     private void jLabelIconoMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoMenuMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new MenuHotel().setVisible(true);
+        new MenuHotel(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelIconoMenuMouseClicked
 
     private void jButtonConfirmarModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarModifActionPerformed
@@ -414,12 +441,15 @@ public class ServicioEdicion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelDir;
     private javax.swing.JLabel jLabelFondoDegradado;
     private javax.swing.JLabel jLabelGuardar;
     private javax.swing.JLabel jLabelIconoGrandeUsuario;
     private javax.swing.JLabel jLabelIconoGuardar;
     private javax.swing.JLabel jLabelIconoMenu;
     private javax.swing.JLabel jLabelMenu;
+    private javax.swing.JLabel jLabelNomHotel;
+    private javax.swing.JLabel jLabelNomUsuario;
     private javax.swing.JLabel jLabelNumHab;
     private javax.swing.JLabel jLabelSel;
     private javax.swing.JLabel jLabelTipoHab;
@@ -443,12 +473,32 @@ public class ServicioEdicion extends javax.swing.JFrame {
         ImageIcon iconoUsuarioGrande = new ImageIcon("src/iconos/user.png");
         ImageIcon iconoGuardar = new ImageIcon("src/iconos/diskette.png");
         ImageIcon iconoMenu = new ImageIcon("src/iconos/menu_1.png");
-
+        
+        //**Iconos del personal
+            ImageIcon adrian=new ImageIcon("src/iconos/adrian.png");
+            ImageIcon alex=new ImageIcon("src/iconos/alex.png");
+            ImageIcon cesar=new ImageIcon("src/iconos/cesar.png");
+            ImageIcon jesus=new ImageIcon("src/iconos/jesus.png");
+        
+        //****
+        
         //Cargar las imagenes en las label
         this.jLabelFondoDegradado.setIcon(fondoDegradado);
         this.jLabelIconoGrandeUsuario.setIcon(iconoUsuarioGrande);
         this.jLabelIconoGuardar.setIcon(iconoGuardar);
         this.jLabelIconoMenu.setIcon(iconoMenu);
+        
+        
+        this.jLabelNomUsuario.setText(this.usuario);
+        if(this.usuario.equals("Adrian")){
+            this.jLabelIconoGrandeUsuario.setIcon(adrian);
+        }else if(this.usuario.equals("Alejandro")){
+            this.jLabelIconoGrandeUsuario.setIcon(alex);
+        }else if(this.usuario.equals("Cesar")){
+            this.jLabelIconoGrandeUsuario.setIcon(cesar);
+        }else if(this.usuario.equals("Jesus")){
+            this.jLabelIconoGrandeUsuario.setIcon(jesus);
+        }
 
     }
 

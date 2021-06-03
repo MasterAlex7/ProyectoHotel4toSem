@@ -120,7 +120,7 @@ public class FrameBusquedaPorHabitacion extends javax.swing.JInternalFrame {
                 String nombre=this.conn.rs.getString(1);
                 String tipoHab=this.conn.rs.getString(4);
                 String ciudadOrigen=this.conn.rs.getString(2);
-                this.jTextAreaInformacion.setText("***************\nNombre: "+nombre+"\nTipo de Habitacion: "+tipoHab+"Ciudad de origen: "+ciudadOrigen+"\n**************");
+                this.jTextAreaInformacion.setText("***************\nNombre: "+nombre+"\nTipo de Habitacion: "+tipoHab+"\nCiudad de origen: "+ciudadOrigen+"\n**************");
             }catch(SQLException ex){
                 JOptionPane.showMessageDialog(null,"Habitacion no ocupada");
             }

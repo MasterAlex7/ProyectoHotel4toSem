@@ -77,7 +77,7 @@ public class SesionLogin extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(248, 248, 248));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(jLabelIconoGrandeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 130, 130));
+        jPanel4.add(jLabelIconoGrandeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 130, 130));
 
         jSeparator1.setBackground(new java.awt.Color(60, 246, 184));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,7 +220,7 @@ public class SesionLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Bienvendio "+ this.conn.rs.getString(1)+" al sistema de Yummy Resorts","Bienvenida",1);
                 setVisible(false);
                 music.stop();
-                new MenuHotel().setVisible(true);
+                new MenuHotel(cuenta).setVisible(true);
                 //Generar un archivo con el usuario onlie y su informamcion
                 //para el menu
                 

@@ -38,6 +38,7 @@ public class FramePorcentajeOcupacionHabitacion extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jButtonConsultar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +58,10 @@ public class FramePorcentajeOcupacionHabitacion extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("ESTE FRAME NO SIRVE!!!! NO MODIFICAR");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -68,7 +73,10 @@ public class FramePorcentajeOcupacionHabitacion extends javax.swing.JFrame {
                         .addComponent(jLabelTitulo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(382, 382, 382)
-                        .addComponent(jButtonConsultar)))
+                        .addComponent(jButtonConsultar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(223, 223, 223)
+                        .addComponent(jLabel1)))
                 .addContainerGap(163, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -78,7 +86,9 @@ public class FramePorcentajeOcupacionHabitacion extends javax.swing.JFrame {
                 .addComponent(jLabelTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonConsultar)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addGap(86, 86, 86)
+                .addComponent(jLabel1)
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,6 +211,7 @@ public class FramePorcentajeOcupacionHabitacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConsultar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
