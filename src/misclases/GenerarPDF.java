@@ -6,11 +6,25 @@
 
 package misclases;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -188,5 +202,83 @@ public class GenerarPDF {
         } catch (IOException ex) {
             System.out.println("No se pudo crear");
         }
+    }
+    
+    
+    
+    public void prubeaPdf(){
+        Document documento=new Document();
+        LocalDate fechaActual= LocalDate.now();
+        SimpleDateFormat formato=new SimpleDateFormat("dd-MM-yyy");
+        
+        
+        try{
+            
+            FileOutputStream archivoPDF=new FileOutputStream("Ticket "+this.nombreHuesped+".pdf");
+            PdfWriter.getInstance(documento, archivoPDF);
+            
+            Image header=Image.getInstance("src/imagenes/yummy2.png");
+            header.scaleToFit(100, 100);
+            header.setAlignment(Chunk.ALIGN_CENTER);
+            
+            
+            Paragraph parrafo=new Paragraph();
+            parrafo.setAlignment(Paragraph.ALIGN_CENTER);
+            parrafo.setFont(FontFactory.getFont("Tahoma",18,Font.BOLD,BaseColor.BLACK));
+            parrafo.add("\n\nYummy Resorts\n");
+            parrafo.setFont(FontFactory.getFont("Tahoma",16,Font.ITALIC,BaseColor.BLACK));
+            parrafo.add("\nLas mejores experiencias nacen aqui\n");
+            parrafo.setFont(FontFactory.getFont("Tahoma",14,Font.BOLD,BaseColor.BLACK));
+            parrafo.add("\nGrieta de la Orden 687, Calvillo,AGS."+"\n");
+            parrafo.add("\nFecha: "+fechaActual);
+            
+            
+            Paragraph parrafo1=new Paragraph();
+            parrafo1.setAlignment(Paragraph.ALIGN_CENTER);
+            parrafo1.setFont(FontFactory.getFont("Tahoma", 12, Font.BOLD, BaseColor.DARK_GRAY));
+            parrafo1.add("\n\nNombre del huesped: "+this.nombreHuesped+"\n");
+            //parrafo1.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
+            parrafo1.add("Ciudad de origen: "+this.cdOrigen+"\n");
+            parrafo1.add("Fecha de Ingreso: "+formato.format(this.fechaIngreso)+"\n");
+            parrafo1.add("Fecha de Salida: "+formato.format(this.fechaSalida)+"\n");
+            parrafo1.add("Tipo de Habitacion: "+this.tipodeHab+"\n");
+            parrafo1.add("Costo de Habitacion: "+this.Costohab+"\n");
+            parrafo1.add("Dias de hospedaje: "+this.diasUsados+"\n");
+            parrafo1.add("Total a pagar sin cargos extra: "+this.Totalsc+"\n");
+            parrafo1.add("Total a pagar son cargos extra: "+this.Totalce+"\n");
+            parrafo1.add("Servicios usados \n"+this.servicios+"\n");
+
+            
+            Image firma=Image.getInstance("src/imagenes/firma.png");
+            firma.scaleToFit(100,100);
+            firma.setAlignment(Chunk.ALIGN_RIGHT);
+            
+            Paragraph parrafo2=new Paragraph();
+            parrafo2.setAlignment(Paragraph.ALIGN_RIGHT);
+            parrafo1.setFont(FontFactory.getFont("Tahoma", 10, Font.BOLD, BaseColor.DARK_GRAY));
+            parrafo2.add("Firma del Dueño\n");
+            parrafo2.add("Agradecemos su preferencia y lo esperamos de nuevo!!!\n\n");
+            
+            Paragraph parrafo3=new Paragraph();
+            parrafo3.setAlignment(Paragraph.ALIGN_LEFT);
+            parrafo3.setFont(FontFactory.getFont("Tahoma", 12, Font.BOLD, BaseColor.DARK_GRAY));
+            parrafo3.add("Salida completada");
+            
+           
+            documento.open();
+            documento.add(header);
+            documento.add(parrafo);
+            documento.add(parrafo1);
+            documento.add(firma);
+            documento.add(parrafo2);
+            documento.add(parrafo3);
+        }catch(DocumentException | FileNotFoundException e){
+                System.out.println("Error en PDF"+e.getMessage());
+        }catch(IOException e){
+            System.out.println("Error en la imagen"+ e.getMessage());
+        }
+        documento.close();
+        JOptionPane.showMessageDialog(null, "Ticket Generado con Exito");
+    
     }
 }

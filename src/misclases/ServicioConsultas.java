@@ -8,6 +8,7 @@ package misclases;
 import framesconsultas.FrameBusquedaPorHabitacion;
 import framesconsultas.FrameBusquedaPorNombreHuesped;
 import framesconsultas.FrameConsultaPrecios;
+import framesconsultas.FrameIngresosHotel;
 import framesconsultas.FramePersonasHospedadas;
 import framesconsultas.FramePorcentajeOcupHab;
 import framesconsultas.FrameTotalHabitaciones;
@@ -93,6 +94,11 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuSubHotel.add(jMenuItemGaleriaFotos);
 
         jMenuItemIngresosHotel.setText("Ingresos del hotel");
+        jMenuItemIngresosHotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemIngresosHotelActionPerformed(evt);
+            }
+        });
         jMenuSubHotel.add(jMenuItemIngresosHotel);
 
         jMenuItemPorcentajeOcu.setText("Porcentaje de ocupacion ");
@@ -302,6 +308,21 @@ public class ServicioConsultas extends javax.swing.JFrame {
         }
         personas.show();//mostrar el jDesktopPanel
     }//GEN-LAST:event_jMenuItemListaHuespedesActionPerformed
+
+    private void jMenuItemIngresosHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIngresosHotelActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPaneFondo.removeAll();
+        this.repaint();
+        
+        FrameIngresosHotel ingresosFrame =new FrameIngresosHotel();
+        this.jDesktopPaneFondo.add(ingresosFrame);//Agregamos altas al jDesktopPanel
+        try{
+            ingresosFrame.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        ingresosFrame.show();//mostrar el jDesktopPanel
+    }//GEN-LAST:event_jMenuItemIngresosHotelActionPerformed
 
     /**
      * @param args the command line arguments

@@ -319,7 +319,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     private void jButtonGenerarCobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarCobroActionPerformed
         // TODO add your handling code here:
         GenerarPDF pdf = new GenerarPDF(nombreHuesped,cdOrigen,fechaIngreso,fechaSalida,tipodeHab,Costohab,diasUsados,Totalsc,Totalce,servicios);
-        pdf.generaciondepdf();
+        pdf.prubeaPdf();
     }//GEN-LAST:event_jButtonGenerarCobroActionPerformed
 
     /**
