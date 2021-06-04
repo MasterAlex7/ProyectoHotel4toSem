@@ -43,12 +43,15 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
         jButtonConfirmar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaInformacion = new javax.swing.JTextArea();
+        jLabelInstruccion = new javax.swing.JLabel();
 
+        setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelFondoTitulo.setBackground(new java.awt.Color(81, 243, 109));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("HABITACIONES DISPONIBLES");
 
         javax.swing.GroupLayout jPanelFondoTituloLayout = new javax.swing.GroupLayout(jPanelFondoTitulo);
@@ -70,34 +73,49 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanelFondoTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanelFondoPrincipal.setBackground(new java.awt.Color(132, 191, 191));
+        jPanelFondoPrincipal.setBackground(new java.awt.Color(51, 51, 51));
         jPanelFondoPrincipal.setForeground(new java.awt.Color(153, 153, 153));
         jPanelFondoPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jRadioButtonPiso1.setBackground(new java.awt.Color(51, 51, 51));
         buttonGroup1.add(jRadioButtonPiso1);
         jRadioButtonPiso1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jRadioButtonPiso1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonPiso1.setText("PISO 1");
         jPanelFondoPrincipal.add(jRadioButtonPiso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 110, -1));
 
+        jRadioButtonPiso2.setBackground(new java.awt.Color(51, 51, 51));
         buttonGroup1.add(jRadioButtonPiso2);
         jRadioButtonPiso2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jRadioButtonPiso2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonPiso2.setText("PISO 2");
         jPanelFondoPrincipal.add(jRadioButtonPiso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 110, -1));
 
-        jButtonConfirmar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jButtonConfirmar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonConfirmar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jButtonConfirmar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonConfirmar.setText("CONFIRMAR");
         jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConfirmarActionPerformed(evt);
             }
         });
-        jPanelFondoPrincipal.add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 170, 80));
+        jPanelFondoPrincipal.add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 120, 50));
 
+        jTextAreaInformacion.setBackground(new java.awt.Color(255, 255, 255));
         jTextAreaInformacion.setColumns(20);
+        jTextAreaInformacion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jTextAreaInformacion.setForeground(new java.awt.Color(0, 0, 0));
         jTextAreaInformacion.setRows(5);
+        jTextAreaInformacion.setBorder(null);
         jScrollPane1.setViewportView(jTextAreaInformacion);
 
-        jPanelFondoPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 370, 360));
+        jPanelFondoPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 450, 360));
+
+        jLabelInstruccion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelInstruccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelInstruccion.setText("Selecciona el piso del cual deseas obtener la informacion");
+        jPanelFondoPrincipal.add(jLabelInstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         getContentPane().add(jPanelFondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1010, 490));
 
@@ -122,6 +140,7 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelInstruccion;
     private javax.swing.JPanel jPanelFondoPrincipal;
     private javax.swing.JPanel jPanelFondoTitulo;
     private javax.swing.JRadioButton jRadioButtonPiso1;
@@ -143,13 +162,13 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
 
                 for (int i = 0; i < 15; i++) {
                     if (this.conn.rs.getBoolean(2) == false) {
-                        if (this.conn.rs.getString(3) == "Sencilla") {
+                        if (this.conn.rs.getString(3).equals("Sencilla")) {
                             int aux = this.conn.rs.getInt(1);
                             sencillas.add(String.valueOf(aux));
-                        } else if (this.conn.rs.getString(3) == "Dual") {
+                        } else if (this.conn.rs.getString(3).equals("Dual")) {
                             int aux = this.conn.rs.getInt(1);
                             dobles.add(String.valueOf(aux));
-                        } else if (this.conn.rs.getString(3) == "Master") {
+                        } else if (this.conn.rs.getString(3).equals("Master")) {
                             int aux = this.conn.rs.getInt(1);
                             master.add(String.valueOf(aux));
                         }
@@ -162,6 +181,23 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No fue posible acceder a la base");
 
             }
+            String mensaje="En el piso 1 estan disponibles:\n" + "Sencillas: ";
+             for (int i = 0; i < sencillas.size(); i++) {
+                 String aux = sencillas.get(i);
+                 mensaje=mensaje.concat(aux+" ");   
+            }
+             mensaje=mensaje.concat("\nDual: ");
+             for (int i = 0; i < dobles.size() ; i++) {
+                 String aux = dobles.get(i);
+                 mensaje=mensaje.concat(aux+" ");   
+            }
+             mensaje=mensaje.concat("\nMaster: ");
+             for (int i = 0; i < master.size(); i++) {
+                 String aux = master.get(i);
+                 mensaje=mensaje.concat(aux+" ");       
+            }
+             this.jTextAreaInformacion.setText(mensaje);
+             
         } else if (limiteSup == 146) {
             try {
                 this.conn.rs.first();
@@ -170,13 +206,13 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
                 }
                 for (int i = 0; i < 15; i++) {
                     if (this.conn.rs.getBoolean(2) == false) {
-                        if (this.conn.rs.getString(3) == "Sencilla") {
+                        if (this.conn.rs.getString(3).equals("Sencilla")) {
                             int aux = this.conn.rs.getInt(1);
                             sencillas.add(String.valueOf(aux));
-                        } else if (this.conn.rs.getString(3) == "Dual") {
+                        } else if (this.conn.rs.getString(3).equals("Dual")) {
                             int aux = this.conn.rs.getInt(1);
                             dobles.add(String.valueOf(aux));
-                        } else if (this.conn.rs.getString(3) == "Master") {
+                        } else if (this.conn.rs.getString(3).equals("Master")) {
                             int aux = this.conn.rs.getInt(1);
                             master.add(String.valueOf(aux));
                         }
@@ -193,17 +229,17 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
              String mensaje="En el piso 2 estan disponibles:\n" + "Sencillas: ";
              for (int i = 0; i < sencillas.size(); i++) {
                  String aux = sencillas.get(i);
-                 mensaje.concat(aux);   
+                 mensaje=mensaje.concat(aux+" ");   
             }
-             mensaje.concat("\nDual: ");
+             mensaje=mensaje.concat("\nDual: ");
              for (int i = 0; i < dobles.size() ; i++) {
                  String aux = dobles.get(i);
-                 mensaje.concat(aux);   
+                 mensaje=mensaje.concat(aux+" ");   
             }
-             mensaje.concat("\nMaster: ");
+             mensaje=mensaje.concat("\nMaster: ");
              for (int i = 0; i < master.size(); i++) {
                  String aux = master.get(i);
-                 mensaje.concat(aux);       
+                 mensaje=mensaje.concat(aux+" ");       
             }
              this.jTextAreaInformacion.setText(mensaje);
         }

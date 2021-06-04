@@ -47,6 +47,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         initComponents();
         elementosOcultos();
         cargarIconos();
+        estadoHabitaciones();
  
     }
     
@@ -56,6 +57,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         initComponents();
         elementosOcultos();
         cargarIconos();
+        estadoHabitaciones();
     }
 
     /**
@@ -1675,8 +1677,6 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         
         //****
         
-        
-        
         this.fondoDegradado.setIcon(fondoDegradado);
         this.jLabelLogoUsuario.setIcon(logousuario);
         this.jLabelLogoCheck.setIcon(iconoCheck);
@@ -1741,29 +1741,216 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         
     }
     
-    /*@Override
-        public void paint(Graphics grafico){
-            super.paint(grafico);
-            Toolkit t = Toolkit.getDefaultToolkit();
-            Image imagen = t.getImage("src/imagenes/Hotel Aereo.jpg");
-            grafico.drawImage(imagen, 0, 0, 245, 250, null);
+    public void  estadoHabitaciones(){
+        String query="select * from habitaciones ";
+        int controlNum=109;
+        this.conn.Consult(query);
+        try{
+            this.conn.rs.first();
+            for(int i=0;i<30;i++){
+                if(this.conn.rs.getBoolean(2)==true){//Habitacion ocupada, poner label y color rojo
+                    switch(i){
+                        case 0: this.jLabelHab109.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab109.setBackground(Color.red);
+                                 break;
+                        case 1: this.jLabelHab110.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab110.setBackground(Color.red);
+                                 break;
+                        case 2: this.jLabelHab111.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab111.setBackground(Color.red);
+                                 break;
+                        case 3: this.jLabelHab112.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab112.setBackground(Color.red);
+                                 break;
+                        case 4: this.jLabelHab113.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab113.setBackground(Color.red);
+                                 break;
+                        case 5: this.jLabelHab115.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab115.setBackground(Color.red);
+                                 break;
+                        case 6: this.jLabelHab116.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab116.setBackground(Color.red);
+                                 break;
+                        case 7: this.jLabelHab117.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab117.setBackground(Color.red);
+                                 break;
+                        case 8: this.jLabelHab118.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab118.setBackground(Color.red);
+                                 break;
+                        case 9: this.jLabelHab120.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab120.setBackground(Color.red);
+                                 break;
+                        case 10: this.jLabelHab121.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab121.setBackground(Color.red);
+                                 break;
+                        case 11: this.jLabelHab122.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab122.setBackground(Color.red);
+                                 break;
+                        case 12: this.jLabelHab123.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab123.setBackground(Color.red);
+                                 break;
+                        case 13: this.jLabelHab124.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab124.setBackground(Color.red);
+                                 break;
+                        case 14: this.jLabelHab126.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab126.setBackground(Color.red);
+                                 break;
+                        case 15: this.jLabelHab128.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab128.setBackground(Color.red);
+                                 break;
+                        case 16: this.jLabelHab129.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab129.setBackground(Color.red);
+                                 break;
+                        case 17: this.jLabelHab130.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab130.setBackground(Color.red);
+                                 break;
+                        case 18: this.jLabelHab131.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab131.setBackground(Color.red);
+                                 break;
+                        case 19: this.jLabelHab132.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab132.setBackground(Color.red);
+                                 break;
+                        case 20: this.jLabelHab133.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab133.setBackground(Color.red);
+                                 break;
+                        case 21: this.jLabelHab134.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab134.setBackground(Color.red);
+                                 break;
+                        case 22: this.jLabelHab136.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab136.setBackground(Color.red);
+                                 break;
+                        case 23: this.jLabelHab137.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab137.setBackground(Color.red);
+                                 break;
+                        case 24: this.jLabelHab140.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab140.setBackground(Color.red);
+                                 break;
+                        case 25: this.jLabelHab141.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab141.setBackground(Color.red);
+                                 break;
+                        case 26: this.jLabelHab142.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab142.setBackground(Color.red);
+                                 break;
+                        case 27: this.jLabelHab143.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab143.setBackground(Color.red);
+                                 break;
+                        case 28: this.jLabelHab145.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab145.setBackground(Color.red);
+                                 break;
+                        case 29: this.jLabelHab146.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
+                                 this.jLabelHab146.setBackground(Color.red);
+                                 break;      
+                    }
+                }else if(this.conn.rs.getBoolean(2)==false){
+                    switch(i){
+                        case 0: this.jLabelHab109.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab109.setBackground(Color.green);
+                                 break;
+                        case 1: this.jLabelHab110.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab110.setBackground(Color.green);
+                                 break;
+                        case 2: this.jLabelHab111.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab111.setBackground(Color.green);
+                                 break;
+                        case 3: this.jLabelHab112.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab112.setBackground(Color.green);
+                                 break;
+                        case 4: this.jLabelHab113.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab113.setBackground(Color.green);
+                                 break;
+                        case 5: this.jLabelHab115.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab115.setBackground(Color.green);
+                                 break;
+                        case 6: this.jLabelHab116.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab116.setBackground(Color.green);
+                                 break;
+                        case 7: this.jLabelHab117.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab117.setBackground(Color.green);
+                                 break;
+                        case 8: this.jLabelHab118.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab118.setBackground(Color.green);
+                                 break;
+                        case 9: this.jLabelHab120.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab120.setBackground(Color.green);
+                                 break;
+                        case 10: this.jLabelHab121.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab121.setBackground(Color.green);
+                                 break;
+                        case 11: this.jLabelHab122.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab122.setBackground(Color.green);
+                                 break;
+                        case 12: this.jLabelHab123.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab123.setBackground(Color.green);
+                                 break;
+                        case 13: this.jLabelHab124.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab124.setBackground(Color.green);
+                                 break;
+                        case 14: this.jLabelHab126.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab126.setBackground(Color.green);
+                                 break;
+                        case 15: this.jLabelHab128.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab128.setBackground(Color.green);
+                                 break;
+                        case 16: this.jLabelHab129.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab129.setBackground(Color.green);
+                                 break;
+                        case 17: this.jLabelHab130.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab130.setBackground(Color.green);
+                                 break;
+                        case 18: this.jLabelHab131.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab131.setBackground(Color.green);
+                                 break;
+                        case 19: this.jLabelHab132.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab132.setBackground(Color.green);
+                                 break;
+                        case 20: this.jLabelHab133.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab133.setBackground(Color.green);
+                                 break;
+                        case 21: this.jLabelHab134.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab134.setBackground(Color.green);
+                                 break;
+                        case 22: this.jLabelHab136.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab136.setBackground(Color.green);
+                                 break;
+                        case 23: this.jLabelHab137.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab137.setBackground(Color.green);
+                                 break;
+                        case 24: this.jLabelHab140.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab140.setBackground(Color.green);
+                                 break;
+                        case 25: this.jLabelHab141.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab141.setBackground(Color.green);
+                                 break;
+                        case 26: this.jLabelHab142.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab142.setBackground(Color.green);
+                                 break;
+                        case 27: this.jLabelHab143.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab143.setBackground(Color.green);
+                                 break;
+                        case 28: this.jLabelHab145.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab145.setBackground(Color.green);
+                                 break;
+                        case 29: this.jLabelHab146.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
+                                 this.jLabelHab146.setBackground(Color.green);
+                                 break;      
+                    }
+                
+                }
+                this.conn.rs.next();
+            }
+            
+        }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "No fue posible realizar la consulta!!!");
 
-            Toolkit t1 = Toolkit.getDefaultToolkit();
-            Image imagen1 = t1.getImage("src/imagenes/Hotel Alberca.jpg");
-            grafico.drawImage(imagen1, 0, 250, 245, 250, this);
-
-            Toolkit t2 = Toolkit.getDefaultToolkit();
-            Image imagen2 = t2.getImage("src/imagenes/Hotel Vista Frente.jpg");
-            grafico.drawImage(imagen2, 245, 0, 245, 250, null);
-
-            Toolkit t3 = Toolkit.getDefaultToolkit();
-            Image imagen3 = t3.getImage("src/imagenes/Hotel Cuarto.jpg");
-            grafico.drawImage(imagen3, 245, 250, 245, 250, this);
-
-            Toolkit t4 = Toolkit.getDefaultToolkit();
-            Image imagen4 = t4.getImage("src/imagenes/yummy2.png");
-            grafico.drawImage(imagen4, 170, 170, 150, 150, this);
-        }*/
+        }
+        
+        
+        
+        
+            
+    }
+    
+   
     
    
 
