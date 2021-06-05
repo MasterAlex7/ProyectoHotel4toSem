@@ -8,7 +8,11 @@ package misclases;
 import conexiones.MySqlConn;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Scanner;
+import javax.swing.ImageIcon;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -22,18 +26,18 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
  */
 public class ServicioCheckOut extends javax.swing.JFrame {
 
-    String nombreHuesped  = "";
-    String cdOrigen  = "";
+    String nombreHuesped = "";
+    String cdOrigen = "";
     Date fechaIngreso;
     Date fechaSalida;
-    String tipodeHab  = "";
-    int Costohab  = 0;
-    int diasUsados  = 0;
-    int Totalsc  = 0;
-    int Totalce  = 0;
-    String servicios  = "";
+    String tipodeHab = "";
+    int Costohab = 0;
+    int diasUsados = 0;
+    int Totalsc = 0;
+    int Totalce = 0;
+    String servicios = "";
     MySqlConn conn = new MySqlConn();
-    String user="";
+    String user = "";
 
     /**
      * Creates new form ServicioCheckOut
@@ -41,10 +45,11 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     public ServicioCheckOut() {
         initComponents();
     }
-    
+
     public ServicioCheckOut(String usuario) {
         initComponents();
-        this.user=usuario;
+        this.user = usuario;
+        cargarIconos();
     }
 
     /**
@@ -67,10 +72,13 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButtonIngresar = new javax.swing.JButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
         jButtonGenerarCobro = new javax.swing.JButton();
         jLabelBackMenu = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabelLogoUsuario = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabelNomUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,7 +114,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 128, 403, 288));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 403, 288));
 
         jButtonIngresar.setText("Ingresar");
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +123,6 @@ public class ServicioCheckOut extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 79, -1, -1));
-        jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 467, 462, -1));
 
         jButtonGenerarCobro.setText("Generar Cobro");
         jButtonGenerarCobro.addActionListener(new java.awt.event.ActionListener() {
@@ -131,24 +138,60 @@ public class ServicioCheckOut extends javax.swing.JFrame {
                 jLabelBackMenuMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabelBackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, -1, -1));
+        jPanel1.add(jLabelBackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, -4, 800, 530));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, -4, 740, 530));
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(100, 100));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Usuario");
+
+        jLabelNomUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNomUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelNomUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNomUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNomUsuario.setToolTipText("");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                        .addComponent(jLabelLogoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabelNomUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel2)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabelLogoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelNomUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 530));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 530));
 
         pack();
         setLocationRelativeTo(null);
@@ -173,17 +216,17 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         //Aqui ingresamos a la base de datos para sacar la informacion correspondiente
         try {
             this.jTextArea1.setText("");
-            this.nombreHuesped=this.conn.rs.getString(1);
-            this.cdOrigen=this.conn.rs.getString(2);
-            this.fechaIngreso=this.conn.rs.getDate(6);
-            this.fechaSalida=this.conn.rs.getDate(7);
+            this.nombreHuesped = this.conn.rs.getString(1);
+            this.cdOrigen = this.conn.rs.getString(2);
+            this.fechaIngreso = this.conn.rs.getDate(6);
+            this.fechaSalida = this.conn.rs.getDate(7);
             personas = this.conn.rs.getInt(5);
             costo = this.conn.rs.getInt(8);
             tipodehab = this.conn.rs.getString(4);
             hab = this.conn.rs.getInt(3);
-            this.tipodeHab=tipodehab;
-            this.Costohab=costo;
-            this.Totalsc=costo;
+            this.tipodeHab = tipodehab;
+            this.Costohab = costo;
+            this.Totalsc = costo;
             this.jTextArea1.append("Se reservo habitacion " + tipodehab + "\n");
             this.jTextArea1.append("Costo " + "                                   $" + costo);
             this.jTextArea1.append("\n");
@@ -223,38 +266,38 @@ public class ServicioCheckOut extends javax.swing.JFrame {
             //Vemos que servicios adicionales ocupo
             if (this.jCheckBoxAlcuarto.isSelected()) {
                 this.jTextArea1.append("Servico al cuarto                   $100");
-                this.servicios=this.servicios+"Servicio al cuarto            $100\n";
+                this.servicios = this.servicios + "Servicio al cuarto            $100\n";
                 costo = costo + 100;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxBar.isSelected()) {
                 this.jTextArea1.append("Servico de bar                        $250");
-                this.servicios=this.servicios+"Servicio de bar                $250\n";
+                this.servicios = this.servicios + "Servicio de bar                $250\n";
                 costo = costo + 250;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxGuarderia.isSelected()) {
                 this.jTextArea1.append("Servico de Guarderia            $150");
-                this.servicios=this.servicios+"Servicio de Guarderia           $150\n";
+                this.servicios = this.servicios + "Servicio de Guarderia           $150\n";
                 costo = costo + 150;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxSPA.isSelected()) {
                 this.jTextArea1.append("Servico de SPA                     $350");
-                this.servicios=this.servicios+"Servicio de Spa                 $350\n";
+                this.servicios = this.servicios + "Servicio de Spa                 $350\n";
                 costo = costo + 350;
                 this.jTextArea1.append("\n");
             }
             if (this.jCheckBoxTintoreria.isSelected()) {
                 this.jTextArea1.append("Servico de tintoreria              $185");
-                this.servicios=this.servicios+"Servicio de Tintoreria                $185\n";
+                this.servicios = this.servicios + "Servicio de Tintoreria                $185\n";
                 costo = costo + 185;
                 this.jTextArea1.append("\n");
             }
 
             this.jTextArea1.append("\nEl costo total sera de         $" + costo);
-            
-            this.Totalce=costo;
+
+            this.Totalce = costo;
             System.out.println(this.servicios);
 
         } catch (SQLException ex) {
@@ -318,7 +361,11 @@ public class ServicioCheckOut extends javax.swing.JFrame {
 
     private void jButtonGenerarCobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarCobroActionPerformed
         // TODO add your handling code here:
-        GenerarPDF pdf = new GenerarPDF(nombreHuesped,cdOrigen,fechaIngreso,fechaSalida,tipodeHab,Costohab,diasUsados,Totalsc,Totalce,servicios);
+        Duration diff = Duration.between(this.fechaIngreso.toLocalDate().atStartOfDay(), this.fechaSalida.toLocalDate().atStartOfDay());
+        Period period = Period.between(this.fechaIngreso.toLocalDate(), this.fechaSalida.toLocalDate());
+        this.diasUsados = (int) diff.toDays();
+        System.out.println("Dias usados: " + this.diasUsados);
+        GenerarPDF pdf = new GenerarPDF(nombreHuesped, cdOrigen, fechaIngreso, fechaSalida, tipodeHab, Costohab, diasUsados, Totalsc, Totalce, servicios);
         pdf.prubeaPdf();
     }//GEN-LAST:event_jButtonGenerarCobroActionPerformed
 
@@ -366,12 +413,39 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxSPA;
     private javax.swing.JCheckBox jCheckBoxTintoreria;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBackMenu;
+    private javax.swing.JLabel jLabelLogoUsuario;
+    private javax.swing.JLabel jLabelNomUsuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextFieldHab;
     // End of variables declaration//GEN-END:variables
+    
+    public void cargarIconos() {
+        ImageIcon adrian = new ImageIcon("src/iconos/adrian.png");
+        ImageIcon alex = new ImageIcon("src/iconos/alex.png");
+        ImageIcon cesar = new ImageIcon("src/iconos/cesar.png");
+        ImageIcon jesus = new ImageIcon("src/iconos/jesus.png");
+        ImageIcon logousuario=new ImageIcon("src/iconos/user.png");
+
+        this.jLabelNomUsuario.setText(this.user);
+        if (this.user.equals("Adrian")) {
+            this.jLabelLogoUsuario.setIcon(adrian);
+        } else if (this.user.equals("Alejandro")) {
+            this.jLabelLogoUsuario.setIcon(alex);
+        } else if (this.user.equals("Cesar")) {
+            this.jLabelLogoUsuario.setIcon(cesar);
+        } else if (this.user.equals("Jesus")) {
+            this.jLabelLogoUsuario.setIcon(jesus);
+        } else {
+            this.jLabelLogoUsuario.setIcon(logousuario);
+        }
+    }
+
 }
+
+
