@@ -44,6 +44,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
      */
     public ServicioCheckOut() {
         initComponents();
+        cargarIconos();
     }
 
     public ServicioCheckOut(String usuario) {
@@ -74,48 +75,76 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         jButtonIngresar = new javax.swing.JButton();
         jButtonGenerarCobro = new javax.swing.JButton();
         jLabelBackMenu = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabelLogoUsuario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabelNomUsuario = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese el Numero de Habitacion que realiza su CheckOut");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 45, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jTextFieldHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldHabActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 83, 159, -1));
+        jPanel1.add(jTextFieldHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, 30));
 
+        jCheckBoxAlcuarto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCheckBoxAlcuarto.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxAlcuarto.setText("Servicio al Cuarto");
-        jPanel1.add(jCheckBoxAlcuarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        jCheckBoxAlcuarto.setContentAreaFilled(false);
+        jPanel1.add(jCheckBoxAlcuarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
+        jCheckBoxBar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCheckBoxBar.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxBar.setText("Bar");
-        jPanel1.add(jCheckBoxBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jCheckBoxBar.setContentAreaFilled(false);
+        jPanel1.add(jCheckBoxBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
+        jCheckBoxTintoreria.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCheckBoxTintoreria.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxTintoreria.setText("Tintoreria");
-        jPanel1.add(jCheckBoxTintoreria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        jCheckBoxTintoreria.setContentAreaFilled(false);
+        jPanel1.add(jCheckBoxTintoreria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
+        jCheckBoxSPA.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCheckBoxSPA.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxSPA.setText("SPA");
-        jPanel1.add(jCheckBoxSPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        jCheckBoxSPA.setContentAreaFilled(false);
+        jPanel1.add(jCheckBoxSPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
+        jCheckBoxGuarderia.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCheckBoxGuarderia.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxGuarderia.setText("Guarderia");
-        jPanel1.add(jCheckBoxGuarderia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+        jCheckBoxGuarderia.setContentAreaFilled(false);
+        jPanel1.add(jCheckBoxGuarderia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         jTextArea1.setColumns(20);
+        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ticket", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 36), new java.awt.Color(0, 0, 0))); // NOI18N
+        jTextArea1.setCaretColor(new java.awt.Color(255, 0, 204));
+        jTextArea1.setFocusable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 403, 288));
 
+        jButtonIngresar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonIngresar.setForeground(new java.awt.Color(0, 153, 153));
         jButtonIngresar.setText("Ingresar");
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +153,8 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 79, -1, -1));
 
+        jButtonGenerarCobro.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonGenerarCobro.setForeground(new java.awt.Color(0, 153, 153));
         jButtonGenerarCobro.setText("Generar Cobro");
         jButtonGenerarCobro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,13 +163,18 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonGenerarCobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 467, -1, -1));
 
-        jLabelBackMenu.setText("jLabel2");
         jLabelBackMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelBackMenuMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabelBackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, -1, -1));
+        jPanel1.add(jLabelBackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 60, 60));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("MENU");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, -1, -1));
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 530));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, -4, 740, 530));
 
@@ -158,6 +194,14 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         jLabelNomUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNomUsuario.setToolTipText("");
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Grieta de la Orden 687, Calvillo,AGS.");
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Hotel Yummy Resorts");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -165,13 +209,20 @@ public class ServicioCheckOut extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
                         .addComponent(jLabelLogoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jLabelNomUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                .addComponent(jLabelNomUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                    .addGap(8, 8, 8)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jLabel4))
+                                        .addComponent(jLabel6))
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jLabel2)))
@@ -188,7 +239,11 @@ public class ServicioCheckOut extends javax.swing.JFrame {
                 .addComponent(jLabelNomUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 530));
@@ -337,7 +392,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         System.out.println(ingresos);
 
         //Eliminamos al huesped que se dio de baja
-        /*String queryHuespedes = "delete from huespedes where habitacion = " + hab;
+        String queryHuespedes = "delete from huespedes where habitacion = " + hab;
         int w = this.conn.Update(queryHuespedes);
         if (w > 0) {
             System.out.println("Eliminado con exito (Huespedes)");
@@ -352,7 +407,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
             System.out.println("Actualizado con exito");
         } else {
             System.out.println("No se actualizo la habitacion");
-        }*/
+        }
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     private void jTextFieldHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHabActionPerformed
@@ -405,6 +460,7 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButtonGenerarCobro;
     private javax.swing.JButton jButtonIngresar;
     private javax.swing.JCheckBox jCheckBoxAlcuarto;
@@ -414,6 +470,9 @@ public class ServicioCheckOut extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxTintoreria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelBackMenu;
     private javax.swing.JLabel jLabelLogoUsuario;
     private javax.swing.JLabel jLabelNomUsuario;
@@ -431,6 +490,15 @@ public class ServicioCheckOut extends javax.swing.JFrame {
         ImageIcon cesar = new ImageIcon("src/iconos/cesar.png");
         ImageIcon jesus = new ImageIcon("src/iconos/jesus.png");
         ImageIcon logousuario=new ImageIcon("src/iconos/user.png");
+        ImageIcon menuIcono=new ImageIcon("src/iconos/menu_1.png");
+        ImageIcon fondo=new ImageIcon("src/imagenes/fondocheckout.png");
+        ImageIcon iconoBotonIng=new ImageIcon("src/iconos/loupe.png");
+        ImageIcon iconoBotonTicket=new ImageIcon("src/iconos/check.png");
+        
+        this.jLabelBackMenu.setIcon(menuIcono);
+        this.fondo.setIcon(fondo);
+        this.jButtonGenerarCobro.setIcon(iconoBotonTicket);
+        this.jButtonIngresar.setIcon(iconoBotonIng);
 
         this.jLabelNomUsuario.setText(this.user);
         if (this.user.equals("Adrian")) {
