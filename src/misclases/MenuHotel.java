@@ -464,6 +464,8 @@ public class MenuHotel extends javax.swing.JFrame {
             this.jLabelRegistroIco.setIcon(cesar);
         }else if(this.usuario.equals("Jesus")){
             this.jLabelRegistroIco.setIcon(jesus);
+        }else{
+            this.jLabelRegistroIco.setIcon(iconoGrandeUsuario);
         }
     }
 

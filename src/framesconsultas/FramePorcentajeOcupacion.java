@@ -143,7 +143,7 @@ public void mostrarGrafica(){
             if(this.conn.rs.getBoolean(2)){
                suma++;
             }
-            
+            this.conn.rs.next();
         }
         
         

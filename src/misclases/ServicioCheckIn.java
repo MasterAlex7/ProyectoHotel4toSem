@@ -295,7 +295,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
                 jButtonTicketActionPerformed(evt);
             }
         });
-        jPanelRegistro.add(jButtonTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 350, 180, 40));
+        jPanelRegistro.add(jButtonTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 250, 180, 40));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 102));
@@ -417,7 +417,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
                 jLabelBackMenu1MouseClicked(evt);
             }
         });
-        jPanelTicket.add(jLabelBackMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 60, 50));
+        jPanelTicket.add(jLabelBackMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 60, 50));
 
         jLabelRegistro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelRegistro.setForeground(new java.awt.Color(204, 0, 102));
@@ -510,9 +510,11 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabelPiso.setText("Piso: ");
         jPanelTicket.add(jLabelPiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
 
+        jLabelTicketPiso.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelTicketPiso.setForeground(new java.awt.Color(0, 0, 0));
         jPanelTicket.add(jLabelTicketPiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 130, 20));
 
+        jLabelTicketLimiteHuespedes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelTicketLimiteHuespedes.setForeground(new java.awt.Color(0, 0, 0));
         jPanelTicket.add(jLabelTicketLimiteHuespedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 70, 20));
 
@@ -533,7 +535,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 255, 153));
         jLabel3.setText("VOLVER");
-        jPanelTicket.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 70, -1, -1));
+        jPanelTicket.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 70, -1, -1));
 
         getContentPane().add(jPanelTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 950, 640));
         jPanelTicket.setVisible(false);

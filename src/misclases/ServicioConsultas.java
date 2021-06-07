@@ -7,6 +7,7 @@ package misclases;
 
 import framesconsultas.FrameBusquedaPorHabitacion;
 import framesconsultas.FrameBusquedaPorNombreHuesped;
+import framesconsultas.FrameConsultaPorMes;
 import framesconsultas.FrameConsultaPrecios;
 import framesconsultas.FrameHabitacionesDisponibles;
 import framesconsultas.FrameIngresosHotel;
@@ -57,6 +58,7 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuItemGaleriaFotos = new javax.swing.JMenuItem();
         jMenuItemIngresosHotel = new javax.swing.JMenuItem();
         jMenuItemPorcentajeOcu = new javax.swing.JMenuItem();
+        jMenuItemHuespedesPorMes = new javax.swing.JMenuItem();
         jMenuSubHabitaciones = new javax.swing.JMenu();
         jMenuItemTotalHab = new javax.swing.JMenuItem();
         jMenuItemPorcOcupacion = new javax.swing.JMenuItem();
@@ -110,6 +112,14 @@ public class ServicioConsultas extends javax.swing.JFrame {
             }
         });
         jMenuSubHotel.add(jMenuItemPorcentajeOcu);
+
+        jMenuItemHuespedesPorMes.setText("Huespedes por Mes");
+        jMenuItemHuespedesPorMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemHuespedesPorMesActionPerformed(evt);
+            }
+        });
+        jMenuSubHotel.add(jMenuItemHuespedesPorMes);
 
         jMenuConsultas.add(jMenuSubHotel);
 
@@ -368,6 +378,21 @@ public class ServicioConsultas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItemHabPisoActionPerformed
 
+    private void jMenuItemHuespedesPorMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemHuespedesPorMesActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPaneFondo.removeAll();
+        this.repaint();
+        
+        FrameConsultaPorMes huespedesMesFrame =new FrameConsultaPorMes();
+        this.jDesktopPaneFondo.add(huespedesMesFrame);//Agregamos altas al jDesktopPanel
+        try{
+            huespedesMesFrame.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        huespedesMesFrame.show();//mostrar el jDesktopPanel
+    }//GEN-LAST:event_jMenuItemHuespedesPorMesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -412,6 +437,7 @@ public class ServicioConsultas extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCostoHabitacion;
     private javax.swing.JMenuItem jMenuItemGaleriaFotos;
     private javax.swing.JMenuItem jMenuItemHabPiso;
+    private javax.swing.JMenuItem jMenuItemHuespedesPorMes;
     private javax.swing.JMenuItem jMenuItemIngresosHotel;
     private javax.swing.JMenuItem jMenuItemListaHuespedes;
     private javax.swing.JMenuItem jMenuItemMenuSubSalir;

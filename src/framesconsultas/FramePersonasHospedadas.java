@@ -42,6 +42,8 @@ public class FramePersonasHospedadas extends javax.swing.JInternalFrame {
         jLabelTitulo1 = new javax.swing.JLabel();
         jButtonLimpiar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanelBase.setBackground(new java.awt.Color(51, 51, 51));
         jPanelBase.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -63,7 +65,7 @@ public class FramePersonasHospedadas extends javax.swing.JInternalFrame {
         jTextAreaMostrar.setRows(5);
         jScrollPane1.setViewportView(jTextAreaMostrar);
 
-        jPanelBase.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 440, 430));
+        jPanelBase.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 440, 390));
 
         jPanel2.setBackground(new java.awt.Color(102, 255, 204));
 
@@ -111,7 +113,7 @@ public class FramePersonasHospedadas extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBase, javax.swing.GroupLayout.PREFERRED_SIZE, 546, Short.MAX_VALUE)
+            .addComponent(jPanelBase, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
         );
 
         pack();

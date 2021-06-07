@@ -59,16 +59,16 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
         jPanelFondoTituloLayout.setHorizontalGroup(
             jPanelFondoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFondoTituloLayout.createSequentialGroup()
-                .addGap(316, 316, 316)
+                .addGap(214, 214, 214)
                 .addComponent(jLabel1)
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addContainerGap(443, Short.MAX_VALUE))
         );
         jPanelFondoTituloLayout.setVerticalGroup(
             jPanelFondoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFondoTituloLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelFondoTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -79,14 +79,14 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
 
         jRadioButtonPiso1.setBackground(new java.awt.Color(51, 51, 51));
         buttonGroup1.add(jRadioButtonPiso1);
-        jRadioButtonPiso1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jRadioButtonPiso1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jRadioButtonPiso1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonPiso1.setText("PISO 1");
         jPanelFondoPrincipal.add(jRadioButtonPiso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 110, -1));
 
         jRadioButtonPiso2.setBackground(new java.awt.Color(51, 51, 51));
         buttonGroup1.add(jRadioButtonPiso2);
-        jRadioButtonPiso2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jRadioButtonPiso2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jRadioButtonPiso2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonPiso2.setText("PISO 2");
         jPanelFondoPrincipal.add(jRadioButtonPiso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 110, -1));
@@ -100,7 +100,7 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
                 jButtonConfirmarActionPerformed(evt);
             }
         });
-        jPanelFondoPrincipal.add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 120, 50));
+        jPanelFondoPrincipal.add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 120, 50));
 
         jTextAreaInformacion.setBackground(new java.awt.Color(255, 255, 255));
         jTextAreaInformacion.setColumns(20);
@@ -110,12 +110,12 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
         jTextAreaInformacion.setBorder(null);
         jScrollPane1.setViewportView(jTextAreaInformacion);
 
-        jPanelFondoPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 450, 360));
+        jPanelFondoPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 450, 360));
 
-        jLabelInstruccion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelInstruccion.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabelInstruccion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelInstruccion.setText("Selecciona el piso del cual deseas obtener la informacion");
-        jPanelFondoPrincipal.add(jLabelInstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        jPanelFondoPrincipal.add(jLabelInstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 40));
 
         getContentPane().add(jPanelFondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1010, 490));
 
