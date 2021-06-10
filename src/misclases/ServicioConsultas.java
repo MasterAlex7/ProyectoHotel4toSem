@@ -14,6 +14,7 @@ import framesconsultas.FrameIngresosHotel;
 import framesconsultas.FramePersonasHospedadas;
 import framesconsultas.FramePorcentajeOcupHab;
 import framesconsultas.FramePorcentajeOcupacion;
+import framesconsultas.FrameGaleriaFotos;
 import framesconsultas.FrameTotalHabitaciones;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
@@ -95,6 +96,11 @@ public class ServicioConsultas extends javax.swing.JFrame {
         jMenuSubHotel.setText("Hotel");
 
         jMenuItemGaleriaFotos.setText("Galeria de fotos");
+        jMenuItemGaleriaFotos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGaleriaFotosActionPerformed(evt);
+            }
+        });
         jMenuSubHotel.add(jMenuItemGaleriaFotos);
 
         jMenuItemIngresosHotel.setText("Ingresos del hotel");
@@ -392,6 +398,21 @@ public class ServicioConsultas extends javax.swing.JFrame {
         }
         huespedesMesFrame.show();//mostrar el jDesktopPanel
     }//GEN-LAST:event_jMenuItemHuespedesPorMesActionPerformed
+
+    private void jMenuItemGaleriaFotosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGaleriaFotosActionPerformed
+        // TODO add your handling code here:
+        this.jDesktopPaneFondo.removeAll();
+        this.repaint();
+        
+        FrameGaleriaFotos huespedesMesFrame =new FrameGaleriaFotos();
+        this.jDesktopPaneFondo.add(huespedesMesFrame);//Agregamos altas al jDesktopPanel
+        try{
+            huespedesMesFrame.setMaximum(true);
+        }catch(PropertyVetoException ex){
+            System.out.println("Error en despliegue!!");
+        }
+        huespedesMesFrame.show();//mostrar el jDesktopPanel 
+    }//GEN-LAST:event_jMenuItemGaleriaFotosActionPerformed
 
     /**
      * @param args the command line arguments
