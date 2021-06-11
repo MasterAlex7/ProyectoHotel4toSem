@@ -23,6 +23,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SpinnerNumberModel;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
@@ -172,6 +173,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabelHabitacionMaster4 = new javax.swing.JLabel();
         jLabelHabitacionMaster5 = new javax.swing.JLabel();
         jLabelHabitacionMaster6 = new javax.swing.JLabel();
+        jLabelHotelFull = new javax.swing.JLabel();
         jPanelRegPisoDos = new javax.swing.JPanel();
         jPanelPisoDOsBarra = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -213,6 +215,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabelHabitacionMaster1 = new javax.swing.JLabel();
         jLabelHabitacionMaster2 = new javax.swing.JLabel();
         jLabelHabitacionMaster3 = new javax.swing.JLabel();
+        jLabelHotelFull1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(20, 20, 0, 0));
@@ -811,6 +814,11 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabelHabitacionMaster6.setText("Habitacion Master");
         jPanelRegPisoUno.add(jLabelHabitacionMaster6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 480, -1, -1));
 
+        jLabelHotelFull.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelHotelFull.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelHotelFull.setText("Hotel LLENO!!!!");
+        jPanelRegPisoUno.add(jLabelHotelFull, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 580, -1, -1));
+
         getContentPane().add(jPanelRegPisoUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 950, 640));
 
         jPanelRegPisoDos.setBackground(new java.awt.Color(255, 255, 255));
@@ -1084,6 +1092,11 @@ public class ServicioCheckIn extends javax.swing.JFrame {
         jLabelHabitacionMaster3.setText("Habitacion Master");
         jPanelRegPisoDos.add(jLabelHabitacionMaster3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, -1, -1));
 
+        jLabelHotelFull1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelHotelFull1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelHotelFull1.setText("Hotel LLENO!!!!");
+        jPanelRegPisoDos.add(jLabelHotelFull1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 580, -1, -1));
+
         getContentPane().add(jPanelRegPisoDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 950, 640));
 
         pack();
@@ -1197,8 +1210,8 @@ public class ServicioCheckIn extends javax.swing.JFrame {
 
     private void jLabelBackMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMenu1MouseClicked
         // TODO add your handling code here:
-        this.jPanelTicket.setVisible(false);
-        this.jPanelRegistro.setVisible(true);
+        setVisible(false);
+        new MenuHotel(this.usuario).setVisible(true);
         
     }//GEN-LAST:event_jLabelBackMenu1MouseClicked
 
@@ -1601,6 +1614,8 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHabitacionSencilla7;
     private javax.swing.JLabel jLabelHabitacionSencilla8;
     private javax.swing.JLabel jLabelHabitacionSencilla9;
+    private javax.swing.JLabel jLabelHotelFull;
+    private javax.swing.JLabel jLabelHotelFull1;
     private javax.swing.JLabel jLabelIconoHotel;
     private javax.swing.JLabel jLabelLema;
     private javax.swing.JLabel jLabelLimHuesped;
@@ -1653,6 +1668,13 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     
     
     public void elementosOcultos(){
+        SpinnerNumberModel modeloSpinner=new SpinnerNumberModel();
+        modeloSpinner.setMaximum(20);
+        modeloSpinner.setMinimum(0);
+        this.jSpinnerDias.setModel(modeloSpinner);
+        this.jLabelHotelFull.setVisible(false);
+        this.jLabelHotelFull1.setVisible(false);
+        this.jSpinnerDias.setModel(modeloSpinner);
         this.jLabelCostoAdicional.setVisible(false);
         this.jPanelTicket.setVisible(false);
         this.jPanelRegPisoDos.setVisible(false);
@@ -1662,6 +1684,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     }
     
     public void cargarIconos(){
+        
         //Iconos utilizados en la primer pestaña
         ImageIcon logousuario=new ImageIcon("src/iconos/user.png");
         ImageIcon fondoDegradado=new ImageIcon("src/imagenes/fondo.jpg");
@@ -1745,6 +1768,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     
     public void  estadoHabitaciones(){
         String query="select * from habitaciones ";
+        int habOcup=0;
         int controlNum=109;
         this.conn.Consult(query);
         try{
@@ -1754,95 +1778,126 @@ public class ServicioCheckIn extends javax.swing.JFrame {
                     switch(i){
                         case 0: this.jLabelHab109.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab109.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 1: this.jLabelHab110.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab110.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 2: this.jLabelHab111.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab111.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 3: this.jLabelHab112.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab112.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 4: this.jLabelHab113.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab113.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 5: this.jLabelHab115.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab115.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 6: this.jLabelHab116.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab116.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 7: this.jLabelHab117.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab117.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 8: this.jLabelHab118.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab118.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 9: this.jLabelHab120.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab120.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 10: this.jLabelHab121.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab121.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 11: this.jLabelHab122.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab122.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 12: this.jLabelHab123.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab123.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 13: this.jLabelHab124.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab124.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 14: this.jLabelHab126.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab126.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 15: this.jLabelHab128.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab128.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 16: this.jLabelHab129.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab129.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 17: this.jLabelHab130.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab130.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 18: this.jLabelHab131.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab131.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 19: this.jLabelHab132.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab132.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 20: this.jLabelHab133.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab133.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 21: this.jLabelHab134.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab134.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 22: this.jLabelHab136.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab136.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 23: this.jLabelHab137.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab137.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 24: this.jLabelHab140.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab140.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 25: this.jLabelHab141.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab141.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 26: this.jLabelHab142.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab142.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 27: this.jLabelHab143.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab143.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 28: this.jLabelHab145.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab145.setBackground(Color.red);
+                                 habOcup++;
                                  break;
                         case 29: this.jLabelHab146.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab146.setBackground(Color.red);
+                                 habOcup++;
                                  break;      
                     }
+                    
                 }else if(this.conn.rs.getBoolean(2)==false){
                     switch(i){
                         case 0: this.jLabelHab109.setBorder(javax.swing.BorderFactory.createTitledBorder("Disponible"));
@@ -1945,7 +2000,12 @@ public class ServicioCheckIn extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No fue posible realizar la consulta!!!");
 
         }
-        
+            if(habOcup==30){
+                this.jLabelHotelFull.setVisible(true);
+                this.jLabelHotelFull1.setVisible(true);
+                this.jButtonVerificarPisoUno.setEnabled(false);
+                this.jButtonConfirmarHab2.setEnabled(false);
+            }
         
         
         
