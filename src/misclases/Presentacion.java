@@ -35,11 +35,6 @@ public class Presentacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButtonEntrar = new javax.swing.JButton();
 
@@ -53,31 +48,6 @@ public class Presentacion extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(720, 720));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Aguila Urzua Cesar Daniel");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 520, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Ruiz Contreras Jesus");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Marquez Ortiz Adrian");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Rivera Sanchez Abraham Alejandro");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Integrantes: ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jButtonEntrar.setBackground(new java.awt.Color(0, 0, 0));
@@ -150,11 +120,6 @@ public class Presentacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEntrar;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
@@ -171,7 +136,7 @@ public class Presentacion extends javax.swing.JFrame {
          
          Toolkit t = Toolkit.getDefaultToolkit ();
          Image imagen = t.getImage("src/imagenes/LOGOBENEMERITA_CIRCULAR2.png");
-         g.drawImage(imagen, 315, 140, this);
+         g.drawImage(imagen, 315, 80, this);
          
          Toolkit t2 = Toolkit.getDefaultToolkit ();
          Image imagen2 = t.getImage("src/imagenes/barrasesquina2.png");
@@ -179,12 +144,14 @@ public class Presentacion extends javax.swing.JFrame {
          
          g.setColor(Color.WHITE);
          g.setFont(fuente);
-         g.drawString("Maestra: Georgina Salazar Partida", 230, 350);
+         g.drawString("Materia: Programacion II", 230, 280);
+         g.drawString("Maestra: Georgina Salazar Partida", 230, 310);
+         g.drawString("Fecha Entrega: 16/06/2021",230,340);
          g.drawString("Integrantes:", 330, 380);
-         g.drawString("Rivera Sanchez Abraham Alejandro", 230, 410);
-         g.drawString("Marquez Ortiz Adrian", 230, 440);
-         g.drawString("Ruiz Contreras Jesus", 230, 470);
-         g.drawString("Aguila Urzua Cesar Daniel", 230, 500);
+         g.drawString("Rivera Sanchez Abraham Alejandro ID: 269385", 230, 410);
+         g.drawString("Marquez Ortiz Adrian ID: 271927", 230, 440);
+         g.drawString("Ruiz Contreras Jesus ID: 270375", 230, 470);
+         g.drawString("Aguila Urzua Cesar Daniel ID: 222245", 230, 500);
          this.jButtonEntrar.setIcon(iconoSalir);
               
 

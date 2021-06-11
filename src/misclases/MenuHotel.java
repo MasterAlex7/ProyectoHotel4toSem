@@ -129,7 +129,7 @@ public class MenuHotel extends javax.swing.JFrame {
 
         jLabelTitulo.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("YUMMY RESORTS MENU");
+        jLabelTitulo.setText("RIFT MENU FOR YUMMY");
 
         jLabelMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelMinimizar.setPreferredSize(new java.awt.Dimension(32, 32));
@@ -146,7 +146,7 @@ public class MenuHotel extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabelTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
                 .addComponent(jLabelMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelSalir)
@@ -243,7 +243,7 @@ public class MenuHotel extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("MODIFICAR HOSPEDAJE");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
 
         jLabelModificarIcono.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -261,7 +261,7 @@ public class MenuHotel extends javax.swing.JFrame {
                 jLabelModificarIconoMouseExited(evt);
             }
         });
-        jPanel4.add(jLabelModificarIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 150, 140));
+        jPanel4.add(jLabelModificarIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 150, 140));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 730, 240));
 

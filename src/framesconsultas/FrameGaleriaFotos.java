@@ -30,6 +30,7 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
     public FrameGaleriaFotos(){
         initComponents();
         music.play();
+        icono();
         GenerarImagen();
         Logo();
     }
@@ -55,6 +56,8 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
         jLabelImagenes = new javax.swing.JLabel();
         jLabelMusica = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
+        jLabelCerrar = new javax.swing.JLabel();
+        jLabelCerrarEtiqueta = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -116,10 +119,26 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
         jLabelMusica.setText("Música");
         getContentPane().add(jLabelMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, -1, -1));
 
-        jPanel12.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel12.setBackground(new java.awt.Color(102, 255, 153));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCerrarMouseClicked(evt);
+            }
+        });
+        jPanel12.add(jLabelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 190, 40, 40));
+
+        jLabelCerrarEtiqueta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelCerrarEtiqueta.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelCerrarEtiqueta.setText("Cerrar");
+        jPanel12.add(jLabelCerrarEtiqueta, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 240, -1, -1));
+
         getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 1050, 270));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 320));
 
         pack();
@@ -140,6 +159,12 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
     private void jButtonAntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAntActionPerformed
         GenerarImagen();
     }//GEN-LAST:event_jButtonAntActionPerformed
+
+    private void jLabelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCerrarMouseClicked
+        // TODO add your handling code here:
+        music.stop();
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabelCerrarMouseClicked
 
     public void GenerarImagen(){
         String query = "select * from imagenes";
@@ -224,6 +249,8 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonPlay;
     private javax.swing.JButton jButtonSig;
     private javax.swing.JButton jButtonStop;
+    private javax.swing.JLabel jLabelCerrar;
+    private javax.swing.JLabel jLabelCerrarEtiqueta;
     private javax.swing.JLabel jLabelImage1;
     private javax.swing.JLabel jLabelImage2;
     private javax.swing.JLabel jLabelImage3;
@@ -234,4 +261,9 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     // End of variables declaration//GEN-END:variables
+    public void icono(){
+        ImageIcon cerrar=new ImageIcon("src/iconos/cancel.png");
+        this.jLabelCerrar.setIcon(cerrar);
+    }
+
 }

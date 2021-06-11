@@ -57,6 +57,7 @@ public class SesionLogin extends javax.swing.JFrame {
         jLabelInfo = new javax.swing.JLabel();
         jLabelCerrar = new javax.swing.JLabel();
         jLabelMinimizar = new javax.swing.JLabel();
+        jLabelNombreSoftware = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -165,6 +166,11 @@ public class SesionLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, -1, -1));
+
+        jLabelNombreSoftware.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabelNombreSoftware.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelNombreSoftware.setText("RIFT SOFTWARE");
+        jPanel1.add(jLabelNombreSoftware, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -302,6 +308,7 @@ public class SesionLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelIconoLog;
     private javax.swing.JLabel jLabelInfo;
     private javax.swing.JLabel jLabelMinimizar;
+    private javax.swing.JLabel jLabelNombreSoftware;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
