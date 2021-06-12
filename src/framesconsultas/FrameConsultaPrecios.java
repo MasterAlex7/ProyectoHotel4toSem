@@ -266,6 +266,7 @@ public class FrameConsultaPrecios extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
     @Override
     public void paint(Graphics grafico){
+        //Pintamos las imagenes de las habitaciones por medio de Graphics
         super.paint(grafico);
         Toolkit t = Toolkit.getDefaultToolkit();
         Image imagen = t.getImage("src/imagenes/sencilla.jpg");

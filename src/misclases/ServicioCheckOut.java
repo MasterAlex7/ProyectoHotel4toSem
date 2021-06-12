@@ -13,12 +13,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+
 
 /**
  *

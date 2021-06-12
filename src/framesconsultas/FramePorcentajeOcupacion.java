@@ -20,15 +20,15 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author Cesar Daniel
  */
 public class FramePorcentajeOcupacion extends javax.swing.JInternalFrame {
-    
-    MySqlConn conn=new MySqlConn();
+
+    MySqlConn conn = new MySqlConn();
 
     /**
      * Creates new form FramePorcentajeOcupacion
      */
     public FramePorcentajeOcupacion() {
         initComponents();
-        
+
         mostrarGrafica();
     }
 
@@ -129,43 +129,46 @@ public class FramePorcentajeOcupacion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelVerde;
     // End of variables declaration//GEN-END:variables
 
-
-public void mostrarGrafica(){
-    int totalHabOcup=0,aux=0,suma=0;
-    float totOcup=0,totDisp=0;
-    String query="select * from habitaciones where estado = '1'";
-    this.conn.Consult(query);
-    try{
-        this.conn.rs.last();
-        aux = this.conn.rs.getRow();
-        this.conn.rs.first();
-        for (int i = 0; i < aux; i++) {
-            if(this.conn.rs.getBoolean(2)){
-               suma++;
+    public void mostrarGrafica() {
+        int totalHabOcup = 0, aux = 0, suma = 0;
+        float totOcup = 0, totDisp = 0;
+        String query = "select * from habitaciones where estado = '1'";
+        this.conn.Consult(query);
+        try {
+            this.conn.rs.last();
+            aux = this.conn.rs.getRow();
+            this.conn.rs.first();
+            for (int i = 0; i < aux; i++) {
+                if (this.conn.rs.getBoolean(2)) {
+                    suma++;
+                }
+                this.conn.rs.next();
             }
-            this.conn.rs.next();
-        }
-        
-        
-    }catch(SQLException ex){
-        JOptionPane.showMessageDialog(null, "Error en Consulta de Datos");
-    }
-    totDisp = (((30-suma)*100)/30);
-    totOcup = (100-totDisp);
-    this.jLabelInformacionDisponible.setText("%"+totDisp);
-    this.jLabelInformacionOcupado.setText("%"+totOcup);
-    DefaultPieDataset grafOcup = new DefaultPieDataset();
-    grafOcup.setValue("Disponible", totDisp);
-    grafOcup.setValue("Ocupado", totOcup);
-    JFreeChart grafFin = ChartFactory.createPieChart("Ocupacion de Habitaciones", grafOcup, true, true, false);
-    
-    ChartPanel panGraf = new ChartPanel(grafFin);
-    panGraf.setMouseWheelEnabled(true);
-    panGraf.setPreferredSize(new Dimension(700,400));
-    this.jPanelGrafica.setLayout(new BorderLayout());
-    this.jPanelGrafica.add(panGraf,BorderLayout.CENTER);
-    pack();
-    repaint();
-}
 
-} 
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en Consulta de Datos");
+        }
+        //Se hacen los calculos para obtenr el total disponible y el ocupado
+        totDisp = (((30 - suma) * 100) / 30);
+        totOcup = (100 - totDisp);
+        //Se muestra la informacion en Labels
+        this.jLabelInformacionDisponible.setText("%" + totDisp);
+        this.jLabelInformacionOcupado.setText("%" + totOcup);
+
+        //Se genera la grafica en base a los datos obtenidos
+        DefaultPieDataset grafOcup = new DefaultPieDataset();
+        grafOcup.setValue("Disponible", totDisp);
+        grafOcup.setValue("Ocupado", totOcup);
+        JFreeChart grafFin = ChartFactory.createPieChart("Ocupacion de Habitaciones", grafOcup, true, true, false);
+
+        //Brindamos las especificaciones a nuestra grafica
+        ChartPanel panGraf = new ChartPanel(grafFin);
+        panGraf.setMouseWheelEnabled(true);
+        panGraf.setPreferredSize(new Dimension(700, 400));
+        this.jPanelGrafica.setLayout(new BorderLayout());
+        this.jPanelGrafica.add(panGraf, BorderLayout.CENTER);
+        pack();
+        repaint();
+    }
+
+}

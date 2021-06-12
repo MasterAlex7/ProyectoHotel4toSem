@@ -22,12 +22,12 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Adrian Quinn
  */
 public class FrameTotalHabitaciones extends javax.swing.JInternalFrame {
-    MySqlConn conn=new MySqlConn();
-    
-    int habitacionesSencillas1,habitacionesDuales1,habitacionesMaster1;
-    int habitacionesSencillas2,habitacionesDuales2,habitacionesMaster2;
-    
-    
+
+    MySqlConn conn = new MySqlConn();
+
+    int habitacionesSencillas1, habitacionesDuales1, habitacionesMaster1;
+    int habitacionesSencillas2, habitacionesDuales2, habitacionesMaster2;
+
     /**
      * Creates new form FrameTotalHabitaciones
      */
@@ -166,92 +166,93 @@ public class FrameTotalHabitaciones extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelMostrarGrafica;
     // End of variables declaration//GEN-END:variables
-    
-    public void mostrarInformacion(){
-        String query="select * from habitaciones ORDER BY numero ASC";
+
+    public void mostrarInformacion() {
+        String query = "select * from habitaciones ORDER BY numero ASC";
         this.conn.Consult(query);
-        int n=0;
-        try{
+        int n = 0;
+        //Se mide cuantes habtiaciones tenemos
+        try {
             this.conn.rs.last();//Se posicion en el ultimo registro de la tabla
-            n=this.conn.rs.getRow();//regresa el numero actual del registro
+            n = this.conn.rs.getRow();//regresa el numero actual del registro
             this.conn.rs.first();//Se posiciona en el primer registro de la tabal
-        
-        }catch(Exception e){
+
+        } catch (Exception e) {
             System.out.println("Error para consultar datos");
-        
+
         }
-        
-        if(n!=0){//Si hay datos
+
+        if (n != 0) {//Si hay datos
             String aux;
             for (int i = 0; i < n; i++) {
-                try{
-                   aux=this.conn.rs.getString(3);
+                try {
+                    //Obtenemos cuantas habtiaciones hay
+                    aux = this.conn.rs.getString(3);
                     //System.out.println(aux);
-                   if(aux.equals("Sencilla") && i <15){
-                       this.habitacionesSencillas1++;
-                   }else if(aux.equals("Dual") && i<15){
-                       this.habitacionesDuales1++;
-                   }else if(aux.equals("Master")&& i<15){
-                       this.habitacionesMaster1++;
-                   }else if(aux.equals("Sencilla")&& i>=15){
-                       this.habitacionesSencillas2++;
-                   }else if(aux.equals("Dual") && i>=15){
-                       this.habitacionesDuales2++;
-                   }else if(aux.equals("Master") && i>=15){
-                       this.habitacionesMaster2++;
-                   }
+                    if (aux.equals("Sencilla") && i < 15) {
+                        this.habitacionesSencillas1++;
+                    } else if (aux.equals("Dual") && i < 15) {
+                        this.habitacionesDuales1++;
+                    } else if (aux.equals("Master") && i < 15) {
+                        this.habitacionesMaster1++;
+                    } else if (aux.equals("Sencilla") && i >= 15) {
+                        this.habitacionesSencillas2++;
+                    } else if (aux.equals("Dual") && i >= 15) {
+                        this.habitacionesDuales2++;
+                    } else if (aux.equals("Master") && i >= 15) {
+                        this.habitacionesMaster2++;
+                    }
                     this.conn.rs.next();
-                }catch(SQLException ex){
+                } catch (SQLException ex) {
                     System.out.println("Error para obtener los datos");
                 }
             }
-            /*String columnas[]={"Habitacion","Paciente","Diagnostico","Medico"};
-            jTableConsulta1.setModel(new DefaultTableModel(datos,columnas));
-            System.out.println("Tabla lista");*/
-            int totalSencilla=this.habitacionesSencillas1+this.habitacionesSencillas2;
-            int totalDual=this.habitacionesDuales1+this.habitacionesDuales2;
-            int totalMaster=this.habitacionesMaster1+this.habitacionesMaster2;
-            this.jLabelTotSencilla.setText(""+totalSencilla);
-            this.jLabelTotMaster.setText(""+totalMaster);
-            this.jLabelTotDual.setText(""+totalDual);
-        
-        }else{
+            //Se despliega la informacion de las habtiaciones en Labels
+            int totalSencilla = this.habitacionesSencillas1 + this.habitacionesSencillas2;
+            int totalDual = this.habitacionesDuales1 + this.habitacionesDuales2;
+            int totalMaster = this.habitacionesMaster1 + this.habitacionesMaster2;
+            this.jLabelTotSencilla.setText("" + totalSencilla);
+            this.jLabelTotMaster.setText("" + totalMaster);
+            this.jLabelTotDual.setText("" + totalDual);
+
+        } else {
             JOptionPane.showMessageDialog(this, "No hay datos disponibles...");
         }
-    
+
     }
-    
-    public void cargarGrafica(){
-        DefaultCategoryDataset datos=new DefaultCategoryDataset();
-        
+
+    public void cargarGrafica() {
+        //En base a los datos obteneidos anteriormente, se genera la grafica
+        DefaultCategoryDataset datos = new DefaultCategoryDataset();
+
         datos.setValue(this.habitacionesSencillas1, "Piso 1", "Sencilla");
         datos.setValue(this.habitacionesSencillas2, "Piso 2", "Sencilla");
-        datos.setValue(this.habitacionesDuales1,"Piso 1","Dual");
+        datos.setValue(this.habitacionesDuales1, "Piso 1", "Dual");
         datos.setValue(this.habitacionesDuales2, "Piso 2", "Dual");
         datos.setValue(this.habitacionesMaster1, "Piso 1", "Master");
         datos.setValue(this.habitacionesMaster2, "Piso 2", "Master");
-        
-        JFreeChart graficoBarras=ChartFactory.createBarChart3D(
-        "Tipos de Habitaciones\n Yummy Resorts",  //nombre de la grafica
-        "Tipos de Habitaciones", //nombre de las barras o culmanas
-        "Cantidad de habitaciones",   //nombre de la numeracion
-        datos, //datos del grafico
-        PlotOrientation.VERTICAL, //orientacion
-        true, //leyenda de barras individuales por oclor
-        true,  //herramientas
-        false   //url del grafico
+
+        JFreeChart graficoBarras = ChartFactory.createBarChart3D(
+                "Tipos de Habitaciones\n Yummy Resorts", //nombre de la grafica
+                "Tipos de Habitaciones", //nombre de las barras o culmanas
+                "Cantidad de habitaciones", //nombre de la numeracion
+                datos, //datos del grafico
+                PlotOrientation.VERTICAL, //orientacion
+                true, //leyenda de barras individuales por oclor
+                true, //herramientas
+                false //url del grafico
         );
-        
-        ChartPanel panel=new ChartPanel(graficoBarras);
+
+        ChartPanel panel = new ChartPanel(graficoBarras);
         panel.setMouseWheelEnabled(true);
-        panel.setPreferredSize(new Dimension(250,250));
-        
+        panel.setPreferredSize(new Dimension(250, 250));
+
         this.jPanelMostrarGrafica.setLayout(new BorderLayout());
-        this.jPanelMostrarGrafica.add(panel,BorderLayout.CENTER);
-        
+        this.jPanelMostrarGrafica.add(panel, BorderLayout.CENTER);
+
         pack();
         repaint();
-    
+
     }
 
 }

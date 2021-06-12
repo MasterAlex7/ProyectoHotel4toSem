@@ -22,7 +22,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Adrian Quinn
  */
 public class FramePorcentajeOcupHab extends javax.swing.JInternalFrame {
-    MySqlConn conn=new MySqlConn();
+
+    MySqlConn conn = new MySqlConn();
+
     /**
      * Creates new form FramePorcentajeOcupHab
      */
@@ -111,75 +113,62 @@ public class FramePorcentajeOcupHab extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
-        int master=0,sencilla=0,dual=0;
-        int sencillaocp=0,dualocp=0,masterocp=0;
-        String query="select * from habitaciones order by numero asc";
+        int master = 0, sencilla = 0, dual = 0;
+        int sencillaocp = 0, dualocp = 0, masterocp = 0;
+        String query = "select * from habitaciones order by numero asc";
         this.conn.Consult(query);
-        try{
+        try {
             this.conn.rs.first();
             for (int i = 0; i < 30; i++) {
-                if(this.conn.rs.getString(3).equals("Sencilla")){
+                if (this.conn.rs.getString(3).equals("Sencilla")) {
                     sencilla++;
-                    if(this.conn.rs.getBoolean(2)==true){
+                    if (this.conn.rs.getBoolean(2) == true) {
                         sencillaocp++;
                     }
                 }
-                if(this.conn.rs.getString(3).equals("Dual")){
+                if (this.conn.rs.getString(3).equals("Dual")) {
                     dual++;
-                    if(this.conn.rs.getBoolean(2)==true){
+                    if (this.conn.rs.getBoolean(2) == true) {
                         dualocp++;
                     }
                 }
-                if(this.conn.rs.getString(3).equals("Master")){
+                if (this.conn.rs.getString(3).equals("Master")) {
                     master++;
-                    if(this.conn.rs.getBoolean(2)==true){
+                    if (this.conn.rs.getBoolean(2) == true) {
                         masterocp++;
                     }
                 }
                 this.conn.rs.next();
             }
 
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Habitación no registrada");
         }
-        float ts = (sencillaocp*100)/sencilla;
-        float td = (dualocp*100)/dual;
-        float tm = (masterocp*100)/master;
+        //Se hace un calculo correspondiente para obtener el porcentaje
+        float ts = (sencillaocp * 100) / sencilla;
+        float td = (dualocp * 100) / dual;
+        float tm = (masterocp * 100) / master;
 
         String habt = "Habitaciones";
+        //Se procede a generar la grafica
         DefaultCategoryDataset meses = new DefaultCategoryDataset();
+
         meses.setValue(ts, habt, "Sencilla");
         meses.setValue(td, habt, "Dual");
         meses.setValue(tm, habt, "Master");
+
         JFreeChart f = ChartFactory.createBarChart("Grafica de Barras\n Porcentaje de ocupación de habitaciones", "Tipo", "Porcentaje de ocupación", meses, PlotOrientation.VERTICAL, true, false, false);
         ChartPanel panel = new ChartPanel(f);;
         panel.setMouseWheelEnabled(true);
-        panel.setPreferredSize(new Dimension(650,380));
+        panel.setPreferredSize(new Dimension(650, 380));
+
         this.jPanel4.setLayout(new BorderLayout());
-        this.jPanel4.add(panel,BorderLayout.NORTH);
+        this.jPanel4.add(panel, BorderLayout.NORTH);
+
         pack();
         repaint();
 
 
-
-        
-        //ChartFrame frame = new ChartFrame("Barras", f);
-        /*frame.pack();
-        frame.setVisible(true);*/
-
-        //ChartFrame frame = new ChartFrame("Barras", f);
-        //frame.pack();
-        //frame.setVisible(true);
-
-        /*DefaultPieDataset data = new DefaultPieDataset();
-        data.setValue("Sencilla", ts);
-        data.setValue("Dual", td);
-        data.setValue("Master", tm);
-
-        JFreeChart chart = ChartFactory.createPieChart("Grafica Circular \n Ocupación de habitación", data, true, true, false);
-        ChartFrame frame = new ChartFrame("JFreeChart", chart);
-        frame.pack();
-        frame.setVisible(true);*/
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
 

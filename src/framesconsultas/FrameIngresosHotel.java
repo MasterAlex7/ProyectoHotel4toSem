@@ -13,14 +13,16 @@ import java.sql.SQLException;
  * @author Adrian Quinn
  */
 public class FrameIngresosHotel extends javax.swing.JInternalFrame {
-    MySqlConn conn=new MySqlConn();
+
+    MySqlConn conn = new MySqlConn();
+
     /**
      * Creates new form FrameIngresosHotel
      */
     public FrameIngresosHotel() {
         initComponents();
         consultarIngresos();
-        
+
     }
 
     /**
@@ -92,17 +94,17 @@ public class FrameIngresosHotel extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelFono;
     private javax.swing.JPanel jPanelTema;
     // End of variables declaration//GEN-END:variables
-    
-    
-    public void consultarIngresos(){
-        String query="select * from hotelinfo";
+
+    public void consultarIngresos() {
+        //Obtenemos la informacion directa desde la base de datos
+        String query = "select * from hotelinfo";
         this.conn.Consult(query);
-        try{
-            int ingresosTotales=this.conn.rs.getInt(1);
-            this.jLabelIngresosTotales.setText("$ "+ingresosTotales+".00");
-            
-        }catch(SQLException ex){
-        
+        try {
+            int ingresosTotales = this.conn.rs.getInt(1);
+            this.jLabelIngresosTotales.setText("$ " + ingresosTotales + ".00");
+
+        } catch (SQLException ex) {
+
         }
     }
 

@@ -124,7 +124,7 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
 
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         // TODO add your handling code here:
-
+        //Dependiendo del piso, mandamos los valores correspondientes
         if (this.jRadioButtonPiso1.isSelected()) {
             consultarHab(126, 109);
         } else if (this.jRadioButtonPiso2.isSelected()) {
@@ -155,11 +155,12 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
         ArrayList<String> dobles = new ArrayList();
         ArrayList<String> master = new ArrayList();
         this.conn.Consult(query);
+        //Si el piso es el numero 1, entonces obtenemos los primeros 15 registros
         if (limiteSup == 126) {
             try {
 
                 this.conn.rs.first();
-
+                   //Evaluamso que tipo de habitacion esta disponible
                 for (int i = 0; i < 15; i++) {
                     if (this.conn.rs.getBoolean(2) == false) {
                         if (this.conn.rs.getString(3).equals("Sencilla")) {
@@ -181,6 +182,7 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No fue posible acceder a la base");
 
             }
+            //Generamos el mensaje en base a las habitaciones disponibles obtenidas
             String mensaje="En el piso 1 estan disponibles:\n" + "Sencillas: ";
              for (int i = 0; i < sencillas.size(); i++) {
                  String aux = sencillas.get(i);
@@ -199,6 +201,7 @@ public class FrameHabitacionesDisponibles extends javax.swing.JInternalFrame {
              this.jTextAreaInformacion.setText(mensaje);
              
         } else if (limiteSup == 146) {
+            //Hacemos lo mismo que antes, solo que ahora obtendremos la informacion del segundo piso
             try {
                 this.conn.rs.first();
                 for (int i = 0; i < 15; i++) {

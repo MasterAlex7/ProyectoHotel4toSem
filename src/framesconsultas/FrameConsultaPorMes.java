@@ -109,6 +109,7 @@ public class FrameConsultaPorMes extends javax.swing.JInternalFrame {
 
     
     public void limpiarVector(){
+        //Lllenar el vector de 0
         for (int i = 0; i < 12; i++) {
             this.meses[i]=0;
         }
@@ -123,6 +124,8 @@ public class FrameConsultaPorMes extends javax.swing.JInternalFrame {
         
         
         this.conn.Consult(query);
+        //Recorro todas las row de la base para obtener su mes y sumar en sus respectiva posicion
+        //del mes
         try{
             this.conn.rs.last();
             int total=this.conn.rs.getRow();
@@ -166,7 +169,6 @@ public class FrameConsultaPorMes extends javax.swing.JInternalFrame {
                 calendario.setTime(aux);
                 mes=calendario.get(Calendar.MONTH);
                 mes++;
-                System.out.println(mes);
                 switch(mes){
                     case 1: this.meses[0]++;
                             break;
@@ -207,6 +209,7 @@ public class FrameConsultaPorMes extends javax.swing.JInternalFrame {
     }
     
     public void generarGrafica(){
+        //Ya qeu se cuenta con la informacion, se pasan los datos para generar la grafica
         DefaultCategoryDataset datos=new DefaultCategoryDataset();
         
         datos.setValue(this.meses[0], "Huespedes", "Enero");

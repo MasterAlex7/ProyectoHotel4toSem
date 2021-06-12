@@ -101,19 +101,20 @@ public class FrameBusquedaPorHabitacion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //Vamos a buscar el numero de la habitacion y confirmar que la hab existe en el hotel
         boolean existe=false;
         int numHab=Integer.parseInt(this.jTextFieldNumHabitacion.getText());
         String query="select * from huespedes where habitacion= '"+numHab+"'";
         String hab="select * from habitaciones where numero= '"+numHab+"'";
         this.conn.Consult(hab);
+        //Obtenemso el tipo de habitacion
         try{
             String tipoHab=this.conn.rs.getString(3);
             existe=true;
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "El numero de habitacion ingresado no existe!!!");
         }
-        
+        //Buscamos si el num de la habitacion en el huespeds
         if(existe=true){
             this.conn.Consult(query);
             try{

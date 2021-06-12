@@ -270,7 +270,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButtonBuscaHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonBuscaHabActionPerformed
-        // TODO add your handling code here:
+        //Buscamos que la habitacion ingresada ya haya sido registrada
         int hab = Integer.parseInt(this.jTextFieldNumHab.getText().trim());
         String query = "select * from huespedes where habitacion= " + "'" + hab + "'";
         this.conn.Consult(query);
@@ -292,13 +292,13 @@ public class ServicioEdicion extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButtonBuscaHabActionPerformed
 
     private void jLabelIconoMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoMenuMouseClicked
-        // TODO add your handling code here:
+        //Volvemos al menu
         setVisible(false);
         new MenuHotel(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelIconoMenuMouseClicked
 
     private void jButtonConfirmarModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarModifActionPerformed
-        // TODO add your handling code here:
+        //Una vez seleccionadas las confirmaciones a realizar, desbloqueamos los espacios
         this.jTextFieldNuevaCiudad.setEditable(true);
         this.jTextFieldNuevoNombre.setEditable(true);
         this.jTextFieldNuevosDias.setEditable(true);
@@ -308,8 +308,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConfirmarModifActionPerformed
 
     private void jLabelIconoGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoGuardarMouseClicked
-        // TODO add your handling code here:
-        /*IMMMMMMMMMMMMMMPORTATNT*/
+
         boolean accesoCorrecto=true;
         String consult = "select * from huespedes where habitacion= " + "'" + this.numHab + "'";
         String nombre, ciudadOrigen;
@@ -336,7 +335,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
                 accesoCorrecto=true;
             }
           }if(accesoCorrecto==true){
-              
+              //Dependiendo del checkBox seleccionada, debemos obtener los datos
             if (this.jCheckBoxNombre.isSelected()) {
                 nombre = this.jTextFieldNuevoNombre.getText();
             } else {
@@ -376,6 +375,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
                 ocupantes=this.conn.rs.getInt(5);
             }
             int costo=this.conn.rs.getInt(8);
+            //  Vamos a actualziar la informacion en base a los nuevos datos obtenidos por el numero de la habitacion
             String parte1 = "UPDATE huespedes SET nombre =('"+nombre+"'), ciudad =('"+ciudadOrigen+"'), habitacion =('"+this.numHab+"'), tipohab =('"+this.tipoHab+"'), personas =('"+ocupantes;
             String parte2 = "'), fechaingreso =('"+fechaIn+"'), fechasalida =('"+fechaOut+"'), costo=('"+costo+"') WHERE habitacion = ('"+this.numHab+"')";
             String query=parte1+parte2;
@@ -488,7 +488,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
         this.jLabelIconoGuardar.setIcon(iconoGuardar);
         this.jLabelIconoMenu.setIcon(iconoMenu);
         
-        
+        //Establecemos el icono del usuario dependiendo de quein haya iniciado sesion
         this.jLabelNomUsuario.setText(this.usuario);
         if(this.usuario.equals("Adrian")){
             this.jLabelIconoGrandeUsuario.setIcon(adrian);
@@ -503,6 +503,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
     }
 
     public void elementosOcultos() {
+        //Deshabilitamos opciones que no pueden ser usadas desde un principio
         this.jButtonConfirmarModif.setEnabled(false);
         this.jTextFieldNuevaCiudad.setEditable(false);
         this.jTextFieldNuevoNombre.setEditable(false);

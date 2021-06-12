@@ -13,7 +13,9 @@ import javax.swing.JOptionPane;
  * @author Adrian Quinn
  */
 public class MenuHotel extends javax.swing.JFrame {
-    String usuario="";
+
+    String usuario = "";
+
     /**
      * Creates new form MenuHotel
      */
@@ -22,13 +24,13 @@ public class MenuHotel extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         cargaIconos();
     }
-    
+
     public MenuHotel(String usuario) {
-        this.usuario=usuario;
+        this.usuario = usuario;
         initComponents();
         this.setLocationRelativeTo(null);
         cargaIconos();
-        
+
     }
 
     /**
@@ -272,98 +274,98 @@ public class MenuHotel extends javax.swing.JFrame {
 
     private void jLabelRegistroIcoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistroIcoMouseMoved
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_jLabelRegistroIcoMouseMoved
 
     private void jLabelRegistroIcoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistroIcoMouseExited
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jLabelRegistroIcoMouseExited
 
     private void jLabelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirMouseClicked
         // TODO add your handling code here:
-        String opciones[]={"Salir del Programa","Cerrar Sesion","Cancelar"};
-        int res= JOptionPane.showOptionDialog(null, "Que deseas hacer?", "Salir...",0,0, null, opciones, JOptionPane.QUESTION_MESSAGE);
-        if(res==0){
+        String opciones[] = {"Salir del Programa", "Cerrar Sesion", "Cancelar"};
+        int res = JOptionPane.showOptionDialog(null, "Que deseas hacer?", "Salir...", 0, 0, null, opciones, JOptionPane.QUESTION_MESSAGE);
+        if (res == 0) {
             System.exit(0);
-        }else if(res==1){
+        } else if (res == 1) {
             setVisible(false);
             new SesionLogin().setVisible(true);
         }
     }//GEN-LAST:event_jLabelSalirMouseClicked
 
     private void jLabelCheckInMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckInMouseMoved
-        // TODO add your handling code here:
-        this.jLabelCheckIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
+
+        this.jLabelCheckIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
     }//GEN-LAST:event_jLabelCheckInMouseMoved
 
     private void jLabelCheckInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckInMouseExited
-        // TODO add your handling code here:
-         this.jLabelCheckIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51,51,51)));
+
+        this.jLabelCheckIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
     }//GEN-LAST:event_jLabelCheckInMouseExited
 
     private void jLabelConsultasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelConsultasMouseMoved
-        // TODO add your handling code here:
-        this.jLabelConsultas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
+
+        this.jLabelConsultas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
     }//GEN-LAST:event_jLabelConsultasMouseMoved
 
     private void jLabelConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelConsultasMouseExited
-        // TODO add your handling code here:
-        this.jLabelConsultas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51,51,51)));
+
+        this.jLabelConsultas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
     }//GEN-LAST:event_jLabelConsultasMouseExited
 
     private void jLabelCheckOut1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckOut1MouseMoved
-        // TODO add your handling code here:
-        this.jLabelCheckOut1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
+
+        this.jLabelCheckOut1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
     }//GEN-LAST:event_jLabelCheckOut1MouseMoved
 
     private void jLabelCheckOut1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckOut1MouseExited
-        // TODO add your handling code here:
-        this.jLabelCheckOut1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51,51,51)));
+
+        this.jLabelCheckOut1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
     }//GEN-LAST:event_jLabelCheckOut1MouseExited
 
     private void jLabelMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizarMouseClicked
-        // TODO add your handling code here:
-         this.setState(SesionLogin.ICONIFIED);
+        // Minimizar la ventana
+        this.setState(SesionLogin.ICONIFIED);
     }//GEN-LAST:event_jLabelMinimizarMouseClicked
 
     private void jLabelCheckInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckInMouseClicked
-        // TODO add your handling code here:
+        // Accedemos al CheckIn
         setVisible(false);
         new ServicioCheckIn(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelCheckInMouseClicked
 
     private void jLabelCheckOut1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCheckOut1MouseClicked
-        // TODO add your handling code here:
+        // Accedemos al CheckOut
         setVisible(false);
         new ServicioCheckOut(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelCheckOut1MouseClicked
 
     private void jLabelConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelConsultasMouseClicked
-        // TODO add your handling code here:
+        // Generamos el servicio de consultass
         setVisible(false);
         new ServicioConsultas(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelConsultasMouseClicked
 
     private void jLabelModificarIconoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseClicked
-        // TODO add your handling code here:
+        // Brincamos al servicio de edicion de hospedaje
         setVisible(false);
         new ServicioEdicion(this.usuario).setVisible(true);
     }//GEN-LAST:event_jLabelModificarIconoMouseClicked
 
     private void jLabelModificarIconoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseMoved
         // TODO add your handling code here:
-         this.jLabelModificarIcono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200,200,200)));
+        this.jLabelModificarIcono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
     }//GEN-LAST:event_jLabelModificarIconoMouseMoved
 
     private void jLabelModificarIconoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseEntered
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jLabelModificarIconoMouseEntered
 
     private void jLabelModificarIconoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarIconoMouseExited
         // TODO add your handling code here:
-        this.jLabelModificarIcono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51,51,51)));
+        this.jLabelModificarIcono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
     }//GEN-LAST:event_jLabelModificarIconoMouseExited
 
     /**
@@ -427,25 +429,24 @@ public class MenuHotel extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
-    
-    public void cargaIconos(){
-        ImageIcon iconoGrandeUsuario=new ImageIcon("src/iconos/user.png");
-        ImageIcon iconoGrandeEntrada=new ImageIcon("src/iconos/log-in.png");
-        ImageIcon iconoGrandeConsulta=new ImageIcon("src/iconos/bookmark.png");
-        ImageIcon iconoGrandeSalida=new ImageIcon("src/iconos/exit.png");
-        ImageIcon iconoMinimizar=new ImageIcon("src/iconos/minimize.png");
-        ImageIcon iconoCerrar=new ImageIcon("src/iconos/cancel.png");
-        ImageIcon modificar=new ImageIcon("src/iconos/writing.png");
-        ImageIcon iconoYummy=new ImageIcon("src/iconos/yummy_asistente.png");
-        
+
+    public void cargaIconos() {
+        ImageIcon iconoGrandeUsuario = new ImageIcon("src/iconos/user.png");
+        ImageIcon iconoGrandeEntrada = new ImageIcon("src/iconos/log-in.png");
+        ImageIcon iconoGrandeConsulta = new ImageIcon("src/iconos/bookmark.png");
+        ImageIcon iconoGrandeSalida = new ImageIcon("src/iconos/exit.png");
+        ImageIcon iconoMinimizar = new ImageIcon("src/iconos/minimize.png");
+        ImageIcon iconoCerrar = new ImageIcon("src/iconos/cancel.png");
+        ImageIcon modificar = new ImageIcon("src/iconos/writing.png");
+        ImageIcon iconoYummy = new ImageIcon("src/iconos/yummy_asistente.png");
+
         //**Iconos del personal
-            ImageIcon adrian=new ImageIcon("src/iconos/adrian.png");
-            ImageIcon alex=new ImageIcon("src/iconos/alex.png");
-            ImageIcon cesar=new ImageIcon("src/iconos/cesar.png");
-            ImageIcon jesus=new ImageIcon("src/iconos/jesus.png");
-        
+        ImageIcon adrian = new ImageIcon("src/iconos/adrian.png");
+        ImageIcon alex = new ImageIcon("src/iconos/alex.png");
+        ImageIcon cesar = new ImageIcon("src/iconos/cesar.png");
+        ImageIcon jesus = new ImageIcon("src/iconos/jesus.png");
+
         //****
-        
         this.jLabelYummy.setIcon(iconoYummy);
         this.jLabelCheckIn.setIcon(iconoGrandeEntrada);
         this.jLabelConsultas.setIcon(iconoGrandeConsulta);
@@ -453,21 +454,20 @@ public class MenuHotel extends javax.swing.JFrame {
         this.jLabelMinimizar.setIcon(iconoMinimizar);
         this.jLabelSalir.setIcon(iconoCerrar);
         this.jLabelModificarIcono.setIcon(modificar);
-        
+
         //**Cargamos icono del usuario dependiendo de quien acceda a la plataforma
         this.jLabelNomUsuario.setText(this.usuario);
-        if(this.usuario.equals("Adrian")){
+        if (this.usuario.equals("Adrian")) {
             this.jLabelRegistroIco.setIcon(adrian);
-        }else if(this.usuario.equals("Alejandro")){
+        } else if (this.usuario.equals("Alejandro")) {
             this.jLabelRegistroIco.setIcon(alex);
-        }else if(this.usuario.equals("Cesar")){
+        } else if (this.usuario.equals("Cesar")) {
             this.jLabelRegistroIco.setIcon(cesar);
-        }else if(this.usuario.equals("Jesus")){
+        } else if (this.usuario.equals("Jesus")) {
             this.jLabelRegistroIco.setIcon(jesus);
-        }else{
+        } else {
             this.jLabelRegistroIco.setIcon(iconoGrandeUsuario);
         }
     }
-
 
 }

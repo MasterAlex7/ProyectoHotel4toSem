@@ -16,8 +16,10 @@ import javax.swing.JOptionPane;
  * @author Adrian Quinn
  */
 public class FramePersonasHospedadas extends javax.swing.JInternalFrame {
-    MySqlConn conn=new MySqlConn();
+
+    MySqlConn conn = new MySqlConn();
     List<Huesped> listaarray = new ArrayList<Huesped>();
+
     /**
      * Creates new form FramePersonasHospedadas
      */
@@ -120,23 +122,24 @@ public class FramePersonasHospedadas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
-        String query="select * from huespedes order by nombre asc";
+        //Obtenemos la informacion de los huespedes
+        String query = "select * from huespedes order by nombre asc";
         this.conn.Consult(query);
         String nom, tipoh;
 
         int hab;
-        try{
+        try {
             this.conn.rs.first();
-            do{
+            do {
                 nom = this.conn.rs.getString(1);
                 hab = this.conn.rs.getInt(3);
                 tipoh = this.conn.rs.getString(4);
-                Huesped aux = new Huesped(nom,hab,tipoh);
+                Huesped aux = new Huesped(nom, hab, tipoh);
                 listaarray.add(aux);
                 this.jTextAreaMostrar.append(aux.Mostrar());
                 this.jTextAreaMostrar.append("\n");
-            }while(this.conn.rs.next());
-        }catch(SQLException ex){
+            } while (this.conn.rs.next());
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Habitación no registrada");
         }
     }//GEN-LAST:event_ConsultarActionPerformed

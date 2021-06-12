@@ -21,19 +21,21 @@ import misclases.SClip;
  * @author Jesús
  */
 public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
-    MySqlConn conn=new MySqlConn();
+
+    MySqlConn conn = new MySqlConn();
     public SClip music = new SClip("src/musica/Nora.wav");
-    
+
     /**
      * Creates new form FramePrueba
      */
-    public FrameGaleriaFotos(){
+    public FrameGaleriaFotos() {
         initComponents();
         music.play();
         icono();
         GenerarImagen();
         Logo();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -161,23 +163,25 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonAntActionPerformed
 
     private void jLabelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCerrarMouseClicked
-        // TODO add your handling code here:
+
         music.stop();
         this.setVisible(false);
     }//GEN-LAST:event_jLabelCerrarMouseClicked
 
-    public void GenerarImagen(){
+    public void GenerarImagen() {
+        //Obtenemos las imagenes desde nuestra base de datos
         String query = "select * from imagenes";
         InputStream in;
         this.conn.Consult(query);
-        try{
+        try {
             for (int i = 0; i < 5; i++) {
+                //Se obtienen las imagenes y se distribuyen segun i en las labels
                 byte[] bi = this.conn.rs.getBytes(2);
                 BufferedImage image = null;
                 in = new ByteArrayInputStream(bi);
                 image = ImageIO.read(in);
                 ImageIcon imgi = new ImageIcon(image.getScaledInstance(250, 200, 0));
-                switch(i){
+                switch (i) {
                     case 0:
                         this.jLabelImage1.setIcon(imgi);
                         break;
@@ -196,25 +200,27 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
                 }
                 this.conn.rs.next();
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "No fue posible hacer la consulta");
-        }catch(IOException p){
+        } catch (IOException p) {
             JOptionPane.showMessageDialog(null, "No fue posible hacer la consulta");
         }
     }
-    
-    public void GenerarImagen2(){
+
+    public void GenerarImagen2() {
+        //Se realizar el mismo proceso, pero esta ocasion para la segunda pagina
+        //se brincan las 5 primeras imagenes en el switch
         String query = "select * from imagenes";
         InputStream in;
         this.conn.Consult(query);
-        try{
+        try {
             for (int i = 0; i < 10; i++) {
                 byte[] bi = this.conn.rs.getBytes(2);
                 BufferedImage image = null;
                 in = new ByteArrayInputStream(bi);
                 image = ImageIO.read(in);
                 ImageIcon imgi = new ImageIcon(image.getScaledInstance(250, 200, 0));
-                switch(i){
+                switch (i) {
                     case 5:
                         this.jLabelImage1.setIcon(imgi);
                         break;
@@ -233,14 +239,14 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
                 }
                 this.conn.rs.next();
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "No fue posible hacer la consulta");
-        }catch(IOException p){
+        } catch (IOException p) {
             JOptionPane.showMessageDialog(null, "No fue posible hacer la consulta");
         }
     }
-    
-    public void Logo(){
+
+    public void Logo() {
         this.JLabelLogo.setIcon(new ImageIcon("src/imagenes/yummy2.png"));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -261,8 +267,8 @@ public class FrameGaleriaFotos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     // End of variables declaration//GEN-END:variables
-    public void icono(){
-        ImageIcon cerrar=new ImageIcon("src/iconos/cancel.png");
+    public void icono() {
+        ImageIcon cerrar = new ImageIcon("src/iconos/cancel.png");
         this.jLabelCerrar.setIcon(cerrar);
     }
 

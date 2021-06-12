@@ -1366,7 +1366,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVerificarPisoUnoActionPerformed
 
     private void jButtonConfirmarHab2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarHab2ActionPerformed
-
+  
         int hab=Integer.parseInt(this.jTextFieldSeleccionPiso2.getText().trim());
         String query,update,tipoHab="";
         boolean ocupada;
@@ -1381,7 +1381,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
                 int aux=this.conn.Update(update);
                 if(aux>0){
                     System.out.println("Habitacion Actualizada");
-                   
+                   //Conocemos la habitacion seleccionada si esta disponible y la marcamos ocupada
                     switch(hab){
                         case 128: this.jLabelHab128.setBorder(javax.swing.BorderFactory.createTitledBorder("Ocupado"));
                                  this.jLabelHab128.setBackground(Color.red);

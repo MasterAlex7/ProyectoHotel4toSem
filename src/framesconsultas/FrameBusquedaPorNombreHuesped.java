@@ -106,11 +106,12 @@ public class FrameBusquedaPorNombreHuesped extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBusquedaActionPerformed
-        // TODO add your handling code here:
+        // Vamos a buscar el nombre del huesped en una consulta
         String nombre=this.jTextFieldNombreHuesped.getText();
         int numHabitacion,piso=0;
         String query="select * from huespedes where nombre= '"+nombre+"'";
         this.conn.Consult(query);
+        //Obtenemos su nombre, hab y piso donde se encuentra
         try{
             numHabitacion=this.conn.rs.getInt(3);
             if(piso<=126){
