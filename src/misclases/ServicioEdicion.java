@@ -313,7 +313,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
         String consult = "select * from huespedes where habitacion= " + "'" + this.numHab + "'";
         String nombre, ciudadOrigen;
         Date fechaEntrada, fechaSalida;
-        int  ocupantes, max = 0;
+        int  ocupantes, max = 0,costo=1;
         java.sql.Date fechaIn,fechaOut;
 
         //Obtenemos el tipo de habitacion para no tenr mas ocupante de los posibles en la modificacion
@@ -329,7 +329,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
         this.conn.Consult(consult);
         try {
          if(this.jCheckBoxOcupantes.isSelected()){
-            if(Integer.parseInt(this.jTextFieldNuevosOcupantes.getText())>max || Integer.parseInt(this.jTextFieldNuevosOcupantes.getText())<0){
+            if(Integer.parseInt(this.jTextFieldNuevosOcupantes.getText())>max || Integer.parseInt(this.jTextFieldNuevosOcupantes.getText())<=0){
                 JOptionPane.showMessageDialog(null, "El numero de ocupantes ingresados excede el maximo de tu tipo de habitacion o es igual o menor a cero");  
             }else{
                 accesoCorrecto=true;
@@ -356,6 +356,14 @@ public class ServicioEdicion extends javax.swing.JFrame {
                 fechaSalida= calendario.getTime();
                 long dh=fechaSalida.getTime();
                  fechaOut=new java.sql.Date(dh);
+               if (this.tipoHab.equals("Sencilla")) {
+                    costo=150*Integer.parseInt(this.jTextFieldNuevosDias.getText());
+                } else if (this.tipoHab.equals("Dual")) {
+                    costo=225*Integer.parseInt(this.jTextFieldNuevosDias.getText());
+                } else if (this.tipoHab.equals("Master")) {
+                    costo = 320*Integer.parseInt(this.jTextFieldNuevosDias.getText());;
+                }  
+                 
             } else {
                 fechaEntrada = this.conn.rs.getDate(6);
                 long d1 = fechaEntrada.getTime();
@@ -363,6 +371,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
                 fechaSalida= this.conn.rs.getDate(7);
                 long dh=fechaSalida.getTime();
                 fechaOut=new java.sql.Date(dh);
+                costo=this.conn.rs.getInt(8);
             }
             if(this.jCheckBoxOcupantes.isSelected()){
                 if(Integer.parseInt(this.jTextFieldNuevosOcupantes.getText())>0){
@@ -374,7 +383,7 @@ public class ServicioEdicion extends javax.swing.JFrame {
             }else{
                 ocupantes=this.conn.rs.getInt(5);
             }
-            int costo=this.conn.rs.getInt(8);
+            
             //  Vamos a actualziar la informacion en base a los nuevos datos obtenidos por el numero de la habitacion
             String parte1 = "UPDATE huespedes SET nombre =('"+nombre+"'), ciudad =('"+ciudadOrigen+"'), habitacion =('"+this.numHab+"'), tipohab =('"+this.tipoHab+"'), personas =('"+ocupantes;
             String parte2 = "'), fechaingreso =('"+fechaIn+"'), fechasalida =('"+fechaOut+"'), costo=('"+costo+"') WHERE habitacion = ('"+this.numHab+"')";

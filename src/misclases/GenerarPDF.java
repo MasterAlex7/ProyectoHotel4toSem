@@ -145,7 +145,7 @@ public class GenerarPDF {
     public GenerarPDF() {
     }
     
-    public void generaciondepdf(){
+    /*public void generaciondepdf(){
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage(PDRectangle.A6);
             document.addPage(page);
@@ -193,17 +193,17 @@ public class GenerarPDF {
             image= PDImageXObject.createFromFile("/src/imagenes/yummy2.png", document);
             contentStream.drawImage(image,70, page.getMediaBox().getHeight() - 170);
             
-            /*PDImageXObject image2;
+            PDImageXObject image2;
             image2= PDImageXObject.createFromFile("/src/imagenes/", document);
-            contentStream.drawImage(image2,70, page.getMediaBox().getHeight() - 430);*/
-
+            contentStream.drawImage(image2,70, page.getMediaBox().getHeight() - 430);
+            
             contentStream.close();
 
             document.save("document.pdf");
         } catch (IOException ex) {
             System.out.println("No se pudo crear");
         }
-    }
+    }*/
     
     
     

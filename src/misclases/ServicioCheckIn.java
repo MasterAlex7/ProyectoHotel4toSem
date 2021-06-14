@@ -1350,7 +1350,7 @@ public class ServicioCheckIn extends javax.swing.JFrame {
                     }
                     this.jLabelTicketNumeroHabitacion.setText(String.valueOf(hab));
                     this.jLabelTicketTipoHabitacion.setText(tipoHab);
-                    this.jLabelTicketPiso.setText("2");
+                    this.jLabelTicketPiso.setText("1");
                    
                 }else{
                     System.out.println("No se pudo actualizar la habitacion");
